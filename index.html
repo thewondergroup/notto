@@ -370,7 +370,7 @@ footer a:hover{color:var(--orange)}
       </a>
       <a href="https://notto-to-go.square.site">
         <h4>Eat in / takeaway</h4>
-        <p>Six pastas cooked to order, the burrata bar, the focaccia.</p>
+        <p>Six pastas cooked to order, the salads, the Mediterranean lunchbox.</p>
         <span class="arrow">→</span>
       </a>
       <a href="https://deliveroo.co.uk">
@@ -423,7 +423,7 @@ footer a:hover{color:var(--orange)}
     <div class="half-body">
       <p class="lab">Broadgate · City</p>
       <h2>On the go</h2>
-      <p>Six fresh pastas, cooked to order. Burrata, focaccia, ganache pots. Made this morning, eaten at your desk.</p>
+      <p>Six fresh pastas, cooked to order. Salads, the Mediterranean lunchbox, focaccia. Made this morning, eaten at your desk.</p>
       <div class="half-cta">
         <span class="btn btn--white">Order lunch</span>
         <span class="btn btn--ghostW">See the menu</span>
@@ -478,7 +478,6 @@ footer a:hover{color:var(--orange)}
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" aria-selected="true"  data-tab="pasta">Pasta bar</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="salads">Salad bar</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="bread">Bread, olives &amp; dips</button>
     </div>
 
     <div class="rail" id="rail"></div>
@@ -677,11 +676,8 @@ footer a:hover{color:var(--orange)}
 /* ===== Media served from /media/ folder ===== */
 const IMAGES = {
   "bucatini": "media/bucatini.jpg",
-  "caprese": "media/caprese.jpg",
-  "focaccia": "media/focaccia.jpg",
   "gnocchetti": "media/gnocchetti.jpg",
   "lunchbox": "media/lunchbox.jpg",
-  "olives": "media/olives.jpg",
   "pappardelle": "media/pappardelle.jpg",
   "rigatoni": "media/rigatoni.jpg",
   "salad-roman": "media/salad-roman.jpg",
@@ -818,7 +814,7 @@ const MENU = {
       shot:'The Roman · caesar',
       blurb:'Caesar-style salad with chicken, butter beans, and an anchovy and parmesan dressing.',
       build:{Base:['Cos lettuce'],Add:['Chicken','Butter beans','Croutons'],Dress:['Anchovy & parmesan']}},
-    {id:'amalfi', name:'The Amalfi', price:'', asset:'caprese',
+    {id:'amalfi', name:'The Amalfi', price:'', asset:'amalfi', tone:'sage',
       shot:'The Amalfi · niçoise',
       blurb:'Niçoise-style salad with line-caught tuna and crunchy chickpeas.',
       build:{Base:['Leaves','Tomato'],Add:['Line-caught tuna','Chickpeas','Red onion'],Dress:['Olive oil']}},
@@ -834,22 +830,13 @@ const MENU = {
       shot:'The Small · green side',
       blurb:'A light green side salad with Mrs H\u2019s dressing.',
       build:{Base:['Baby gem','Red & green leaves'],Dress:['Mrs H\u2019s dressing']}},
-  ],
-  bread:[
-    {id:'focaccia', name:'NOTTO focaccia', price:'', asset:'focaccia',
-      shot:'Focaccia · rosemary, tomato, rock salt',
-      blurb:'Baked fresh each day — perfectly seasoned, gently crusted, luxuriously soft, with a depth of sun-drenched flavour. Rosemary, tomato and rock salt.',
-      build:{Dough:['Slow-proved'],Bake:['Rosemary','Tomato','Rock salt'],Serve:['Torn, warm']}},
-    {id:'olives', name:'Mixed Italian olives', price:'', asset:'olives',
-      shot:'Mixed Italian olives with pickled garlic',
-      blurb:'Mixed Italian olives with pickled garlic. The thing you add to everything.',
-      build:{Olives:['Mixed Italian'],With:['Pickled garlic'],Serve:['To share']}},
   ]
 };
 
-/* real photos, embedded — see IMAGES map injected below */
+/* map each dish to its media: real photo if we have one, else a tone frame */
 Object.values(MENU).flat().forEach((d)=>{
-  if(IMAGES[d.asset]) ASSETS[d.asset]={ img: IMAGES[d.asset] };
+  if(IMAGES[d.asset])      ASSETS[d.asset]={ img: IMAGES[d.asset] };
+  else if(d.tone && !ASSETS[d.asset]) ASSETS[d.asset]={ tone: d.tone };
 });
 
 const rail=document.getElementById('rail');
