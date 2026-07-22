@@ -108,6 +108,7 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1
 .nav{display:flex;align-items:center;height:74px;gap:32px}
 .mark{font-size:36px;letter-spacing:.06em;color:var(--green)}
 .mark span{color:var(--orange)}
+.mark--solid span{color:inherit}
 .nav-triggers{display:flex;gap:30px;margin-left:8px}
 .trig{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:none;border:0;cursor:pointer;color:var(--green);padding:6px 0;position:relative}
 .trig:after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--orange);transition:.25s}
@@ -347,7 +348,7 @@ footer a:hover{color:var(--orange)}
 <!-- ============ NAV ============ -->
 <header>
   <div class="wrap nav">
-    <a href="#" class="mark">N<span>O</span>TTO</a>
+    <a href="#" class="mark mark--solid">N<span>O</span>TTO</a>
 
     <div class="nav-triggers">
       <button class="trig" data-mega="order" aria-expanded="false">Order</button>
@@ -841,7 +842,7 @@ Object.values(MENU).flat().forEach((d)=>{
 
 const rail=document.getElementById('rail');
 const detail=document.getElementById('detail');
-let current={tab:'pasta',dish:'pappardelle'};
+let current={tab:'salads',dish:'lunchbox'};
 
 function renderRail(){
   const items=MENU[current.tab];
@@ -885,6 +886,8 @@ document.querySelectorAll('.tab').forEach(t=>{
   });
 });
 
+// sync the tab underline to whichever tab is featured by default
+document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', String(t.dataset.tab===current.tab)));
 renderRail(); renderDetail();
 </script>
 </body>
