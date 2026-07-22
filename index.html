@@ -336,14 +336,11 @@ footer a:hover{color:var(--orange)}
   .split:hover .half,.split .half:hover{flex:none}
   .split-divider{display:none}
 
-  /* FIRST panel = exactly one screen: nav + video + green band fill the viewport,
-     so landing ends at the bottom of the Sit Down band. svh handles mobile chrome. */
-  .half--bars{display:flex;flex-direction:column;height:calc(100svh - 64px)}
-  .half--bars .media{flex:1;min-height:0;height:auto;max-height:none}
-  .half--bars .half-body{flex:0 0 auto}
-  /* SECOND panel just below the fold — its video peeks in as you start to scroll */
-  .half--togo .media{min-height:0;height:42vh;max-height:380px}
-  .half-body{height:auto}
+  /* both panels are one full screen each — identical video size, balanced.
+     Sit Down fills the view on landing; On the go is the next screen down. */
+  .half{display:flex;flex-direction:column;height:calc(100svh - 64px)}
+  .half .media{flex:1;min-height:0;height:auto;max-height:none}
+  .half-body{flex:0 0 auto;height:auto}
   .build{grid-template-columns:1fr}
   .cater{grid-template-columns:1fr}
   .cater-body{padding:56px 28px;order:2}
@@ -365,9 +362,8 @@ footer a:hover{color:var(--orange)}
   .trig{font-size:14px;letter-spacing:.06em}
   .nav-right{gap:6px;flex-shrink:0}
   .nav-right .btn{padding:8px 10px 6px;font-size:11.5px;letter-spacing:.05em;white-space:nowrap}
-  /* keep first-panel = one screen (nav is 60px here too); only shrink the togo video */
-  .half--bars{height:calc(100svh - 60px)}
-  .half--togo .media{height:36vh;max-height:320px}
+  /* both panels one full screen each (nav is 60px here) — balanced videos */
+  .half{height:calc(100svh - 60px)}
   .half-body{padding:24px 22px 28px}
   .half-body h2{font-size:44px;margin:8px 0 6px}
   .half-body p{font-size:14.5px;margin-bottom:16px}
