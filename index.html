@@ -328,15 +328,22 @@ footer a:hover{color:var(--orange)}
   .mega-inner{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
   .split{flex-direction:column;height:auto;max-height:none}
+  .nav{height:64px}
   .half{min-height:0;flex:none}
   /* mobile order: Sit down (Pasta Bars) first, then On the go */
   .half--bars{order:1}
   .half--togo{order:2}
-  /* video sized to viewport so the coloured CTA band shows without scrolling */
-  .half .media{min-height:0;height:38vh;max-height:360px}
-  .half-body{height:auto}
   .split:hover .half,.split .half:hover{flex:none}
   .split-divider{display:none}
+
+  /* FIRST panel = exactly one screen: nav + video + green band fill the viewport,
+     so landing ends at the bottom of the Sit Down band. svh handles mobile chrome. */
+  .half--bars{display:flex;flex-direction:column;height:calc(100svh - 64px)}
+  .half--bars .media{flex:1;min-height:0;height:auto;max-height:none}
+  .half--bars .half-body{flex:0 0 auto}
+  /* SECOND panel just below the fold — its video peeks in as you start to scroll */
+  .half--togo .media{min-height:0;height:42vh;max-height:380px}
+  .half-body{height:auto}
   .build{grid-template-columns:1fr}
   .cater{grid-template-columns:1fr}
   .cater-body{padding:56px 28px;order:2}
@@ -350,9 +357,17 @@ footer a:hover{color:var(--orange)}
 }
 @media(max-width:640px){
   .wrap{padding:0 18px}
-  .nav{height:64px;gap:14px}
-  .mark{font-size:30px}
-  .half .media{height:32vh;max-height:300px}
+  .nav{height:60px;gap:10px}
+  .mark{font-size:26px}
+  /* keep nav on one tidy row: logo + Order/Discover + one compact button */
+  .nav-triggers{gap:16px;margin-left:6px}
+  .trig{font-size:15px;letter-spacing:.08em}
+  .nav-right{gap:8px}
+  .nav-right .btn--line{display:none}          /* drop the second button on phones */
+  .nav-right .btn{padding:9px 12px 7px;font-size:13px;letter-spacing:.08em}
+  /* keep first-panel = one screen (nav is 60px here too); only shrink the togo video */
+  .half--bars{height:calc(100svh - 60px)}
+  .half--togo .media{height:36vh;max-height:320px}
   .half-body{padding:24px 22px 28px}
   .half-body h2{font-size:44px;margin:8px 0 6px}
   .half-body p{font-size:14.5px;margin-bottom:16px}
