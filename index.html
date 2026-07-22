@@ -329,7 +329,11 @@ footer a:hover{color:var(--orange)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .split{flex-direction:column;height:auto;max-height:none}
   .half{min-height:0;flex:none}
-  .half .media{min-height:340px}
+  /* mobile order: Sit down (Pasta Bars) first, then On the go */
+  .half--bars{order:1}
+  .half--togo{order:2}
+  /* video sized to viewport so the coloured CTA band shows without scrolling */
+  .half .media{min-height:0;height:38vh;max-height:360px}
   .half-body{height:auto}
   .split:hover .half,.split .half:hover{flex:none}
   .split-divider{display:none}
@@ -348,7 +352,10 @@ footer a:hover{color:var(--orange)}
   .wrap{padding:0 18px}
   .nav{height:64px;gap:14px}
   .mark{font-size:30px}
-  .half-body{padding:28px 22px 32px}
+  .half .media{height:32vh;max-height:300px}
+  .half-body{padding:24px 22px 28px}
+  .half-body h2{font-size:44px;margin:8px 0 6px}
+  .half-body p{font-size:14.5px;margin-bottom:16px}
   .detail-body{padding:32px 26px}
   .statement,.menu,.loyal,.locs,.signup{padding:64px 0}
   .foot-grid{grid-template-columns:1fr}
