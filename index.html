@@ -196,11 +196,21 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1
 .cater-body p{color:var(--on-green-mute);max-width:38ch;margin-bottom:28px}
 .cater-body .btn{align-self:flex-start}
 
+/* ingredients: green text block + photo (text on the left) */
+.ingredients{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--green)}
+.ingredients .media{min-height:520px;background:var(--green-deep)}
+.ingredients-body{color:var(--on-green);padding:70px 60px;display:flex;flex-direction:column;justify-content:center;order:-1}
+.ingredients-body .lab{color:var(--orange)}
+.ingredients-body h2{color:#fff;font-size:clamp(36px,4.2vw,62px);max-width:12ch;margin:14px 0 16px}
+.ingredients-body h2 em{font-style:normal;color:var(--orange)}
+.ingredients-body p{color:var(--on-green-mute);max-width:42ch}
+
 /* ============ MENU TABS ============ */
 .menu{padding:100px 0;background:var(--off)}
 .menu-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:34px}
 .menu-top h2{font-size:clamp(36px,4.6vw,66px);max-width:16ch}
 .menu-top h2 em{font-style:normal;color:var(--orange)}
+.menu-intro{color:var(--green-mid);max-width:44ch;margin-top:14px;font-size:15.5px}
 .tabs{display:flex;gap:0;border-bottom:1px solid var(--green-lo);margin-bottom:2px;flex-wrap:wrap}
 .tab{
   font-size:20px;letter-spacing:.09em;background:none;border:0;border-bottom:3px solid transparent;
@@ -327,6 +337,9 @@ footer a:hover{color:var(--orange)}
   .cater{grid-template-columns:1fr}
   .cater-body{padding:56px 28px;order:2}
   .cater .media{min-height:340px;order:1}
+  .ingredients{grid-template-columns:1fr}
+  .ingredients-body{padding:56px 28px;order:1}
+  .ingredients .media{min-height:340px;order:2}
   .showcase{grid-template-columns:1fr}
   .showcase-body{padding:56px 28px;order:2}
   .showcase .media{aspect-ratio:4/5;max-height:70vh;order:1}
@@ -452,8 +465,8 @@ footer a:hover{color:var(--orange)}
 <!-- ============ STATEMENT ============ -->
 <section class="statement">
   <div class="wrap">
-    <h2>A Michelin-starred chef. A <em>£12.50</em> bowl of pasta.</h2>
-    <p>NOTTO is Phil Howard's pasta project — two stars at The Square for seventeen years, one at Elystan Street since 2017. He set the recipes and the standards. Ali Howard and Louis Korovilas run the kitchen that makes them, fresh, every morning.</p>
+    <h2>To send you back into the world a <em>happier person</em>, having eaten some exceptional pasta.</h2>
+    <p>That's the whole aim. Take one of Britain's most acclaimed chefs, add his lifelong love of pasta — a dish that has always featured on Phil Howard's Michelin-starred menus — and the result is NOTTO.</p>
   </div>
 </section>
 
@@ -462,8 +475,8 @@ footer a:hover{color:var(--orange)}
   <div class="media" data-type="video" data-shot="Production kitchen · pasta rolled + cut" data-asset="reel"></div>
   <div class="showcase-body">
     <p class="lab">In the kitchen</p>
-    <h2>Fresh every morning. <em>Cooked to order.</em></h2>
-    <p>Rolled, cut and sauced in one kitchen, then sent to all three sites. Nothing sits around.</p>
+    <h2>Made daily. Sauced from rustically simple to <em>super luxurious</em>.</h2>
+    <p>Seasonal, satisfying, and made from the very best ingredients — which doesn't mean expensive. Simple, affordable, and very, very good.</p>
     <a class="btn" href="https://notto-to-go.square.site">Order now</a>
   </div>
 </section>
@@ -472,7 +485,10 @@ footer a:hover{color:var(--orange)}
 <section class="menu" id="menu">
   <div class="wrap">
     <div class="menu-top">
-      <h2>Choose your <em>lunch</em>.</h2>
+      <div>
+        <h2>Choose your <em>lunch</em>.</h2>
+        <p class="menu-intro">Crafted to deliver stunningly fresh dishes, bursting with vitality and flavour — whether you're dining in, on the move, or back at your workplace.</p>
+      </div>
       <a class="btn btn--line" href="https://notto-to-go.square.site">Go to menu</a>
     </div>
 
@@ -483,6 +499,16 @@ footer a:hover{color:var(--orange)}
 
     <div class="rail" id="rail"></div>
     <div class="detail" id="detail"></div>
+  </div>
+</section>
+
+<!-- ============ INGREDIENTS ============ -->
+<section class="ingredients">
+  <div class="media" data-type="image" data-shot="Ingredients — parmesan grated over pasta" data-asset="ingredients"></div>
+  <div class="ingredients-body">
+    <p class="lab">Rule No.1</p>
+    <h2>Only the <em>finest</em> ingredients.</h2>
+    <p>Above all else, we never — ever — compromise on the quality of the ingredients we use. Great food that's as good for you as it is for the planet takes carefully selected produce. There's no shortcut, and we don't look for one.</p>
   </div>
 </section>
 
@@ -706,6 +732,7 @@ const ASSETS = {
   /* full-bleed */
   reel:        { img: VIDEO['reelPoster'], video: VIDEO['reelVideo'] },
   catering:    { img: LIFE['catering'] },
+  ingredients: { img: LIFE['ravioliWide'] },
 
   /* loyalty */
   loyal1:      { img: LIFE['loyal1'] },
