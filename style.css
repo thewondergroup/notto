@@ -738,3 +738,18 @@ footer a:hover{color:var(--orange)}
   .nav[data-menu="open"] .nav-right .btn{flex:1;text-align:center;justify-content:center;font-size:17px;padding:17px 18px 15px}
   .nav-right .btn--line{display:inline-flex}
 }
+
+/* ================================================================
+   ABOUT — hero banner between page head and story
+   ================================================================ */
+.pagehead--tight{padding:90px 0 34px}
+.about-hero{position:relative;overflow:hidden;height:56vh;min-height:380px;max-height:640px}
+.about-hero .media{position:absolute;inset:0}
+.about-hero .media video,.about-hero .media img{width:100%;height:100%;object-fit:cover}
+.about-hero .media:after{display:none!important}
+.about-intro{padding:64px 0 20px;text-align:center}
+.about-intro p{max-width:60ch;margin:0 auto;font-size:clamp(19px,2.2vw,26px);line-height:1.4;color:var(--green);font-weight:500}
+@media(max-width:640px){
+  .about-hero{height:44vh;min-height:280px}
+  .about-intro{padding:48px 0 16px}
+}
