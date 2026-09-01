@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOTTO — Menus · Pasta, salads, antipasti &amp; more</title>
+<meta name="description" content="Explore the NOTTO menus — fresh pasta and salads to go at Broadgate, and the full pasta bar menus at Piccadilly and Covent Garden.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
+    <nav class="nav-links">
+      <a href="restaurants.html">Restaurants</a>
+      <a href="menus.html" aria-current="page">Menus</a>
+      <a href="about.html">About</a>
+      <a href="catering.html">Catering</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn--line btn--sm" href="https://www.nottopastabars.com/book/">Book a table</a>
+      <a class="btn btn--sm" href="https://notto-to-go.square.site">Order lunch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="lab">Menus</p>
+    <h1>Fresh pasta, <em>every which way</em>.</h1>
+    <p class="pagehead-intro">Grab-and-go pasta, salads and the lunchbox at Broadgate, or the full pasta bar experience — antipasti, set lunches and cocktails — at Piccadilly and Covent Garden.</p>
+  </div>
+</section>
+
+<!-- TO GO MENU (interactive) -->
+<section class="menu" id="broadgate">
+  <div class="wrap">
+    <div class="menu-top">
+      <div>
+        <p class="lab">On the go · Broadgate</p>
+        <h2>The <em>To Go</em> menu.</h2>
+        <p class="menu-intro">Six fresh pastas cooked to order, main-course salads and the NOTTO Mediterranean lunchbox. Click &amp; collect, eat in or takeaway.</p>
+      </div>
+      <a class="btn btn--line" href="https://notto-to-go.square.site">Order to go</a>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true"  data-tab="pasta">Pasta bar</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="salads">Salad bar</button>
+    </div>
+    <div class="rail" id="rail"></div>
+    <div class="detail" id="detail"></div>
+    <p class="allergen-note"><a href="allergens.html">Allergen &amp; nutrition information →</a></p>
+  </div>
+</section>
+
+<!-- PASTA BAR MENUS (links out to full menus) -->
+<section class="venue-offer" id="piccadilly">
+  <div class="wrap">
+    <p class="lab">Sit down · Piccadilly &amp; Covent Garden</p>
+    <h2 class="section-h2">The <em>pasta bar</em> menus.</h2>
+    <p class="suppliers-intro">Antipasti, fresh pasta, the LUNCHISSIMO set lunch, Supperclub evenings, cocktails and wine. Each restaurant has its own list.</p>
+    <div class="menu-links-grid">
+      <div class="menu-links-col">
+        <h3>Piccadilly</h3>
+        <ul class="menu-links">
+          <li><a href="https://www.nottopastabars.com/pasta-piccadilly/">Pasta &amp; antipasti →</a></li>
+          <li><a href="https://www.nottopastabars.com/set-lunch-menu/">LUNCHISSIMO set lunch →</a></li>
+          <li><a href="https://www.nottopastabars.com/menus-piccadilly/#supperclub">Supperclub →</a></li>
+          <li><a href="https://www.nottopastabars.com/cocktails-piccadilly/">Cocktails →</a></li>
+          <li><a href="https://www.nottopastabars.com/wine-list-piccadilly/">Wine list →</a></li>
+        </ul>
+      </div>
+      <div class="menu-links-col" id="covent-garden">
+        <h3>Covent Garden</h3>
+        <ul class="menu-links">
+          <li><a href="https://www.nottopastabars.com/pasta-covent-garden/">Pasta &amp; antipasti →</a></li>
+          <li><a href="https://www.nottopastabars.com/menus-covent-garden/#setmenu">LUNCHISSIMO set lunch →</a></li>
+          <li><a href="https://www.nottopastabars.com/menus-covent-garden/#supperclub">Supperclub →</a></li>
+          <li><a href="https://www.nottopastabars.com/cocktails-covent-garden/">Cocktails →</a></li>
+          <li><a href="https://www.nottopastabars.com/wine-list-covent-garden/">Wine list →</a></li>
+        </ul>
+      </div>
+      <div class="menu-links-col">
+        <h3>Every month</h3>
+        <ul class="menu-links">
+          <li><a href="https://www.nottopastabars.com/salad-of-the-month/">Salad of the month →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="site.js"></script>
+<script src="menu-data.js"></script>
+</body>
+</html>
