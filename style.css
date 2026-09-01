@@ -753,3 +753,10 @@ footer a:hover{color:var(--orange)}
   .about-hero{height:44vh;min-height:280px}
   .about-intro{padding:48px 0 16px}
 }
+
+/* ================================================================
+   MENUS — quick-link jump buttons
+   ================================================================ */
+.menu-jump{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+/* offset jump targets so they clear the sticky header */
+#broadgate,#piccadilly,#covent-garden{scroll-margin-top:90px}
