@@ -16,15 +16,33 @@
 <header>
   <div class="wrap nav">
     <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links">
-      <a href="restaurants.html" aria-current="page">Restaurants</a>
+      <div class="nav-item" data-nav="restaurants">
+        <a href="restaurants.html" aria-current="page">Restaurants<span class="caret"></span></a>
+        <div class="rest-mega">
+          <a class="rest-card" href="broadgate.html">
+            <div class="media" data-type="image" data-shot="Broadgate" data-asset="locBroadgate"></div>
+            <div class="rest-card-body"><span class="rtag rtag--togo">On the go</span><h4>Broadgate</h4><p>Fresh pasta to go, in the City.</p></div>
+          </a>
+          <a class="rest-card" href="piccadilly.html">
+            <div class="media" data-type="image" data-shot="Piccadilly" data-asset="locPicc"></div>
+            <div class="rest-card-body"><span class="rtag rtag--bars">Sit down</span><h4>Piccadilly</h4><p>Our original pasta bar, W1.</p></div>
+          </a>
+          <a class="rest-card" href="covent-garden.html">
+            <div class="media" data-type="image" data-shot="Covent Garden" data-asset="locCG"></div>
+            <div class="rest-card-body"><span class="rtag rtag--bars">Sit down</span><h4>Covent Garden</h4><p>The same soul, Henrietta St.</p></div>
+          </a>
+          <div class="rest-mega-foot"><a href="restaurants.html">See all restaurants →</a></div>
+        </div>
+      </div>
       <a href="menus.html">Menus</a>
       <a href="about.html">About</a>
       <a href="catering.html">Catering</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn--line btn--sm" href="https://www.nottopastabars.com/book/">Book a table</a>
-      <a class="btn btn--sm" href="https://notto-to-go.square.site">Order lunch</a>
+      <a class="btn btn--sm" href="https://notto-to-go.square.site">Order online</a>
     </div>
   </div>
 </header>

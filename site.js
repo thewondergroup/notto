@@ -144,6 +144,44 @@ const FOOTER_HTML = `
 const footSlot = document.getElementById('site-footer');
 if(footSlot){ footSlot.outerHTML = LOYALTY_BANNER + FOOTER_HTML; }
 
+/* ---- MOBILE: hamburger toggle ---- */
+const navBar = document.querySelector('.nav');
+const navToggle = document.querySelector('.nav-toggle');
+if(navToggle && navBar){
+  navToggle.addEventListener('click',()=>{
+    const open = navBar.dataset.menu==='open';
+    navBar.dataset.menu = open ? '' : 'open';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    document.body.style.overflow = open ? '' : 'hidden';
+  });
+}
+
+/* ---- NAV: restaurants mega-menu dropdown ---- */
+const navItems = document.querySelectorAll('.nav-item');
+const isMobile = ()=> window.matchMedia('(max-width:640px)').matches;
+navItems.forEach(item=>{
+  const link = item.querySelector(':scope > a');
+  let closeTimer;
+  const open =()=>{ clearTimeout(closeTimer); if(!isMobile()) item.dataset.open='true'; };
+  const close=()=>{ closeTimer=setTimeout(()=>{ item.dataset.open='false'; }, 220); };
+  item.addEventListener('mouseenter',open);
+  item.addEventListener('mouseleave',close);
+  // MOBILE: tapping the label opens the submenu instead of navigating.
+  // The overview page is reachable via the "See all restaurants" link inside.
+  if(link){
+    link.addEventListener('click',e=>{
+      if(isMobile()){
+        e.preventDefault();
+        item.dataset.open = item.dataset.open==='true' ? 'false' : 'true';
+      }
+    });
+  }
+});
+document.addEventListener('click',e=>{
+  navItems.forEach(item=>{ if(!item.contains(e.target)) item.dataset.open='false'; });
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') navItems.forEach(i=>i.dataset.open='false'); });
+
 /* ---- NAV: Discover mega-menu (if present) ---- */
 const trigs=document.querySelectorAll('.trig');
 function closeAllMega(){

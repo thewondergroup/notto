@@ -1,35 +1,37 @@
 # NOTTO — website
 
-Static site. One `index.html`, one `/media/` folder. No build step, no dependencies.
+Full multi-page static site. No build step, no dependencies. Deploys on GitHub Pages as-is.
 
-## What's here
+## Pages
+- `index.html` — Home
+- `restaurants.html` — All three locations
+- `broadgate.html` · `piccadilly.html` · `covent-garden.html` — Venue detail pages
+- `about.html` — Story, concepts, team, suppliers
+- `menus.html` — Interactive To Go menu + pasta bar menu links
+- `catering.html` — Corporate & catering
+- `allergens.html` — Allergen & nutrition
 
-```
-index.html        The whole site — markup, styles, menu data
-/media/           All photos and videos
-.nojekyll         Tells GitHub Pages to serve files as-is
-```
+## Shared files (edit once, applies everywhere)
+- `style.css` — all styling
+- `site.js` — media map, hydration, footer, nav, mobile menu, loyalty banner, StoreKit/Leat handlers
+- `menu-data.js` — the interactive To Go menu
+- `/media/` — photos & videos · `/fonts/` — licensed Cervo Neue Bold
 
-## Put it live on GitHub Pages
+## Deploy
+1. Upload everything (keep structure) to your repo.
+2. Settings → Pages → Deploy from a branch → main / root → Save.
+3. Live at https://<user>.github.io/<repo>/
 
-1. Create a new repository on GitHub (e.g. `notto-site`).
-2. Upload **everything in this folder** — `index.html`, the `/media/` folder, and `.nojekyll` — to the repo. Keep the folder structure exactly as it is (`index.html` at the top, media inside `/media/`).
-3. In the repo, go to **Settings → Pages**.
-4. Under **Source**, choose **Deploy from a branch**, pick `main` and `/ (root)`, and Save.
-5. Wait a minute. Your site appears at `https://<your-username>.github.io/<repo-name>/`.
+## Still to connect before/after launch
+- **StoreKit ordering** — paste URLs into `STOREKIT_URL` in `site.js`.
+- **Leat vouchers** — paste link into `LEAT_URL` in `site.js`.
+- **Venue interior photos** — Broadgate / Piccadilly / Covent Garden use food stand-ins; drop real shots into `/media/` (same filenames: locBroadgate.jpg, locPicc.jpg, locCG.jpg).
+- **Team headshots** — personPhil / personJulian / personAli (add to /media/ and register in site.js).
+- **Confirm menu prices** (e.g. Lunchissimo £17.50) and per-restaurant delivery availability.
 
-That's it. To point a custom domain (e.g. a NOTTO subdomain) at it, add the domain under Settings → Pages → Custom domain and set the DNS record with your registrar.
+The Cervo Neue font is the licensed version, self-hosted in /fonts/.
 
-## Editing the site later
-
-**Swap a photo or video:** drop the new file into `/media/` with the same filename, or use a new filename and update the matching line in the `ASSETS` / `IMAGES` / `LIFE` maps near the bottom of `index.html`.
-
-**Change menu text or prices:** find the `MENU` object near the bottom of `index.html`. Each dish has a `name`, `price`, `blurb` and `build` breakdown. Prices are currently blank (`price:''`) — fill them in there and they'll show automatically.
-
-**The two hero videos** are `media/togo.mp4` (Broadgate / On the go) and `media/hero.mp4` (restaurants / Sit down). The kitchen video is `media/reel.mp4`. Each has a matching `-poster.jpg` still that shows before the video plays.
-
-## Notes
-
-- Menu prices are blank pending confirmation — add them in the `MENU` object.
-- Ordering links point at the NOTTO Square site; booking links at nottopastabars.com. Update these in `index.html` if they change.
-- Videos are muted (required for autoplay) and loop.
+## Editing tips
+- Swap a photo: replace the file in /media/ (same name), or change the path in `site.js` (ASSETS) / `menu-data.js` (IMAGES).
+- Menu items/prices: edit the `MENU` object in `menu-data.js`.
+- To show shoot labels again during a photo shoot: in `style.css`, set `.media[data-state="live"]:after { content: attr(data-shot); ... }`.

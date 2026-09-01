@@ -65,10 +65,9 @@ h1,h2,h3,h4,.mark,.btn,.tab,.price,.num,.stat{
 
 /* shot label — only on live media, so you can still check the shot matches */
 .media[data-state="live"]:after{
-  content:attr(data-shot);
-  position:absolute;left:14px;bottom:14px;z-index:3;
-  font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:#fff;background:rgba(29,51,29,.82);padding:7px 10px 5px;max-width:calc(100% - 28px);line-height:1.25;
+  /* dev shot-labels are OFF for production. To show them again during a shoot,
+     set content:attr(data-shot). Empty placeholder frames keep their labels. */
+  content:none;
 }
 
 /* the empty frame */
@@ -443,7 +442,7 @@ footer a:hover{color:var(--orange)}
    ================================================================ */
 
 /* horizontal nav links (multi-page) */
-.nav-links{display:flex;gap:28px;margin-left:8px}
+.nav-links{display:flex;align-items:center;gap:28px;margin-left:8px}
 .nav-links a{font-family:var(--display);font-size:18px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--green);position:relative;padding:6px 0}
 .nav-links a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--orange);transition:.25s}
 .nav-links a:hover:after,.nav-links a[aria-current="page"]:after{width:100%}
@@ -478,7 +477,28 @@ footer a:hover{color:var(--orange)}
   .venue-media .media{min-height:340px}
 }
 @media(max-width:640px){
-  .nav-links{display:none}
+  .nav-links{
+    display:none;position:fixed;top:60px;left:0;right:0;bottom:0;
+    background:var(--white);flex-direction:column;align-items:stretch;gap:0;
+    margin:0;padding:16px 22px 40px;overflow-y:auto;z-index:90;border-top:1px solid var(--green-lo);
+  }
+  .nav[data-menu="open"] .nav-links{display:flex}
+  .nav-links > a,.nav-item > a{font-size:26px;padding:16px 0;border-bottom:1px solid var(--green-lo)}
+  .nav-item{width:100%}
+  .nav-item > a{display:flex;justify-content:space-between;align-items:center}
+  /* caret is the expand control on mobile; the flex row gives it a wide tap zone on the right */
+  .nav-item > a .caret{width:11px;height:11px;border-right-width:3px;border-bottom-width:3px;margin:0 6px 0 0;opacity:.7;flex:0 0 auto}
+  /* restaurants sub-items open inline on mobile */
+  .rest-mega{position:static;transform:none;width:100%;box-shadow:none;border:0;border-radius:0;padding:0 0 8px;display:none;grid-template-columns:1fr}
+  .rest-mega:before{display:none}
+  .nav-item[data-open="true"] .rest-mega{display:grid;gap:10px}
+  .rest-card{display:block;overflow:hidden}
+  .rest-card .media{display:none}
+  .rest-card-body{padding:14px 4px}
+  .rest-card .rtag{margin-bottom:6px}
+  .rest-card h4{font-size:24px;margin-bottom:2px}
+  .rest-card p{font-size:13px}
+  .rest-mega-foot{text-align:left;padding-top:8px}
   .venue-cols{grid-template-columns:1fr;gap:16px}
   .pagehead{padding:60px 0 30px}
 }
@@ -662,3 +682,59 @@ footer a:hover{color:var(--orange)}
 .loyal-banner .form .btn:hover{background:var(--green-deep);border-color:var(--green-deep)}
 .loyal-banner small{color:rgba(255,255,255,.75);font-size:12.5px}
 @media(max-width:760px){ .loyal-banner .lb-form{width:100%;min-width:0} }
+
+/* ================================================================
+   RESTAURANTS MEGA-MENU (nav dropdown with images)
+   ================================================================ */
+.nav-item{position:relative}
+.nav-item > a{position:relative;white-space:nowrap}
+.nav-item > a .caret{display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:0 0 2px 7px;transition:.2s;opacity:.55;vertical-align:middle}
+.nav-item[data-open="true"] > a .caret{transform:rotate(-135deg);margin-bottom:-2px}
+
+.rest-mega{
+  position:absolute;top:100%;left:0;transform:translateY(0);
+  background:var(--white);border:1px solid var(--green-lo);border-radius:4px;
+  box-shadow:0 30px 60px -24px rgba(29,51,29,.35);
+  padding:16px;display:none;z-index:120;width:min(720px,calc(100vw - 40px));
+  grid-template-columns:repeat(3,1fr);gap:14px;
+}
+/* invisible bridge so the mouse can travel from link to panel without a dead gap */
+.rest-mega:before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.nav-item[data-open="true"] .rest-mega{display:grid}
+.rest-card{display:block;border-radius:3px;overflow:hidden;background:var(--off);border:1px solid var(--green-lo);transition:.2s}
+.rest-card:hover{transform:translateY(-3px);border-color:var(--orange)}
+.rest-card .media{aspect-ratio:4/3;position:relative;overflow:hidden}
+.rest-card .media:after{display:none!important}
+.rest-card .media img,.rest-card .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rest-card-body{padding:16px 16px 18px}
+.rest-card .rtag{display:inline-block;font-family:var(--display);font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;padding:4px 8px 3px;border-radius:2px;margin-bottom:8px}
+.rtag--togo{background:var(--orange)}
+.rtag--bars{background:var(--green)}
+.rest-card h4{font-size:24px;text-transform:uppercase;margin-bottom:4px;color:var(--green)}
+.rest-card p{font-size:12.5px;color:var(--green-mid);line-height:1.4}
+.rest-mega-foot{grid-column:1 / -1;border-top:1px solid var(--green-lo);margin-top:2px;padding-top:12px;text-align:center}
+.rest-mega-foot a{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+
+@media(max-width:640px){
+  .rest-mega{position:static;transform:none;width:100%;box-shadow:none;border:0;padding:0;grid-template-columns:1fr;display:none}
+  .nav-item[data-open="true"] .rest-mega{display:grid;margin-top:10px}
+}
+
+/* ================================================================
+   MOBILE HAMBURGER
+   ================================================================ */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:0;cursor:pointer;margin-left:auto;padding:8px}
+.nav-toggle span{display:block;height:2.5px;width:22px;background:var(--green);border-radius:2px;transition:.25s}
+.nav[data-menu="open"] .nav-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav[data-menu="open"] .nav-toggle span:nth-child(2){opacity:0}
+.nav[data-menu="open"] .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media(max-width:640px){
+  .nav-toggle{display:flex}
+  .nav{position:relative}
+  /* move the Book/Order buttons into the open menu panel */
+  .nav-right{display:none;position:fixed;top:auto;left:0;right:0;bottom:0;z-index:91;
+    background:var(--white);border-top:1px solid var(--green-lo);padding:18px 22px 22px;gap:12px}
+  .nav[data-menu="open"] .nav-right{display:flex}
+  .nav[data-menu="open"] .nav-right .btn{flex:1;text-align:center;justify-content:center;font-size:17px;padding:17px 18px 15px}
+  .nav-right .btn--line{display:inline-flex}
+}
