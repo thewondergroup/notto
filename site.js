@@ -53,6 +53,17 @@ const ASSETS = {
   catPasta:      { img:'media/pappardelle.jpg' },
   catBurrata:    { img:'media/ravioliWide.jpg' },
   catDelivery:   { tone:'sage' },
+
+  /* events / private dining */
+  eventsHero:    { img:'media/spread.jpg' },
+  eventsRoom:    { tone:'sage' },
+  eventsFood:    { img:'media/ravioliWide.jpg' },
+  eventsDrink:   { tone:'cream' },
+
+  /* careers */
+  careFoh:       { tone:'sage' },
+  careKitchen:   { img:'media/reel-poster.jpg' },
+  careProd:      { tone:'cream' },
 };
 
 /* hydrate every .media[data-asset]: real photo/video, else a tone frame */
@@ -127,6 +138,14 @@ const FOOTER_HTML = `
         </ul>
       </div>
       <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="events.html">Private dining</a></li>
+          <li><a href="careers.html">Work with us</a></li>
+        </ul>
+      </div>
+      <div>
         <h5>Follow</h5>
         <ul>
           <li><a href="https://www.instagram.com/nottopastabars">Instagram</a></li>
@@ -136,7 +155,7 @@ const FOOTER_HTML = `
     </div>
     <div class="foot-bar">
       <span>© 2026 NOTTO. 1 Broadgate · 198 Piccadilly · 4 Henrietta Street.</span>
-      <span><a href="#">Privacy</a> · <a href="allergens.html">Allergens</a> · <a href="#">Terms</a></span>
+      <span><a href="privacy.html">Privacy</a> · <a href="allergens.html">Allergens</a> · <a href="terms.html">Terms</a></span>
     </div>
   </div>
 </footer>`;
