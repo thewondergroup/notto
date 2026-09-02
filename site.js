@@ -141,7 +141,7 @@ const FOOTER_HTML = `
       <div>
         <h5>Order</h5>
         <ul>
-          <li><a href="#" data-storekit="collect">Click &amp; collect</a></li>
+          <li><a href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener" data-storekit="collect">Order online</a></li>
           <li><a href="catering.html" data-storekit="catering">Catering</a></li>
           <li><a href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a></li>
           <li><a href="#" data-leat="vouchers">Vouchers</a></li>
@@ -299,6 +299,11 @@ if(loyaltyModal){
   loyaltyModal.querySelectorAll('[data-modal-close]').forEach(el=>el.addEventListener('click',closeLoyalty));
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLoyalty(); });
 }
+
+/* ---- Split hero: whole panel is clickable, buttons inside keep their own links ---- */
+document.querySelectorAll('.half[data-href]').forEach(h=>{
+  h.addEventListener('click',e=>{ if(e.target.closest('a')) return; location.href=h.dataset.href; });
+});
 
 /* run hydration */
 hydrate();

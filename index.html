@@ -52,79 +52,46 @@
 
 <!-- ============ 1 · SPLIT-SCREEN HERO ============ -->
 <section class="split" aria-label="Choose how you're eating">
-  <a class="half half--togo" href="broadgate.html">
+  <div class="half half--togo" data-href="broadgate.html">
     <div class="media" data-type="video" data-shot="Video · Pasta hitting the pan at Broadgate" data-asset="heroTogo"></div>
     <div class="half-body">
       <p class="lab">Broadgate · City</p>
       <h2>On the go</h2>
-      <p>Fresh pasta, cooked to order and ready in minutes. Eat in, take it away or order ahead. Twelve minutes from your desk.</p>
+      <p>Fresh pasta, cooked to order and ready in minutes. Eat in, collect, or get it delivered. Twelve minutes from your desk.</p>
       <div class="half-cta">
-        <span class="btn btn--white">Order online</span>
-        <span class="btn btn--ghostW">See the menu</span>
+        <a class="btn btn--white" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
+        <a class="btn btn--ghostW" href="menus.html#broadgate">See the menu</a>
       </div>
     </div>
-  </a>
+  </div>
 
   <div class="split-divider"></div>
 
-  <a class="half half--bars" href="restaurants.html">
+  <div class="half half--bars" data-href="restaurants.html">
     <div class="media" data-type="video" data-shot="Video · Piccadilly room, evening, wine poured" data-asset="heroBars"></div>
     <div class="half-body">
       <p class="lab">Piccadilly · Covent Garden</p>
       <h2>Sit down</h2>
       <p>Fresh pasta, great ingredients and good wine. Serious cooking, without the formality.</p>
       <div class="half-cta">
-        <span class="btn btn--white">Book a table</span>
-        <span class="btn btn--ghostW">See restaurants</span>
+        <a class="btn btn--white" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
+        <a class="btn btn--ghostW" href="restaurants.html">See restaurants</a>
       </div>
     </div>
-  </a>
+  </div>
 </section>
 
-<!-- ============ 2 · BRAND STORY (all quality cues together, GREEN on white) ============ -->
+<!-- ============ 2 · ONE LINE ON WHO WE ARE ============ -->
 <section class="statement">
   <div class="wrap">
     <p class="lab lab--green">The NOTTO story</p>
     <h2>Exceptional pasta. <em>For everyone</em>.</h2>
     <p>NOTTO was founded by Michelin-starred chef Phil Howard around a simple idea: to make the kind of pasta he loves to cook, using the ingredients he believes in, at prices that mean you can eat it whenever you like.</p>
+    <p style="margin-top:22px"><a class="btn btn--line" href="about.html">Our story</a></p>
   </div>
 </section>
 
-<!-- made fresh daily -->
-<section class="showcase showcase--green">
-  <div class="media" data-type="video" data-shot="Production kitchen · pasta rolled + cut" data-asset="reel"></div>
-  <div class="showcase-body">
-    <p class="lab">Made fresh daily</p>
-    <h2>Simple when it should be. Luxurious when it <em>wants to be</em>.</h2>
-    <p>We make our pasta fresh every day and cook it to order, with sauces that run from beautifully simple tomato and basil to slow-cooked ragùs and richer, more indulgent things. Seasonal, generous and full of flavour.</p>
-  </div>
-</section>
-
-<!-- finest ingredients -->
-<section class="ingredients">
-  <div class="media" data-type="image" data-shot="Ingredients — parmesan grated over pasta" data-asset="ingredients"></div>
-  <div class="ingredients-body">
-    <p class="lab">Rule No.1</p>
-    <h2>Never compromise on the <em>ingredients</em>.</h2>
-    <p>Good cooking starts with good produce. We work with suppliers Phil has trusted for years, sourcing the best meat, vegetables, flour, cheese and Italian ingredients we can find. We spend where it matters, keep everything else simple, and make seriously good food at a price that makes sense.</p>
-  </div>
-</section>
-
-<!-- ============ 3 · BROADGATE / ON THE GO (transition to ORANGE on white) ============ -->
-<section class="togo-intro" id="togo">
-  <div class="wrap">
-    <p class="lab">On the go · Broadgate</p>
-    <h2>Proper cooking. <em>Ready in minutes</em>.</h2>
-    <p>NOTTO Broadgate takes the same food to the City. Fresh pasta cooked to order, generous salads, burrata, focaccia and a few very good things for afterwards. Eat in, take it away or order ahead.</p>
-    <div class="togo-routes">
-      <a class="btn" href="#" data-storekit="collect">Click &amp; collect</a>
-      <a class="btn btn--line" href="catering.html">Order catering</a>
-    </div>
-    <p class="route-note">Allergen and nutrition information is shown for every item at checkout.</p>
-  </div>
-</section>
-
-<!-- menu -->
+<!-- ============ 3 · CHOOSE YOUR MEAL (two menus) ============ -->
 <section class="menu" id="menu">
   <div class="wrap">
     <div class="menu-top">
@@ -147,31 +114,13 @@
       <article class="choice choice--togo">
         <span class="loc-tag loc-tag--togo">Take away · Broadgate</span>
         <h3>The To Go menu</h3>
-        <p>Fresh pasta cooked to order, main-course salads, the Mediterranean lunchbox, and focaccia and dips. Eat in, take away or click &amp; collect.</p>
+        <p>Fresh pasta cooked to order, main-course salads, the Mediterranean lunchbox, and focaccia and dips. Eat in, take away, or order for collection or delivery.</p>
         <div class="venue-cta">
-          <a class="btn btn--line" href="#togo-menu">See the menu</a>
-          <a class="btn" href="#" data-storekit="collect">Order to go</a>
+          <a class="btn btn--line" href="menus.html#broadgate">See the menu</a>
+          <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
         </div>
       </article>
     </div>
-
-    <div class="menu-top menu-top--sub" id="togo-menu">
-      <div>
-        <p class="lab">Take away · Broadgate</p>
-        <h3>The To Go menu</h3>
-      </div>
-      <a class="btn btn--sm" href="#" data-storekit="collect">Order to go</a>
-    </div>
-
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true"  data-tab="pasta">Pasta bar</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="salads">Salad bar</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="bread">Bread &amp; dips</button>
-    </div>
-
-    <div class="rail" id="rail"></div>
-    <div class="detail" id="detail"></div>
-    <p class="allergen-note"><a href="allergens.html">Allergen &amp; nutrition information →</a></p>
   </div>
 </section>
 
@@ -190,8 +139,8 @@
           <h3>Broadgate</h3>
           <address>Finsbury Avenue<br>London EC2M 2QS</address>
           <p class="hours">Mon–Sat 11:30–21:00<br>Sun 11:30–16:00</p>
-          <p class="avail">Click &amp; collect · Eat in · Takeaway</p>
-          <a class="btn" href="#" data-storekit="collect">Order &amp; collect</a>
+          <p class="avail">Collection · Delivery · Eat in</p>
+          <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener" data-storekit="collect">Order online</a>
         </div>
       </article>
 
@@ -224,20 +173,6 @@
 
 <!-- ============ 5 · SUPPORTING CONTENT (below the story, light + photography-led) ============ -->
 
-<!-- loyalty -->
-<section class="loyal loyal--light" id="loyalty">
-  <div class="wrap">
-    <div class="intro">
-      <h2>Eight lunches. The ninth is <em>on us</em>.</h2>
-      <p>If you're going to have a regular lunch spot, it might as well reward you. Sign up once, earn rewards with every order, and the ninth pasta is on us.</p>
-      <div class="loyal-cta">
-        <a class="btn" href="#" data-leat="join">Join NOTTO loyalty</a>
-        <a class="btn btn--line" href="broadgate.html">Visit Broadgate</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- catering -->
 <section class="cater cater--light" id="catering">
   <div class="media" data-type="image" data-shot="Catering spread on a boardroom table — trays, not plates" data-asset="catering"></div>
@@ -245,7 +180,7 @@
     <p class="lab">Corporate &amp; catering</p>
     <h2>One order feeds a <em>whole floor</em>.</h2>
     <p>Team lunches, client meetings, the thing at 4pm nobody planned. Fresh pasta, salads, burrata and focaccia, delivered to your door.</p>
-    <a class="btn" href="#" data-storekit="catering">Order catering</a>
+    <a class="btn" href="catering.html">Order catering</a>
   </div>
 </section>
 
@@ -269,6 +204,5 @@
 <div id="site-footer"></div>
 
 <script src="site.js"></script>
-<script src="menu-data.js"></script>
 </body>
 </html>
