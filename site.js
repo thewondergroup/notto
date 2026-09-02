@@ -117,7 +117,7 @@ const LOYALTY_BANNER = `
    instead and it will load in a frame. Any element with data-leat="..."
    opens this modal. Never put the Leat API token in this file. */
 const LEAT_EMBED = ``;
-const LEAT_URL = '';
+const LEAT_URL = 'https://forms.leat.com/forms/d51cb612-52a8-4226-aa46-cc75b34a19f5/public/custom';
 
 const LOYALTY_MODAL = `
 <div class="modal" id="loyalty-modal" hidden role="dialog" aria-modal="true" aria-labelledby="loyalty-modal-title">
@@ -273,6 +273,9 @@ function mountLeat(){
     const f=document.createElement('iframe');
     f.src=LEAT_URL; f.title='Join NOTTO loyalty'; f.loading='lazy';
     slot.appendChild(f);
+    const alt=document.createElement('p'); alt.className='modal-alt';
+    alt.innerHTML='Form not showing? <a href="'+LEAT_URL+'" target="_blank" rel="noopener">Open it in a new tab →</a>';
+    slot.appendChild(alt);
   } else {
     slot.innerHTML='<div class="modal-placeholder"><strong>I will connect Leat here</strong></div>';
   }
