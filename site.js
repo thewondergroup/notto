@@ -18,7 +18,7 @@ const ASSETS = {
 
   /* home page menu cards */
   choiceBars:  { img:'media/tagliatelle-mushroom.jpg', pos:'50% 50%' },
-  choiceTogo:  { img:'media/bowl-chicken.jpg', pos:'50% 52%' },
+  choiceTogo:  { img:'media/ravioli-bowl.jpg' },
 
   /* lifestyle / sections */
   catering:    { img:'media/spread.jpg' },
