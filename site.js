@@ -274,7 +274,7 @@ function mountLeat(){
     f.src=LEAT_URL; f.title='Join NOTTO loyalty'; f.loading='lazy';
     slot.appendChild(f);
   } else {
-    slot.innerHTML='<div class="modal-placeholder"><strong>Leat sign-up widget goes here.</strong><span>Paste the embed snippet into <code>LEAT_EMBED</code> in site.js.</span></div>';
+    slot.innerHTML='<div class="modal-placeholder"><strong>I will connect Leat here</strong></div>';
   }
 }
 function openLoyalty(){
