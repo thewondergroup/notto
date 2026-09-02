@@ -211,6 +211,21 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1
 .menu-top h2{font-size:clamp(36px,4.6vw,66px);max-width:16ch}
 .menu-top h2 em{font-style:normal;color:var(--orange)}
 .menu-intro{color:var(--green-mid);max-width:44ch;margin-top:14px;font-size:15.5px}
+.menu-choice{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:56px}
+.choice{border-radius:4px;padding:34px 30px 30px;display:flex;flex-direction:column}
+.choice--bars{background:var(--green);color:#fff}
+.choice--togo{background:var(--white);border:1px solid var(--green-lo);color:var(--green)}
+.choice h3{font-size:clamp(26px,2.6vw,36px);line-height:.96;margin:14px 0 10px}
+.choice p{font-size:15px;line-height:1.6;max-width:46ch;margin-bottom:24px}
+.choice--bars p{color:var(--on-green-mute)}
+.choice--bars .loc-tag{background:var(--orange)}
+.choice--togo p{color:var(--green-mid)}
+.choice .venue-cta{margin-top:auto}
+.choice--bars .btn--line{color:#fff;border-color:rgba(255,255,255,.6)}
+.choice--bars .btn--line:hover{background:#fff;color:var(--green)}
+.menu-top--sub{margin-bottom:22px;padding-top:8px;scroll-margin-top:90px}
+.menu-top--sub h3{font-size:clamp(26px,3vw,40px);margin-top:6px}
+@media(max-width:760px){ .menu-choice{grid-template-columns:1fr} }
 .tabs{display:flex;gap:0;border-bottom:1px solid var(--green-lo);margin-bottom:2px;flex-wrap:wrap}
 .tab{
   font-size:20px;letter-spacing:.09em;background:none;border:0;border-bottom:3px solid transparent;
