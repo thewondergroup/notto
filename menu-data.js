@@ -7,6 +7,8 @@ const IMAGES = {
   "gnocchetti": "media/gnocchetti.jpg",
   "lunchbox": "media/lunchbox.jpg",
   "amalfi": "media/bowl-egg.jpg",
+  "dip-tomato": "media/dipWide.jpg",
+  "dip-borlotti": "media/dipWide.jpg",
   "pappardelle": "media/pappardelle.jpg",
   "rigatoni": "media/rigatoni.jpg",
   "salad-roman": "media/salad-roman.jpg",
@@ -64,6 +66,24 @@ const MENU = {
       shot:'The Small · green side',
       blurb:'A light green salad with Mrs H\u2019s dressing.',
       build:{Base:['Baby gem','Red & green leaves'],Dress:['Mrs H\u2019s dressing']}},
+  ],
+  bread:[
+    {id:'focaccia', name:'NOTTO focaccia', price:'', asset:'focaccia', tone:'cream',
+      shot:'Focaccia · rosemary, tomato, rock salt',
+      blurb:'Baked fresh each day. Perfectly seasoned, gently crusted and luxuriously soft, with a depth of sun-drenched flavour.',
+      build:{Bread:['Focaccia'],Top:['Rosemary','Tomato','Rock salt']}},
+    {id:'olives', name:'Mixed Italian olives', price:'', asset:'olives', tone:'sage',
+      shot:'Mixed olives with pickled garlic',
+      blurb:'Mixed Italian olives with pickled garlic. The thing to pick at while you wait.',
+      build:{Olives:['Mixed Italian olives'],Add:['Pickled garlic']}},
+    {id:'dip-tomato', name:'Tomato & ricotta dip', price:'', asset:'dip-tomato',
+      shot:'Preserved tomato & ricotta dip',
+      blurb:'Preserved tomato and ricotta, made for tearing focaccia into.',
+      build:{Dip:['Preserved tomato','Ricotta'],With:['Focaccia']}},
+    {id:'dip-borlotti', name:'Borlotti & pepper dip', price:'', asset:'dip-borlotti',
+      shot:'Borlotti bean & roasted pepper dip',
+      blurb:'Borlotti beans and roasted peppers, blitzed smooth. Or have both dips.',
+      build:{Dip:['Borlotti beans','Roasted pepper'],With:['Focaccia']}},
   ]
 };
 
@@ -103,8 +123,8 @@ function renderDetail(){
         ${Object.entries(d.build).map(([k,v])=>`
           <div><h5>${k}</h5><ol>${v.map((x,i)=>`<li>${i+1}. ${x}</li>`).join('')}</ol></div>`).join('')}
       </div>
-      <a class="btn" href="https://notto-to-go.square.site">Order ${d.name.toLowerCase()}</a>
-      <p class="allerg">Allergen and nutrition information — <a href="#">full breakdown</a>.</p>
+      <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order ${d.name.toLowerCase()}</a>
+      <p class="allerg">Allergen and nutrition information — <a href="allergens.html">full breakdown</a>.</p>
     </div>`;
   hydrate(detail);
 }

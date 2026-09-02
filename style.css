@@ -253,7 +253,8 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1
 .loyal{background:var(--green);color:var(--on-green);padding:100px 0}
 .loyal h2{color:#fff;font-size:clamp(38px,5vw,72px);max-width:16ch}
 .loyal h2 em{font-style:normal;color:var(--orange)}
-.loyal .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.loyal .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.loyal .intro:not(:last-child){margin-bottom:44px}
 .loyal .intro p{color:var(--on-green-mute);max-width:36ch}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .step{border:1px solid var(--on-green-line);overflow:hidden}
@@ -633,7 +634,10 @@ footer a:hover{color:var(--orange)}
 .deal p{font-size:15px;color:var(--green-mid);line-height:1.55;margin-bottom:20px}
 .deal .btn{margin-top:auto;align-self:flex-start}
 
+.deals-grid--4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){ .deals-grid--4{grid-template-columns:repeat(2,1fr)} }
 @media(max-width:1000px){ .deals-grid{grid-template-columns:1fr} }
+@media(max-width:640px){ .deals-grid--4{grid-template-columns:1fr} }
 @media(max-width:640px){ .deals{padding:60px 0} }
 
 /* ================================================================
@@ -674,7 +678,8 @@ footer a:hover{color:var(--orange)}
 .loyal-banner h2{color:#fff;font-size:clamp(30px,3.6vw,52px);margin:10px 0 6px;line-height:.96;max-width:18ch}
 .loyal-banner h2 em{font-style:normal;color:var(--green)}
 .loyal-banner p{color:rgba(255,255,255,.9);font-size:15.5px;max-width:44ch}
-.loyal-banner .lb-form{flex:0 0 auto;display:flex;flex-direction:column;gap:10px;min-width:280px}
+.loyal-banner .lb-form{flex:0 0 auto;display:flex;flex-direction:column;gap:10px;min-width:280px;align-items:flex-start}
+.loyal-banner .lb-form .btn{padding:16px 28px}
 .loyal-banner .form{max-width:none;margin:0}
 .loyal-banner .form input{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);color:#fff}
 .loyal-banner .form input::placeholder{color:rgba(255,255,255,.7)}
@@ -793,3 +798,43 @@ footer a:hover{color:var(--orange)}
 .pb-price{font-family:var(--display);font-weight:700;font-size:16px;color:var(--orange);white-space:nowrap;flex:0 0 auto}
 .pb-note{margin-top:20px;font-size:13px;color:var(--green-mid);font-style:italic}
 @media(max-width:900px){ .pb-grid{grid-template-columns:1fr;gap:0} .pb-col+.pb-col .pb-head:first-child{margin-top:32px} }
+
+/* ================================================================
+   LOYALTY MODAL (Leat widget)
+   ================================================================ */
+.modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal[hidden]{display:none}
+.modal-backdrop{position:absolute;inset:0;background:rgba(29,51,29,.72)}
+.modal-panel{position:relative;background:#fff;color:var(--green);width:100%;max-width:520px;max-height:calc(100vh - 40px);overflow:auto;padding:36px 32px 32px;border-radius:2px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.modal-panel .lab{color:var(--orange)}
+.modal-panel h2{font-size:clamp(28px,3.4vw,40px);line-height:.96;margin:8px 0 20px;max-width:16ch}
+.modal-panel h2 em{font-style:normal;color:var(--orange)}
+.modal-close{position:absolute;top:10px;right:12px;width:40px;height:40px;border:0;background:none;color:var(--green);font-size:30px;line-height:1;cursor:pointer;border-radius:50%}
+.modal-close:hover{background:var(--off)}
+.modal-embed{min-height:320px}
+.modal-embed iframe{width:100%;height:560px;border:0;display:block}
+.modal-placeholder{min-height:320px;border:1.5px dashed rgba(29,51,29,.28);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px;color:rgba(29,51,29,.7);font-size:14px}
+.modal-placeholder code{background:var(--off);padding:1px 5px;border-radius:2px}
+@media(max-width:640px){ .modal{padding:0;align-items:flex-end} .modal-panel{max-width:none;max-height:92vh;border-radius:12px 12px 0 0;padding:32px 22px 28px} }
+
+/* ================================================================
+   PRE-THEATRE PAGE
+   ================================================================ */
+.theatres{padding:70px 0 90px;background:var(--off)}
+.theatres .section-h2{margin-bottom:8px}
+.theatres-intro{color:var(--green-mid);max-width:60ch;margin-bottom:40px}
+.theatre-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.theatre-card{background:var(--white);border:1px solid var(--green-lo);padding:34px 30px 30px;display:flex;flex-direction:column}
+.theatre-card h3{font-size:34px;line-height:.96;margin:8px 0 6px}
+.theatre-card .addr{color:var(--green-mid);font-size:15px;line-height:1.6;margin-bottom:18px}
+.theatre-card h5{font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin:14px 0 8px}
+.theatre-card ul{list-style:none;padding:0;margin:0 0 24px;columns:2;column-gap:18px;font-size:15px;line-height:1.85;color:var(--green)}
+.theatre-card .venue-cta{margin-top:auto}
+.faq{padding:80px 0}
+.faq .section-h2{margin-bottom:28px}
+.faq-list{max-width:760px}
+.faq-item{border-top:1px solid var(--green-lo);padding:22px 0}
+.faq-item:last-child{border-bottom:1px solid var(--green-lo)}
+.faq-item h4{font-family:var(--display);font-size:22px;line-height:1.05;margin:0 0 8px;text-transform:uppercase;letter-spacing:-.02em}
+.faq-item p{color:var(--green-mid);font-size:16px;margin:0}
+@media(max-width:760px){ .theatre-grid{grid-template-columns:1fr} .theatre-card ul{columns:1} }

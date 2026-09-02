@@ -102,18 +102,33 @@ const LOYALTY_BANNER = `
     <div class="lb-text">
       <p class="lab">NOTTO loyalty</p>
       <h2>Eight pastas. The ninth is <em>on us</em>.</h2>
-      <p>Pick up a card, collect a stamp with every pasta and your ninth is free. Simple as that.</p>
+      <p>Join NOTTO loyalty, collect a stamp with every pasta and your ninth is free. Simple as that.</p>
     </div>
     <div class="lb-form">
-      <form class="form" onsubmit="return false">
-        <label for="loyalty-email" style="position:absolute;left:-9999px">Email address</label>
-        <input id="loyalty-email" type="email" placeholder="you@work.com" required>
-        <button class="btn" type="submit">Join</button>
-      </form>
-      <small>No app. No fuss. Just a card, a stamp and free pasta.</small>
+      <a class="btn btn--white" href="#" data-leat="join">Join NOTTO loyalty</a>
+      <small>Takes a minute. Lives on your phone. Free pasta.</small>
     </div>
   </div>
 </section>`;
+
+/* ---- LOYALTY MODAL (Leat widget lives in here) ----
+   Paste the Leat embed snippet into LEAT_EMBED below (the HTML/script
+   Leat gives you). If you only have a hosted join URL, put it in LEAT_URL
+   instead and it will load in a frame. Any element with data-leat="..."
+   opens this modal. Never put the Leat API token in this file. */
+const LEAT_EMBED = ``;
+const LEAT_URL = '';
+
+const LOYALTY_MODAL = `
+<div class="modal" id="loyalty-modal" hidden role="dialog" aria-modal="true" aria-labelledby="loyalty-modal-title">
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-panel">
+    <button class="modal-close" type="button" aria-label="Close" data-modal-close>&times;</button>
+    <p class="lab">NOTTO loyalty</p>
+    <h2 id="loyalty-modal-title">Eight pastas. The ninth is <em>on us</em>.</h2>
+    <div class="modal-embed" id="leat-widget"></div>
+  </div>
+</div>`;
 
 const FOOTER_HTML = `
 <footer>
@@ -137,7 +152,8 @@ const FOOTER_HTML = `
         <ul>
           <li><a href="menus.html">Menus</a></li>
           <li><a href="restaurants.html">Find us</a></li>
-          <li><a href="index.html#loyalty-signup">Loyalty scheme</a></li>
+          <li><a href="pre-theatre.html">Pre-theatre dining</a></li>
+          <li><a href="#" data-leat="join">Loyalty scheme</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="allergens.html">Allergens</a></li>
         </ul>
@@ -166,7 +182,7 @@ const FOOTER_HTML = `
 </footer>`;
 
 const footSlot = document.getElementById('site-footer');
-if(footSlot){ footSlot.outerHTML = LOYALTY_BANNER + FOOTER_HTML; }
+if(footSlot){ footSlot.outerHTML = LOYALTY_BANNER + FOOTER_HTML + LOYALTY_MODAL; }
 
 /* ---- MOBILE: hamburger toggle ---- */
 const navBar = document.querySelector('.nav');
@@ -223,8 +239,7 @@ trigs.forEach(t=>{
 document.addEventListener('click',closeAllMega);
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAllMega(); });
 
-/* ---- Placeholder routes: StoreKit ordering + Leat vouchers ----
-   Paste real URLs here (or into the buttons' href) to go live. */
+/* ---- StoreKit ordering routes ---- */
 const STOREKIT_URL = {
   collect:  'https://order.storekit.com/notto-broadgate/menu',
   catering: ''   /* paste the StoreKit catering URL here when it exists */
@@ -239,13 +254,48 @@ document.querySelectorAll('[data-storekit]').forEach(a=>{
     alert('Ordering opens here once StoreKit is connected.');
   });
 });
+/* ---- Loyalty modal behaviour ---- */
+const loyaltyModal = document.getElementById('loyalty-modal');
+function mountLeat(){
+  const slot=document.getElementById('leat-widget');
+  if(!slot || slot.dataset.mounted) return;
+  slot.dataset.mounted='1';
+  if(LEAT_EMBED.trim()){
+    /* innerHTML won't run <script> tags, so rebuild them */
+    const tpl=document.createElement('template'); tpl.innerHTML=LEAT_EMBED;
+    tpl.content.querySelectorAll('script').forEach(old=>{
+      const sc=document.createElement('script');
+      [...old.attributes].forEach(a=>sc.setAttribute(a.name,a.value));
+      sc.textContent=old.textContent; old.replaceWith(sc);
+    });
+    slot.appendChild(tpl.content);
+  } else if(LEAT_URL){
+    const f=document.createElement('iframe');
+    f.src=LEAT_URL; f.title='Join NOTTO loyalty'; f.loading='lazy';
+    slot.appendChild(f);
+  } else {
+    slot.innerHTML='<div class="modal-placeholder"><strong>Leat sign-up widget goes here.</strong><span>Paste the embed snippet into <code>LEAT_EMBED</code> in site.js.</span></div>';
+  }
+}
+function openLoyalty(){
+  if(!loyaltyModal) return;
+  mountLeat();
+  loyaltyModal.hidden=false;
+  document.body.style.overflow='hidden';
+  const c=loyaltyModal.querySelector('.modal-close'); if(c) c.focus();
+}
+function closeLoyalty(){
+  if(!loyaltyModal || loyaltyModal.hidden) return;
+  loyaltyModal.hidden=true;
+  document.body.style.overflow='';
+}
 document.querySelectorAll('[data-leat]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    if(LEAT_URL){ location.href=LEAT_URL; return; }
-    e.preventDefault();
-    alert('Vouchers open here once the Leat link is live.');
-  });
+  a.addEventListener('click',e=>{ e.preventDefault(); openLoyalty(); });
 });
+if(loyaltyModal){
+  loyaltyModal.querySelectorAll('[data-modal-close]').forEach(el=>el.addEventListener('click',closeLoyalty));
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLoyalty(); });
+}
 
 /* run hydration */
 hydrate();
