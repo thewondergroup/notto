@@ -17,8 +17,8 @@ const ASSETS = {
   reel:        { img:'media/reel-poster.jpg',  video:'media/reel.mp4' },
 
   /* home page menu cards */
-  choiceBars:  { img:'media/grating.jpg', pos:'50% 55%' },
-  choiceTogo:  { img:'media/lunchbox-tray.jpg', pos:'50% 30%' },
+  choiceBars:  { img:'media/tagliatelle-mushroom.jpg', pos:'50% 50%' },
+  choiceTogo:  { img:'media/bowl-chicken.jpg', pos:'50% 52%' },
 
   /* lifestyle / sections */
   catering:    { img:'media/spread.jpg' },
