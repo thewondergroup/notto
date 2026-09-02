@@ -16,6 +16,10 @@ const ASSETS = {
   heroBars:    { img:'media/hero-poster.jpg',  video:'media/hero.mp4' },
   reel:        { img:'media/reel-poster.jpg',  video:'media/reel.mp4' },
 
+  /* home page menu cards */
+  choiceBars:  { img:'media/grating.jpg', pos:'50% 55%' },
+  choiceTogo:  { img:'media/lunchbox-tray.jpg', pos:'50% 30%' },
+
   /* lifestyle / sections */
   catering:    { img:'media/spread.jpg' },
   ingredients: { img:'media/grating.jpg', pos:'50% 40%' },
