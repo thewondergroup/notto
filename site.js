@@ -101,8 +101,8 @@ const LOYALTY_BANNER = `
   <div class="wrap">
     <div class="lb-text">
       <p class="lab">NOTTO loyalty</p>
-      <h2>Every ninth bowl is <em>on us</em>.</h2>
-      <p>Join the scheme, collect a stamp with every pasta, and your ninth is free. Sign up for your card and we'll let you know the moment it's ready.</p>
+      <h2>Eight pastas. The ninth is <em>on us</em>.</h2>
+      <p>Pick up a card, collect a stamp with every pasta and your ninth is free. Simple as that.</p>
     </div>
     <div class="lb-form">
       <form class="form" onsubmit="return false">
@@ -110,7 +110,7 @@ const LOYALTY_BANNER = `
         <input id="loyalty-email" type="email" placeholder="you@work.com" required>
         <button class="btn" type="submit">Join</button>
       </form>
-      <small>No app, no spam. Just a card, a stamp, and free pasta.</small>
+      <small>No app. No fuss. Just a card, a stamp and free pasta.</small>
     </div>
   </div>
 </section>`;
@@ -121,7 +121,7 @@ const FOOTER_HTML = `
     <div class="foot-grid">
       <div>
         <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
-        <p style="color:var(--on-green-mute);margin-top:14px;max-width:30ch">Fresh pasta, made every morning. London, since 2021.</p>
+        <p style="color:var(--on-green-mute);margin-top:14px;max-width:30ch">Fresh pasta, made every day. London, since 2021.</p>
       </div>
       <div>
         <h5>Order</h5>
@@ -225,12 +225,16 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAllMega(); })
 
 /* ---- Placeholder routes: StoreKit ordering + Leat vouchers ----
    Paste real URLs here (or into the buttons' href) to go live. */
-const STOREKIT_URL = { collect:'', catering:'' };
-const LEAT_URL = '';
+const STOREKIT_URL = {
+  collect:  'https://order.storekit.com/notto-broadgate/menu',
+  catering: ''   /* paste the StoreKit catering URL here when it exists */
+};
 document.querySelectorAll('[data-storekit]').forEach(a=>{
+  const url=STOREKIT_URL[a.dataset.storekit];
+  if(url){ a.href=url; a.target='_blank'; a.rel='noopener'; return; }
   a.addEventListener('click',e=>{
-    const url=STOREKIT_URL[a.dataset.storekit];
-    if(url) return;
+    /* no StoreKit URL yet: follow a real href if there is one, otherwise explain */
+    if(a.getAttribute('href') && a.getAttribute('href')!=='#') return;
     e.preventDefault();
     alert('Ordering opens here once StoreKit is connected.');
   });
