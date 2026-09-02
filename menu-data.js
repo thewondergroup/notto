@@ -6,6 +6,7 @@ const IMAGES = {
   "bucatini": "media/bucatini.jpg",
   "gnocchetti": "media/gnocchetti.jpg",
   "lunchbox": "media/lunchbox.jpg",
+  "amalfi": "media/bowl-egg.jpg",
   "pappardelle": "media/pappardelle.jpg",
   "rigatoni": "media/rigatoni.jpg",
   "salad-roman": "media/salad-roman.jpg",

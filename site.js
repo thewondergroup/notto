@@ -8,62 +8,66 @@
    Every slot points at a file in /media/. Swap a file (same name) or
    change a path here to update. `video:` makes a slot an autoplay loop. */
 const ASSETS = {
+  /* `pos:` is an optional CSS object-position — use it to pick the focal
+     point when a portrait photo sits in a landscape frame (or vice versa). */
+
   /* hero videos */
   heroTogo:    { img:'media/togo-poster.jpg',  video:'media/togo.mp4' },
   heroBars:    { img:'media/hero-poster.jpg',  video:'media/hero.mp4' },
   reel:        { img:'media/reel-poster.jpg',  video:'media/reel.mp4' },
 
   /* lifestyle / sections */
-  catering:    { img:'media/catering.jpg' },
-  ingredients: { img:'media/ravioliWide.jpg' },
+  catering:    { img:'media/spread.jpg' },
+  ingredients: { img:'media/pepper-anchovy.jpg', pos:'50% 45%' },
   loyal1:      { img:'media/loyal1.jpg' },
   loyal2:      { img:'media/loyal2.jpg' },
   loyal3:      { img:'media/loyal3.jpg' },
 
-  /* locations */
-  locBroadgate:{ img:'media/locBroadgate.jpg' },
-  locPicc:     { img:'media/locPicc.jpg' },
-  locCG:       { img:'media/locCG.jpg' },
+  /* locations — real shots */
+  locBroadgate:{ img:'media/locBroadgate.jpg', pos:'50% 45%' },   /* shopfront, Broadgate Central */
+  locPicc:     { img:'media/locPicc.jpg',      pos:'50% 28%' },   /* cocktails under the NOTTO sign */
+  locCG:       { img:'media/locCG.jpg',        pos:'50% 25%' },   /* al fresco, Covent Garden piazza */
 
   /* venue hero videos (detail pages) — real footage */
   heroBroadgate:{ img:'media/togo-poster.jpg', video:'media/togo.mp4' },
-  heroPicc:     { img:'media/hero-poster.jpg', video:'media/hero.mp4' },
-  heroCG:       { img:'media/reel-poster.jpg', video:'media/reel.mp4' },
+  heroPicc:     { img:'media/picc-poster.jpg', video:'media/picc.mp4' },    /* pasta bar sign → plates → negroni */
+  heroCG:       { img:'media/cg-poster.jpg',   video:'media/cg.mp4' },      /* macaroni, butter, burrata, plated */
+  /* spare clip, not yet placed: media/kitchen.mp4 (butter, focaccia, burrata, ravioli) + kitchen-poster.jpg */
 
-  /* about / team / suppliers use lifestyle stand-ins for now */
+  /* about */
   team:        { img:'media/spread.jpg' },
   suppliers:   { img:'media/dipWide.jpg' },
   story:       { img:'media/ravioliWide.jpg' },
 
-  /* team portraits — awaiting real headshots */
-  personPhil:   { tone:'sage'  },
-  personJulian: { tone:'cream' },
-  personAli:    { tone:'sage'  },
+  /* team portraits */
+  personPhil:   { img:'media/personPhil.jpg',   pos:'50% 20%' },
+  personJulian: { img:'media/personJulian.jpg', pos:'50% 30%' },   /* low-res — replace with a larger file when available */
+  personAli:    { img:'media/personAli.jpg',    pos:'50% 30%' },   /* low-res — replace with a larger file when available */
 
-  /* restaurant offer tiles — real photos where we have them, frames otherwise */
-  offPappardelle:{ img:'media/pappardelle.jpg' },
-  offSalad:      { img:'media/salad-tuscan.jpg' },
-  offLunchbox:   { img:'media/lunchbox.jpg' },
-  offPasta:      { img:'media/pappardelle.jpg' },
-  offAntipasti:  { img:'media/spread.jpg' },
-  offCocktails:  { tone:'sage'  },
-  offWine:       { tone:'cream' },
+  /* restaurant offer tiles */
+  offPappardelle:{ img:'media/casarecce-ragu.jpg' },
+  offSalad:      { img:'media/bowl-chicken.jpg', pos:'50% 55%' },
+  offLunchbox:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
+  offPasta:      { img:'media/tagliatelle-mushroom.jpg' },
+  offAntipasti:  { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
+  offCocktails:  { img:'media/locPicc.jpg', pos:'50% 62%' },
+  offWine:       { img:'media/spread.jpg', pos:'20% 40%' },
 
   /* catering page tiles */
-  catPasta:      { img:'media/pappardelle.jpg' },
-  catBurrata:    { img:'media/ravioliWide.jpg' },
-  catDelivery:   { tone:'sage' },
+  catPasta:      { img:'media/casarecce-ragu.jpg' },
+  catBurrata:    { img:'media/dipWide.jpg', pos:'50% 55%' },
+  catDelivery:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
 
   /* events / private dining */
   eventsHero:    { img:'media/spread.jpg' },
-  eventsRoom:    { tone:'sage' },
-  eventsFood:    { img:'media/ravioliWide.jpg' },
-  eventsDrink:   { tone:'cream' },
+  eventsRoom:    { tone:'sage' },                       /* awaiting interior shot */
+  eventsFood:    { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
+  eventsDrink:   { img:'media/locPicc.jpg', pos:'50% 62%' },
 
   /* careers */
-  careFoh:       { tone:'sage' },
-  careKitchen:   { img:'media/reel-poster.jpg' },
-  careProd:      { tone:'cream' },
+  careFoh:       { tone:'sage' },                       /* awaiting shoot */
+  careKitchen:   { img:'media/personPhil.jpg', pos:'50% 30%' },
+  careProd:      { tone:'cream' },                      /* awaiting shoot */
 };
 
 /* hydrate every .media[data-asset]: real photo/video, else a tone frame */
@@ -77,6 +81,7 @@ function hydrate(scope=document){
       el.prepend(v); el.dataset.state='live';
     } else if(a.img){
       const i=document.createElement('img'); i.src=a.img; i.alt=''; i.loading='lazy';
+      if(a.pos) i.style.objectPosition=a.pos;
       el.prepend(i); el.dataset.state='live';
     } else {
       el.dataset.state='empty'; el.dataset.tone=a.tone||'cream';
