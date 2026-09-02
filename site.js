@@ -25,8 +25,8 @@ const ASSETS = {
 
   /* locations — real shots */
   locBroadgate:{ img:'media/locBroadgate.jpg', pos:'50% 45%' },   /* shopfront, Broadgate Central */
-  locPicc:     { img:'media/locPicc.jpg',      pos:'50% 28%' },   /* cocktails under the NOTTO sign */
-  locCG:       { img:'media/locCG.jpg',        pos:'50% 25%' },   /* al fresco, Covent Garden piazza */
+  locPicc:     { img:'media/locPicc.jpg',      pos:'50% 0%' },   /* 198 Piccadilly frontage */
+  locCG:       { img:'media/locCG.jpg',        pos:'50% 60%' },   /* 4 Henrietta Street frontage */
 
   /* venue hero videos (detail pages) — real footage */
   heroBroadgate:{ img:'media/togo-poster.jpg', video:'media/togo.mp4' },
@@ -50,7 +50,7 @@ const ASSETS = {
   offLunchbox:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
   offPasta:      { img:'media/tagliatelle-mushroom.jpg' },
   offAntipasti:  { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
-  offCocktails:  { img:'media/locPicc.jpg', pos:'50% 62%' },
+  offCocktails:  { img:'media/cheers.jpg', pos:'50% 62%' },
   offWine:       { img:'media/spread.jpg', pos:'20% 40%' },
 
   /* catering page tiles */
@@ -62,7 +62,7 @@ const ASSETS = {
   eventsHero:    { img:'media/spread.jpg' },
   eventsRoom:    { tone:'sage' },                       /* awaiting interior shot */
   eventsFood:    { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
-  eventsDrink:   { img:'media/locPicc.jpg', pos:'50% 62%' },
+  eventsDrink:   { img:'media/cheers.jpg', pos:'50% 62%' },
 
   /* careers */
   careFoh:       { tone:'sage' },                       /* awaiting shoot */
@@ -128,7 +128,7 @@ const FOOTER_HTML = `
         <ul>
           <li><a href="#" data-storekit="collect">Click &amp; collect</a></li>
           <li><a href="catering.html" data-storekit="catering">Catering</a></li>
-          <li><a href="https://www.nottopastabars.com/book/">Book a table</a></li>
+          <li><a href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a></li>
           <li><a href="#" data-leat="vouchers">Vouchers</a></li>
         </ul>
       </div>

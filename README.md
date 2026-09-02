@@ -25,8 +25,9 @@ Full multi-page static site. No build step, no dependencies. Deploys on GitHub P
 ## Still to connect before/after launch
 - **StoreKit ordering** — paste URLs into `STOREKIT_URL` in `site.js`.
 - **Leat vouchers** — paste link into `LEAT_URL` in `site.js`.
-- **Venue photos** — real shots now in place (locBroadgate.jpg shopfront, locPicc.jpg cocktails under the sign, locCG.jpg al fresco in the piazza). Piccadilly and Covent Garden are portrait photos in landscape slots — a landscape interior shot of each room would crop better; drop it in with the same filename.
+- **Venue photos** — exterior shots in place (locBroadgate.jpg, locPicc.jpg, locCG.jpg). locPicc.jpg is only 750px square — a larger original would help on the big venue panels. Interior shots of the rooms are still wanted ("the room sells the hour"); drop them in with the same filenames.
 - **Team headshots** — in place (personPhil / personJulian / personAli). Julian (300px) and Ali (439px) are low-res web grabs and Julian is black & white — replace with larger colour originals when available (same filenames).
+- **Bookings** — all "Book a table" links go to SevenRooms. Site-wide/footer: `?venues=nottopastabarscg,nottopastabar` (both venues). Piccadilly pages: `?venues=nottopastabar`; Covent Garden pages: `?venues=nottopastabarscg`.
 - **Videos** — hero.mp4 (home sit-down + Piccadilly fallback), togo.mp4 (home on-the-go + Broadgate), picc.mp4 (Piccadilly header), cg.mp4 (Covent Garden header), reel.mp4 (spare), kitchen.mp4 (spare). All 720×1280, muted, 2–3MB. Source clips were 26–30MB each — always re-encode before adding new ones.
 - **Still awaiting shoot** — private dining room (eventsRoom), front of house (careFoh), production kitchen (careProd). These show a tone frame until a photo is registered in `site.js`.
 - **Confirm menu prices** (e.g. Lunchissimo £17.50) and per-restaurant delivery availability.
