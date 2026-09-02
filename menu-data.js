@@ -7,6 +7,8 @@ const IMAGES = {
   "gnocchetti": "media/gnocchetti.jpg",
   "lunchbox": "media/lunchbox.jpg",
   "amalfi": "media/bowl-egg.jpg",
+  "focaccia": "media/focaccia.jpg",
+  "olives": "media/olives.jpg",
   "dip-tomato": "media/dipWide.jpg",
   "dip-borlotti": "media/dipWide.jpg",
   "pappardelle": "media/pappardelle.jpg",

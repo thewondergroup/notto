@@ -18,7 +18,7 @@ const ASSETS = {
 
   /* lifestyle / sections */
   catering:    { img:'media/spread.jpg' },
-  ingredients: { img:'media/pepper-anchovy.jpg', pos:'50% 45%' },
+  ingredients: { img:'media/grating.jpg', pos:'50% 40%' },
   loyal1:      { img:'media/loyal1.jpg' },
   loyal2:      { img:'media/loyal2.jpg' },
   loyal3:      { img:'media/loyal3.jpg' },
@@ -50,7 +50,7 @@ const ASSETS = {
   offLunchbox:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
   offPasta:      { img:'media/tagliatelle-mushroom.jpg' },
   offAntipasti:  { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
-  offCocktails:  { img:'media/cheers.jpg', pos:'50% 62%' },
+  offCocktails:  { img:'media/negroni.jpg', pos:'50% 60%' },
   offWine:       { img:'media/spread.jpg', pos:'20% 40%' },
 
   /* catering page tiles */
@@ -60,14 +60,14 @@ const ASSETS = {
 
   /* events / private dining */
   eventsHero:    { img:'media/spread.jpg' },
-  eventsRoom:    { tone:'sage' },                       /* awaiting interior shot */
+  eventsRoom:    { img:'media/room-interior.jpg' },
   eventsFood:    { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
   eventsDrink:   { img:'media/cheers.jpg', pos:'50% 62%' },
 
   /* careers */
-  careFoh:       { tone:'sage' },                       /* awaiting shoot */
-  careKitchen:   { img:'media/personPhil.jpg', pos:'50% 30%' },
-  careProd:      { tone:'cream' },                      /* awaiting shoot */
+  careFoh:       { img:'media/team-foh.jpg', pos:'50% 15%' },
+  careKitchen:   { img:'media/broadgate-counter.jpg', pos:'50% 60%' },
+  careProd:      { img:'media/personPhil.jpg', pos:'50% 30%' },
 };
 
 /* hydrate every .media[data-asset]: real photo/video, else a tone frame */
