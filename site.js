@@ -17,15 +17,12 @@ const ASSETS = {
   reel:        { img:'media/kitchen-poster.jpg', video:'media/kitchen.mp4' },
 
   /* home page menu cards */
-  choiceBars:  { img:'media/tagliatelle-mushroom.jpg', pos:'50% 50%' },
+  choiceBars:  { img:'media/cacio-e-pepe.jpg', pos:'50% 62%' },
   choiceTogo:  { img:'media/ravioli-bowl.jpg' },
 
   /* lifestyle / sections */
   catering:    { img:'media/spread.jpg' },
-  ingredients: { img:'media/grating.jpg', pos:'50% 40%' },
-  loyal1:      { img:'media/loyal1.jpg' },
-  loyal2:      { img:'media/loyal2.jpg' },
-  loyal3:      { img:'media/loyal3.jpg' },
+  ingredients: { img:'media/pepper-anchovy.jpg', pos:'50% 45%' },   /* Piedmontese pepper, on the Sept menu */
 
   /* locations — real shots */
   locBroadgate:{ img:'media/locBroadgate.jpg', pos:'50% 45%' },   /* shopfront, Broadgate Central */
@@ -37,10 +34,6 @@ const ASSETS = {
   heroPicc:     { img:'media/picc-poster.jpg', video:'media/picc.mp4' },    /* pasta bar sign → plates → negroni */
   heroCG:       { img:'media/kitchen-poster.jpg', video:'media/kitchen.mp4' },  /* butter, focaccia, burrata, ravioli */
 
-  /* about */
-  team:        { img:'media/spread.jpg' },
-  suppliers:   { img:'media/dipWide.jpg' },
-  story:       { img:'media/ravioliWide.jpg' },
 
   /* team portraits */
   personPhil:   { img:'media/personPhil.jpg',   pos:'50% 20%' },
@@ -48,23 +41,23 @@ const ASSETS = {
   personAli:    { img:'media/personAli.jpg',    pos:'50% 30%' },   /* low-res — replace with a larger file when available */
 
   /* restaurant offer tiles */
-  offPappardelle:{ img:'media/casarecce-ragu.jpg' },
-  offSalad:      { img:'media/bowl-chicken.jpg', pos:'50% 55%' },
+  offPappardelle:{ img:'media/pappardelle.jpg' },
+  offSalad:      { img:'media/milano-bowl.jpg', pos:'40% 50%' },
   offLunchbox:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
-  offPasta:      { img:'media/tagliatelle-mushroom.jpg' },
+  offPasta:      { img:'media/ravioli-pumpkin-top.jpg' },
   offAntipasti:  { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
   offCocktails:  { img:'media/negroni.jpg', pos:'50% 60%' },
   offWine:       { img:'media/spread.jpg', pos:'20% 40%' },
 
   /* catering page tiles */
-  catPasta:      { img:'media/casarecce-ragu.jpg' },
-  catBurrata:    { img:'media/dipWide.jpg', pos:'50% 55%' },
+  catPasta:      { img:'media/pappardelle.jpg' },
+  catBurrata:    { img:'media/mozzarella.jpg', pos:'50% 60%' },
   catDelivery:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
 
   /* events / private dining */
   eventsHero:    { img:'media/spread.jpg' },
   eventsRoom:    { img:'media/room-interior.jpg' },
-  eventsFood:    { img:'media/prosciutto-figs.jpg', pos:'50% 50%' },
+  eventsFood:    { img:'media/ravioli-pumpkin.jpg', pos:'50% 55%' },
   eventsDrink:   { img:'media/cheers.jpg', pos:'50% 62%' },
 
   /* careers */

@@ -37,7 +37,7 @@ Full multi-page static site. No build step, no dependencies. Deploys on GitHub P
 - **Forms** — the site is static, so the enquiry/CV/contact "forms" are mailto buttons to contact@nottobroadgate.com. The newsletter sign-up boxes still need wiring to a mailing provider (Leat or similar).
 - **Bookings** — all "Book a table" links go to SevenRooms. Site-wide/footer: `?venues=nottopastabarscg,nottopastabar` (both venues). Piccadilly pages: `?venues=nottopastabar`; Covent Garden pages: `?venues=nottopastabarscg`.
 - **Videos** — picc.mp4 (home Sit down), cg.mp4 (home On the go + Broadgate header), kitchen.mp4 (Covent Garden header + careers). All 1080×1920, muted, 5–7MB, encoded from the client's 26–30MB masters. The original low-res site clips were removed.
-- **No placeholder slots remain.** Every media slot has a real photo. Spare photos in /media/ not currently placed: pepper-anchovy.jpg, caesar-lunch.jpg, cheers.jpg is used only on the private-dining drinks tile.
+- **Dish photos** — where a photo sits next to a named dish or a 'fresh pasta' tile, use a current-menu dish. Atmospheric shots (table spreads, cheese grating, videos) are fine to keep even if the dishes in them are older. Old off-menu product shots were removed from /media/.
 - **Confirm menu prices** (e.g. Lunchissimo £17.50) and per-restaurant delivery availability.
 
 The Cervo Neue font is the licensed version, self-hosted in /fonts/.
