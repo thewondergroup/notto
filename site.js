@@ -18,7 +18,7 @@ const ASSETS = {
 
   /* home page menu cards */
   choiceBars:  { img:'media/cacio-e-pepe.jpg', pos:'50% 62%' },
-  choiceTogo:  { img:'media/bowl-ravioli-pumpkin.jpg', pos:'50% 50%' },
+  choiceTogo:  { img:'media/bowl-gnocchetti-top.jpg' },
 
   /* lifestyle / sections */
   catering:    { img:'media/spread.jpg' },
