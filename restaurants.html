@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NOTTO — Restaurants · Broadgate, Piccadilly & Covent Garden</title>
+<title>NOTTO Restaurants · Broadgate, Piccadilly & Covent Garden</title>
 <meta name="description" content="Find NOTTO across London. Fresh pasta to go at Broadgate, or sit down for pasta, antipasti and wine at Piccadilly and Covent Garden.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
     <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links">
+      <a href="index.html">Home</a>
       <div class="nav-item" data-nav="restaurants">
         <a href="restaurants.html" aria-current="page">Restaurants<span class="caret"></span></a>
         <div class="rest-mega">
@@ -38,7 +39,8 @@
       </div>
       <a href="menus.html">Menus</a>
       <a href="about.html">About</a>
-      <a href="catering.html">Catering</a>
+      <a href="#" data-leat="join">Loyalty</a>
+      <a href="#" data-vouchers>Vouchers</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn--line btn--sm" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
@@ -58,36 +60,7 @@
   </div>
 </section>
 
-<!-- ============ BROADGATE (On the go) ============ -->
-<section class="venue venue--togo" id="broadgate">
-  <div class="venue-media">
-    <div class="media" data-type="image" data-shot="Broadgate — shopfront / interior, lunchtime" data-asset="locBroadgate"></div>
-  </div>
-  <div class="venue-body">
-    <span class="loc-tag loc-tag--togo">On the go</span>
-    <h2>Broadgate</h2>
-    <p class="venue-blurb">Our City take on NOTTO. Fresh pasta cooked to order, generous salads, burrata and focaccia, all designed to work around your day. Order for collection or delivery, or grab a seat.</p>
-    <div class="venue-cols">
-      <div>
-        <h5>Where</h5>
-        <address>1 Broadgate<br>Finsbury Avenue<br>London EC2M 2QS</address>
-      </div>
-      <div>
-        <h5>Hours</h5>
-        <p>Mon–Sat 11:30am–9pm<br>Sun 11:30am–4pm</p>
-      </div>
-      <div>
-        <h5>How</h5>
-        <p>Collection · Delivery<br>Eat in · Takeaway</p>
-      </div>
-    </div>
-    <div class="venue-cta">
-      <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
-      <a class="btn btn--line" href="https://maps.app.goo.gl/SLHH9nWvqc236rhdA">Get directions</a>
-    </div>
-  </div>
-</section>
-
+<div id="sit-down"></div>
 <!-- ============ PICCADILLY (Sit down) ============ -->
 <section class="venue venue--bars" id="piccadilly">
   <div class="venue-media">
@@ -148,6 +121,36 @@
   </div>
 </section>
 
+<!-- ============ BROADGATE (On the go) ============ -->
+<section class="venue venue--togo" id="broadgate">
+  <div class="venue-media">
+    <div class="media" data-type="image" data-shot="Broadgate — shopfront / interior, lunchtime" data-asset="locBroadgate"></div>
+  </div>
+  <div class="venue-body">
+    <span class="loc-tag loc-tag--togo">On the go</span>
+    <h2>Broadgate</h2>
+    <p class="venue-blurb">Our City take on NOTTO. Fresh pasta cooked to order, generous salads, burrata and focaccia, all designed to work around your day. Order for collection or delivery, or grab a seat.</p>
+    <div class="venue-cols">
+      <div>
+        <h5>Where</h5>
+        <address>1 Broadgate<br>Finsbury Avenue<br>London EC2M 2QS</address>
+      </div>
+      <div>
+        <h5>Hours</h5>
+        <p>Mon–Sat 11:30am–9pm<br>Sun 11:30am–4pm</p>
+      </div>
+      <div>
+        <h5>How</h5>
+        <p>Collection · Delivery<br>Eat in · Takeaway</p>
+      </div>
+    </div>
+    <div class="venue-cta">
+      <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
+      <a class="btn btn--line" href="https://maps.app.goo.gl/SLHH9nWvqc236rhdA">Get directions</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ NEWSLETTER ============ -->
 <section class="signup">
   <div class="wrap">
@@ -159,7 +162,7 @@
       <input id="email" type="email" placeholder="you@work.com" required>
       <button class="btn" type="submit">Sign up</button>
     </form>
-    <small>Unsubscribe any time. We don't sell your details — we sell pasta.</small>
+    <small>Unsubscribe any time. We don't sell your details. We sell pasta.</small>
   </div>
 </section>
 

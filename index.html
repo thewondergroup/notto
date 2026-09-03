@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NOTTO — Fresh pasta by Michelin-starred chef Phil Howard</title>
+<title>NOTTO · Fresh pasta by Michelin-starred chef Phil Howard</title>
 <meta name="description" content="Fresh pasta made daily from exceptional ingredients by Michelin-starred chef Phil Howard. Eat in at Piccadilly and Covent Garden, or grab it to go at Broadgate.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="is-home">
 
 <!-- ============ NAV ============ -->
 <header>
@@ -19,6 +19,7 @@
     <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links">
+      <a href="index.html" aria-current="page">Home</a>
       <div class="nav-item" data-nav="restaurants">
         <a href="restaurants.html">Restaurants<span class="caret"></span></a>
         <div class="rest-mega">
@@ -39,7 +40,8 @@
       </div>
       <a href="menus.html">Menus</a>
       <a href="about.html">About</a>
-      <a href="catering.html">Catering</a>
+      <a href="#" data-leat="join">Loyalty</a>
+      <a href="#" data-vouchers>Vouchers</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn--line btn--sm" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
@@ -57,17 +59,17 @@
     <div class="half-body">
       <p class="lab">Broadgate · City</p>
       <h2>On the go</h2>
-      <p>Fresh pasta, cooked to order and ready in minutes. Eat in, collect, or get it delivered. Twelve minutes from your desk.</p>
+      <p>Fresh pasta, cooked to order and ready in minutes. Eat in, collect, or get it delivered. A matter of minutes from your desk.</p>
       <div class="half-cta">
         <a class="btn btn--white" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
-        <a class="btn btn--ghostW" href="menus.html#broadgate">See the menu</a>
+        <a class="btn btn--ghostW hide-mobile" href="menus.html#broadgate">See the menu</a>
       </div>
     </div>
   </div>
 
   <div class="split-divider"></div>
 
-  <div class="half half--bars" data-href="restaurants.html">
+  <div class="half half--bars" data-href="restaurants.html#sit-down">
     <div class="media" data-type="video" data-shot="Video · Piccadilly room, evening, wine poured" data-asset="heroBars"></div>
     <div class="half-body">
       <p class="lab">Piccadilly · Covent Garden</p>
@@ -75,10 +77,16 @@
       <p>Fresh pasta, great ingredients and good wine. Serious cooking, without the formality.</p>
       <div class="half-cta">
         <a class="btn btn--white" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
-        <a class="btn btn--ghostW" href="restaurants.html">See restaurants</a>
+        <a class="btn btn--ghostW hide-mobile" href="restaurants.html#sit-down">See restaurants</a>
       </div>
     </div>
   </div>
+</section>
+
+<!-- quick links (mobile) -->
+<section class="quick">
+  <a class="quick-tile quick-tile--loyalty" href="#" data-leat="join"><span class="lab">NOTTO loyalty</span><strong>Ninth pasta free</strong></a>
+  <a class="quick-tile quick-tile--vouchers" href="#" data-vouchers><span class="lab">Gift</span><strong>Vouchers</strong></a>
 </section>
 
 <!-- ============ 2 · ONE LINE ON WHO WE ARE ============ -->
@@ -179,14 +187,22 @@
 
 <!-- ============ 5 · SUPPORTING CONTENT (below the story, light + photography-led) ============ -->
 
-<!-- catering -->
-<section class="cater cater--light" id="catering">
-  <div class="media" data-type="image" data-shot="Catering spread on a boardroom table — trays, not plates" data-asset="catering"></div>
-  <div class="cater-body">
-    <p class="lab">Corporate &amp; catering</p>
-    <h2>One order feeds a <em>whole floor</em>.</h2>
-    <p>Team lunches, client meetings, the thing at 4pm nobody planned. Fresh pasta, salads, burrata and focaccia, delivered to your door.</p>
-    <a class="btn" href="catering.html">Order catering</a>
+<!-- loyalty -->
+<section class="loyal loyal--light" id="loyalty">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <p class="lab">NOTTO loyalty</p>
+        <h2>Eight pastas. The ninth is <em>on us</em>.</h2>
+      </div>
+      <div>
+        <p>Sign up once, earn rewards with every order, and the ninth pasta is on us. No card, no app. It lives on your phone.</p>
+        <div class="loyal-cta">
+          <a class="btn" href="#" data-leat="join">Join NOTTO loyalty</a>
+          <a class="btn btn--line" href="#" data-vouchers>Buy a voucher</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -201,7 +217,7 @@
       <input id="email" type="email" placeholder="you@work.com" required>
       <button class="btn" type="submit">Sign up</button>
     </form>
-    <small>Unsubscribe any time. We don't sell your details — we sell pasta.</small>
+    <small>Unsubscribe any time. We don't sell your details. We sell pasta.</small>
   </div>
 </section>
 

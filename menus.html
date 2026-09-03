@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NOTTO — Menus · Fresh pasta, salads, antipasti &amp; more</title>
+<title>NOTTO Menus · Fresh pasta, salads, antipasti &amp; more</title>
 <meta name="description" content="Explore the NOTTO menus. Fresh pasta and salads to go at Broadgate, or antipasti, pasta, set menus, cocktails and wine at Piccadilly and Covent Garden.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
     <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links">
+      <a href="index.html">Home</a>
       <div class="nav-item" data-nav="restaurants">
         <a href="restaurants.html">Restaurants<span class="caret"></span></a>
         <div class="rest-mega">
@@ -37,7 +38,8 @@
       </div>
       <a href="menus.html" aria-current="page">Menus</a>
       <a href="about.html">About</a>
-      <a href="catering.html">Catering</a>
+      <a href="#" data-leat="join">Loyalty</a>
+      <a href="#" data-vouchers>Vouchers</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn--line btn--sm" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
@@ -54,14 +56,15 @@
     <h1>Fresh pasta, <em>every which way</em>.</h1>
     <p class="pagehead-intro">Grab pasta, salads and lunch to go at Broadgate, or settle in for antipasti, fresh pasta, cocktails and wine at Piccadilly and Covent Garden.</p>
     <div class="menu-jump">
-      <a class="btn btn--sm" href="#broadgate">To Go · Broadgate</a>
-      <a class="btn btn--sm btn--line" href="#piccadilly">Pasta bars</a>
+      <a class="btn btn--sm btn--line" href="#piccadilly">Pasta bar menu</a>
+      <a class="btn btn--sm btn--line" href="#broadgate">To Go menu</a>
+      <a class="btn btn--sm" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
     </div>
   </div>
 </section>
 
-<!-- TO GO MENU (interactive) -->
-<section class="menu" id="broadgate">
+<!-- TO GO MENU (simple text, orange) -->
+<section class="pbmenu pbmenu--togo" id="broadgate">
   <div class="wrap">
     <div class="menu-top">
       <div>
@@ -69,22 +72,51 @@
         <h2>The <em>To Go</em> menu.</h2>
         <p class="menu-intro">Fresh pasta cooked to order, generous salads, our Mediterranean lunchbox, and focaccia and dips to start. Eat in, collect, or get it delivered.</p>
       </div>
-      <a class="btn btn--line" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
+      <div class="venue-cta">
+        <a class="btn btn--white" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
+      </div>
     </div>
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true"  data-tab="pasta">Pasta bar</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="salads">Salad bar</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="bread">Bread &amp; dips</button>
+    <div class="pb-grid">
+      <div class="pb-col">
+        <h3 class="pb-head">Pasta bar</h3>
+        <ul class="pb-list">
+          <li><span><strong>Pappardelle</strong>, slow-cooked ragù of beef, field mushrooms and red wine</span></li>
+          <li><span><strong>Rigatoni</strong>, sun-ripened tomato, sweet onion, mozzarella and basil</span></li>
+          <li><span><strong>Gnocchetti</strong>, smashed sausage, fennel, chilli, white wine and garlic</span></li>
+          <li><span><strong>Tagliolini nero</strong>, bolognese of prawns, sweet peppers, tomato and chilli</span></li>
+          <li><span><strong>Bucatini</strong>, chilli, garlic, extra virgin olive oil and toasted crumbs</span></li>
+          <li><span><strong>Spaghetti</strong>, chilli, garlic, extra virgin olive oil and toasted crumbs</span></li>
+        </ul>
+        <h3 class="pb-head">Bread, olives &amp; dips</h3>
+        <ul class="pb-list">
+          <li><span><strong>NOTTO focaccia</strong>, rosemary, tomato and rock salt</span></li>
+          <li><span><strong>Mixed Italian olives</strong> with pickled garlic</span></li>
+          <li><span><strong>Preserved tomato &amp; ricotta dip</strong></span></li>
+          <li><span><strong>Borlotti bean &amp; roasted pepper dip</strong></span></li>
+          <li><span><strong>Both dips</strong></span></li>
+        </ul>
+      </div>
+      <div class="pb-col">
+        <h3 class="pb-head">Salad bar</h3>
+        <ul class="pb-list">
+          <li><span><strong>The Roman</strong>, Caesar-style salad with chicken, butter beans and an anchovy and parmesan dressing</span></li>
+          <li><span><strong>The Amalfi</strong>, Niçoise-style salad with line-caught tuna and crunchy chickpeas</span></li>
+          <li><span><strong>The Tuscan</strong>, sweet peppers, artichoke hearts, red onions, cannellini beans and balsamic</span></li>
+          <li><span><strong>The Small</strong>, light green side salad with Mrs H's dressing</span></li>
+        </ul>
+        <h3 class="pb-head">NOTTO Mediterranean lunchbox</h3>
+        <ul class="pb-list">
+          <li><span>Roasted sweet peppers and red onions with balsamic, dressed cannellini beans with tomatoes and pesto, bocconcini mozzarella, macerated courgettes with lemon zest and marjoram, topped with mixed olives. Add chicken, tuna or egg.</span></li>
+        </ul>
+        <p class="pb-note">Prices and allergen information are shown when you order. <a href="allergens.html">Allergen &amp; nutrition information →</a></p>
+      </div>
     </div>
-    <div class="rail" id="rail"></div>
-    <div class="detail" id="detail"></div>
-    <p class="allergen-note"><a href="allergens.html">Allergen &amp; nutrition information →</a></p>
   </div>
 </section>
 
 <!-- PASTA BAR MENUS (links out to full menus) -->
 <!-- PASTA BAR FULL MENU -->
-<section class="pbmenu" id="piccadilly">
+<section class="pbmenu pbmenu--bars" id="piccadilly">
   <div class="wrap">
     <div class="menu-top">
       <div>
@@ -92,7 +124,10 @@
         <h2>The <em>pasta bar</em> menu.</h2>
         <p class="menu-intro">The same menu at Piccadilly and Covent Garden. Antipasti, fresh pasta, salads and sweets, plus set menus, cocktails and wine.</p>
       </div>
-      <a class="btn btn--line" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
+      <div class="venue-cta">
+        <a class="btn btn--white" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
+        <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener">Order online</a>
+      </div>
     </div>
 
     <div class="pb-grid">
@@ -100,7 +135,7 @@
         <h3 class="pb-head">Breads &amp; dips</h3>
         <ul class="pb-list">
           <li><span>Nocellara olives</span><span class="pb-price">3.75</span></li>
-          <li><span>NOTTO focaccia — rosemary, tomato &amp; rock salt</span><span class="pb-price">4.75</span></li>
+          <li><span>NOTTO focaccia, rosemary, tomato &amp; rock salt</span><span class="pb-price">4.75</span></li>
           <li><span>Sun-dried tomato &amp; ricotta dip</span><span class="pb-price">4.5</span></li>
           <li><span>Borlotti bean &amp; roasted pepper dip</span><span class="pb-price">4.5</span></li>
           <li><span>Both dips</span><span class="pb-price">8.5</span></li>
@@ -109,8 +144,31 @@
         <h3 class="pb-head">Starters</h3>
         <ul class="pb-list">
           <li><span>Gazpacho with focaccia croutons &amp; extra virgin olive oil</span><span class="pb-price">7.5</span></li>
-          <li><span>Salad Caprese — buffalo mozzarella, sun-ripened tomatoes, basil, olive oil</span><span class="pb-price">8.75</span></li>
+          <li><span>Salad Caprese, buffalo mozzarella, sun-ripened tomatoes, basil, olive oil</span><span class="pb-price">8.75</span></li>
           <li><span>Parma ham with Charentais melon</span><span class="pb-price">11.75</span></li>
+        </ul>
+
+        <h3 class="pb-head">Salads</h3>
+        <ul class="pb-list pb-list--salads">
+          <li><span><strong>The Roman</strong>, Caesar-style, chicken, butter beans, anchovy &amp; parmesan dressing</span><span class="pb-price">16.75 / 9.95</span></li>
+          <li><span><strong>The Tuscan</strong>, sweet peppers, artichoke hearts, red onions, cannellini beans &amp; balsamic</span><span class="pb-price">16.75 / 9.95</span></li>
+          <li><span><strong>The Mediterranean</strong>, sun-ripened veg, chickpeas, mozzarella, olives, rocket &amp; garlic <em>(add chicken 3.5 · tuna 2.75 · egg 1.5)</em></span><span class="pb-price">16.5 / 8.5</span></li>
+          <li><span><strong>The Small</strong>, light green side salad with Mrs. H's dressing</span><span class="pb-price">4.5</span></li>
+        </ul>
+        <p class="pb-note">Salads: large / small</p>
+      </div>
+
+      <div class="pb-col">
+        <h3 class="pb-head">Pasta</h3>
+        <ul class="pb-list">
+          <li><span>Giant rigatoni cacio e pepe</span><span class="pb-price">12.5</span></li>
+          <li><span>Pappardelle, slow-cooked short rib of aged beef, field mushrooms &amp; red wine</span><span class="pb-price">16.75</span></li>
+          <li><span>Spaghetti, sun-ripened tomato, basil, mozzarella &amp; olive oil</span><span class="pb-price">10.75</span></li>
+          <li><span>Lamb ravioli, buttered English peas, lemon zest &amp; mint</span><span class="pb-price">11.5</span></li>
+          <li><span>Gnocchetti, smashed sausage, fennel, pimento, white wine &amp; garlic</span><span class="pb-price">10.5</span></li>
+          <li><span>Ravioli in brodo, little pork ravioli in a full-flavoured chicken broth</span><span class="pb-price">15</span></li>
+          <li><span>Bucatini, courgettes, basil, lemon zest, butter &amp; Parmesan</span><span class="pb-price">11.5</span></li>
+          <li><span>Tagliolini nero, bolognese of prawns, sweet peppers, tomato &amp; chilli</span><span class="pb-price">14.5</span></li>
         </ul>
 
         <h3 class="pb-head">Sweet</h3>
@@ -119,29 +177,6 @@
           <li><span>Tiramisu</span><span class="pb-price">8</span></li>
           <li><span>Panna cotta with blackcurrants &amp; olive oil</span><span class="pb-price">7.5</span></li>
         </ul>
-      </div>
-
-      <div class="pb-col">
-        <h3 class="pb-head">Pasta</h3>
-        <ul class="pb-list">
-          <li><span>Giant rigatoni cacio e pepe</span><span class="pb-price">12.5</span></li>
-          <li><span>Pappardelle — slow-cooked short rib of aged beef, field mushrooms &amp; red wine</span><span class="pb-price">16.75</span></li>
-          <li><span>Spaghetti — sun-ripened tomato, basil, mozzarella &amp; olive oil</span><span class="pb-price">10.75</span></li>
-          <li><span>Lamb ravioli — buttered English peas, lemon zest &amp; mint</span><span class="pb-price">11.5</span></li>
-          <li><span>Gnocchetti — smashed sausage, fennel, pimento, white wine &amp; garlic</span><span class="pb-price">10.5</span></li>
-          <li><span>Ravioli in brodo — little pork ravioli in a full-flavoured chicken broth</span><span class="pb-price">15</span></li>
-          <li><span>Bucatini — courgettes, basil, lemon zest, butter &amp; Parmesan</span><span class="pb-price">11.5</span></li>
-          <li><span>Tagliolini nero — bolognese of prawns, sweet peppers, tomato &amp; chilli</span><span class="pb-price">14.5</span></li>
-        </ul>
-
-        <h3 class="pb-head">Salads</h3>
-        <ul class="pb-list pb-list--salads">
-          <li><span><strong>The Roman</strong> — Caesar-style, chicken, butter beans, anchovy &amp; parmesan dressing</span><span class="pb-price">16.75 / 9.95</span></li>
-          <li><span><strong>The Tuscan</strong> — sweet peppers, artichoke hearts, red onions, cannellini beans &amp; balsamic</span><span class="pb-price">16.75 / 9.95</span></li>
-          <li><span><strong>The Mediterranean</strong> — sun-ripened veg, chickpeas, mozzarella, olives, rocket &amp; garlic <em>(add chicken 3.5 · tuna 2.75 · egg 1.5)</em></span><span class="pb-price">16.5 / 8.5</span></li>
-          <li><span><strong>The Small</strong> — light green side salad with Mrs. H's dressing</span><span class="pb-price">4.5</span></li>
-        </ul>
-        <p class="pb-note">Salads: large / small</p>
       </div>
     </div>
   </div>
@@ -155,7 +190,7 @@
     <div class="deals-grid" style="grid-template-columns:1fr 1fr">
       <article class="deal">
         <span class="deal-flag">12 noon–5pm, daily</span>
-        <span class="deal-price">£13.75</span>
+        <span class="deal-price">£14.85</span>
         <h3>Lunchissimo</h3>
         <p>Any pasta, a small green salad and our famous focaccia. Every day from midday until 5pm at Piccadilly and Covent Garden.</p>
         <a class="btn btn--onGreen" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
@@ -179,17 +214,17 @@
       <div class="pb-col">
         <h3 class="pb-head">Signature cocktails</h3>
         <ul class="pb-list">
-          <li><span><strong>Peach Bellini</strong> — peach purée, Prosecco</span><span class="pb-price">10</span></li>
-          <li><span><strong>Negroni</strong> — gin, Campari, sweet vermouth, fresh orange</span><span class="pb-price">10</span></li>
-          <li><span><strong>Aperol Spritz</strong> — Aperol, orange, Prosecco, soda</span><span class="pb-price">10</span></li>
-          <li><span><strong>Spicy Margarita</strong> — tequila, lime, triple sec &amp; sugar syrup, chilli</span><span class="pb-price">10</span></li>
+          <li><span><strong>Peach Bellini</strong>, peach purée, Prosecco</span><span class="pb-price">10</span></li>
+          <li><span><strong>Negroni</strong>, gin, Campari, sweet vermouth, fresh orange</span><span class="pb-price">10</span></li>
+          <li><span><strong>Aperol Spritz</strong>, Aperol, orange, Prosecco, soda</span><span class="pb-price">10</span></li>
+          <li><span><strong>Spicy Margarita</strong>, tequila, lime, triple sec &amp; sugar syrup, chilli</span><span class="pb-price">10</span></li>
         </ul>
       </div>
       <div class="pb-col">
         <h3 class="pb-head">Mocktails</h3>
         <ul class="pb-list">
-          <li><span><strong>Apple &amp; Ginger Sour</strong> — apple, ginger beer, ginger, vanilla</span><span class="pb-price">6.25</span></li>
-          <li><span><strong>Nojito</strong> — fresh mint, soda, sugar syrup &amp; lime</span><span class="pb-price">6.25</span></li>
+          <li><span><strong>Apple &amp; Ginger Sour</strong>, apple, ginger beer, ginger, vanilla</span><span class="pb-price">6.25</span></li>
+          <li><span><strong>Nojito</strong>, fresh mint, soda, sugar syrup &amp; lime</span><span class="pb-price">6.25</span></li>
         </ul>
       </div>
     </div>
@@ -206,9 +241,9 @@
         <ul class="pb-list">
           <li><span>Coke / Diet Coke (330ml)</span><span class="pb-price">4.5</span></li>
           <li><span>Fever Tree Lemonade</span><span class="pb-price">4.5</span></li>
-          <li><span>Heartsease Farm — elderflower / lemonade / ginger beer</span><span class="pb-price">4.5</span></li>
+          <li><span>Heartsease Farm, elderflower / lemonade / ginger beer</span><span class="pb-price">4.5</span></li>
           <li><span>Birra Moretti (425ml schooner, draught)</span><span class="pb-price">6</span></li>
-          <li><span>Athletic Brewing — Run Wild IPA / Upside Down Pale (0.5%)</span><span class="pb-price">5.5</span></li>
+          <li><span>Athletic Brewing, Run Wild IPA / Upside Down Pale (0.5%)</span><span class="pb-price">5.5</span></li>
           <li><span>Filtered still / sparkling water, unlimited, per person</span><span class="pb-price">1.5</span></li>
           <li><span>Acqua Panna / San Pellegrino 750ml</span><span class="pb-price">5</span></li>
           <li><span>Espresso / double / cortado</span><span class="pb-price">2.5–3</span></li>
@@ -219,20 +254,20 @@
       <div class="pb-col">
         <h3 class="pb-head">Wine <span class="pb-sub">125ml / carafe / bottle</span></h3>
         <ul class="pb-list pb-list--wine">
-          <li><span>NV Prosecco Spumante — Veneto</span><span class="pb-price">9 / – / 37</span></li>
-          <li><span>2023 Fiano — Puglia</span><span class="pb-price">8 / 19 / 33.5</span></li>
-          <li><span>2023 Trebbiano d'Abruzzo — Abruzzo</span><span class="pb-price">8.5 / 22 / 41</span></li>
-          <li><span>2023 Doridan Sauvignon Blanc — Touraine</span><span class="pb-price">9.5 / 26.5 / 49</span></li>
-          <li><span>2023 Gavi — Piedmont</span><span class="pb-price">11.5 / 30.5 / 52.5</span></li>
-          <li><span>2023 Triennes Rosé — Provence</span><span class="pb-price">11.5 / – / 52</span></li>
-          <li><span>2023 Nero d'Avola — Sicily</span><span class="pb-price">8.5 / 20 / 34</span></li>
-          <li><span>2023 Montepulciano d'Abruzzo — Abruzzo</span><span class="pb-price">10 / 20.5 / 38.5</span></li>
-          <li><span>2022 Sangiovese Toscana — Tuscany</span><span class="pb-price">11 / 25.5 / 46.5</span></li>
-          <li><span>2023 Chianti Biskero Salcheto — Tuscany</span><span class="pb-price">12 / 28 / 55</span></li>
+          <li><span>NV Prosecco Spumante, Veneto</span><span class="pb-price">9 / – / 37</span></li>
+          <li><span>2023 Fiano, Puglia</span><span class="pb-price">8 / 19 / 33.5</span></li>
+          <li><span>2023 Trebbiano d'Abruzzo, Abruzzo</span><span class="pb-price">8.5 / 22 / 41</span></li>
+          <li><span>2023 Doridan Sauvignon Blanc, Touraine</span><span class="pb-price">9.5 / 26.5 / 49</span></li>
+          <li><span>2023 Gavi, Piedmont</span><span class="pb-price">11.5 / 30.5 / 52.5</span></li>
+          <li><span>2023 Triennes Rosé, Provence</span><span class="pb-price">11.5 / – / 52</span></li>
+          <li><span>2023 Nero d'Avola, Sicily</span><span class="pb-price">8.5 / 20 / 34</span></li>
+          <li><span>2023 Montepulciano d'Abruzzo, Abruzzo</span><span class="pb-price">10 / 20.5 / 38.5</span></li>
+          <li><span>2022 Sangiovese Toscana, Tuscany</span><span class="pb-price">11 / 25.5 / 46.5</span></li>
+          <li><span>2023 Chianti Biskero Salcheto, Tuscany</span><span class="pb-price">12 / 28 / 55</span></li>
         </ul>
       </div>
     </div>
-    <p class="pb-note" id="covent-garden">All menus served at both Piccadilly (198 Piccadilly, W1J 9EZ) and Covent Garden (4 Henrietta Street, WC2E 8PS). Menus change with the season — please ask about allergens.</p>
+    <p class="pb-note" id="covent-garden">All menus served at both Piccadilly (198 Piccadilly, W1J 9EZ) and Covent Garden (4 Henrietta Street, WC2E 8PS). Menus change with the season. Please ask about allergens.</p>
   </div>
 </section>
 
@@ -240,6 +275,5 @@
 
 <div id="site-footer"></div>
 <script src="site.js"></script>
-<script src="menu-data.js"></script>
 </body>
 </html>

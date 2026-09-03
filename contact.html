@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NOTTO — Contact</title>
+<title>NOTTO Contact</title>
 <meta name="description" content="Get in touch with NOTTO Broadgate, Piccadilly and Covent Garden for bookings, catering, private dining and general enquiries.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
     <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links">
+      <a href="index.html">Home</a>
       <div class="nav-item" data-nav="restaurants">
         <a href="restaurants.html">Restaurants<span class="caret"></span></a>
         <div class="rest-mega">
@@ -28,7 +29,8 @@
       </div>
       <a href="menus.html">Menus</a>
       <a href="about.html">About</a>
-      <a href="catering.html">Catering</a>
+      <a href="#" data-leat="join">Loyalty</a>
+      <a href="#" data-vouchers>Vouchers</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn--line btn--sm" href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a>
@@ -104,11 +106,7 @@
     <p class="lab">Drop us a line</p>
     <h2>Anything else? <em>Ask away.</em></h2>
     <p>Tell us what you need and we'll come back to you. For a table, booking online or calling the restaurant directly will always be quickest.</p>
-    <form class="form" style="max-width:560px" onsubmit="return false">
-      <label for="c-email" style="position:absolute;left:-9999px">Your email</label>
-      <input id="c-email" type="email" placeholder="you@email.com" required>
-      <button class="btn" type="submit">Send</button>
-    </form>
+    <p><a class="btn btn--white" href="mailto:contact@nottobroadgate.com">Email us</a></p>
     <small>We'll only use your details to reply. Nothing else.</small>
   </div>
 </section>

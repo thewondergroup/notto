@@ -12,8 +12,8 @@ const ASSETS = {
      point when a portrait photo sits in a landscape frame (or vice versa). */
 
   /* hero videos */
-  heroTogo:    { img:'media/togo-poster.jpg',  video:'media/togo.mp4' },
-  heroBars:    { img:'media/hero-poster.jpg',  video:'media/hero.mp4' },
+  heroTogo:    { img:'media/cg-poster.jpg',    video:'media/cg.mp4' },       /* pasta-led: macaroni cooked and plated */
+  heroBars:    { img:'media/picc-poster.jpg',  video:'media/picc.mp4' },     /* the experience: sign, plates, negroni */
   reel:        { img:'media/reel-poster.jpg',  video:'media/reel.mp4' },
 
   /* home page menu cards */
@@ -35,8 +35,8 @@ const ASSETS = {
   /* venue hero videos (detail pages) — real footage */
   heroBroadgate:{ img:'media/togo-poster.jpg', video:'media/togo.mp4' },
   heroPicc:     { img:'media/picc-poster.jpg', video:'media/picc.mp4' },    /* pasta bar sign → plates → negroni */
-  heroCG:       { img:'media/cg-poster.jpg',   video:'media/cg.mp4' },      /* macaroni, butter, burrata, plated */
-  /* spare clip, not yet placed: media/kitchen.mp4 (butter, focaccia, burrata, ravioli) + kitchen-poster.jpg */
+  heroCG:       { img:'media/kitchen-poster.jpg', video:'media/kitchen.mp4' },  /* butter, focaccia, burrata, ravioli */
+  /* spare clip: media/togo.mp4 (ingredients on lilac) + togo-poster.jpg */
 
   /* about */
   team:        { img:'media/spread.jpg' },
@@ -123,6 +123,10 @@ const LOYALTY_BANNER = `
 const LEAT_EMBED = ``;
 const LEAT_URL = 'https://forms.leat.com/forms/d51cb612-52a8-4226-aa46-cc75b34a19f5/public/custom';
 
+/* Gift vouchers — paste the voucher shop URL here. Until it's set, voucher
+   links show a short message rather than sending people to the loyalty form. */
+const VOUCHER_URL = '';
+
 const LOYALTY_MODAL = `
 <div class="modal" id="loyalty-modal" hidden role="dialog" aria-modal="true" aria-labelledby="loyalty-modal-title">
   <div class="modal-backdrop" data-modal-close></div>
@@ -148,7 +152,7 @@ const FOOTER_HTML = `
           <li><a href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener" data-storekit="collect">Order online</a></li>
           <li><a href="catering.html" data-storekit="catering">Catering</a></li>
           <li><a href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a></li>
-          <li><a href="#" data-leat="vouchers">Vouchers</a></li>
+          <li><a href="#" data-vouchers>Vouchers</a></li>
         </ul>
       </div>
       <div>
@@ -286,6 +290,7 @@ function mountLeat(){
 }
 function openLoyalty(){
   if(!loyaltyModal) return;
+  if(navBar && navBar.dataset.menu==='open'){ navBar.dataset.menu=''; if(navToggle) navToggle.setAttribute('aria-expanded','false'); }
   mountLeat();
   loyaltyModal.hidden=false;
   document.body.style.overflow='hidden';
@@ -296,13 +301,49 @@ function closeLoyalty(){
   loyaltyModal.hidden=true;
   document.body.style.overflow='';
 }
-document.querySelectorAll('[data-leat]').forEach(a=>{
-  a.addEventListener('click',e=>{ e.preventDefault(); openLoyalty(); });
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-leat]'); if(!a) return;
+  e.preventDefault(); openLoyalty();
 });
 if(loyaltyModal){
   loyaltyModal.querySelectorAll('[data-modal-close]').forEach(el=>el.addEventListener('click',closeLoyalty));
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLoyalty(); });
 }
+
+/* ---- Welcome offer popup (home page, once per visitor) ----
+   Set WELCOME_OFFER to '' to switch it off. Opens the Leat sign-up. */
+const WELCOME_OFFER = { headline:'25% off your first <em>online order</em>.', body:'Sign up to NOTTO loyalty and we\'ll take 25% off your first order online. Then a stamp with every pasta, and the ninth on us.', cta:'Sign up & claim', delay:2500 };
+const WELCOME_HTML = `
+<div class="modal" id="welcome-modal" hidden role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+  <div class="modal-backdrop" data-welcome-close></div>
+  <div class="modal-panel modal-panel--welcome">
+    <button class="modal-close" type="button" aria-label="Close" data-welcome-close>&times;</button>
+    <p class="lab">NOTTO loyalty</p>
+    <h2 id="welcome-title">${WELCOME_OFFER.headline}</h2>
+    <p class="welcome-body">${WELCOME_OFFER.body}</p>
+    <div class="venue-cta">
+      <a class="btn" href="#" data-leat="join" data-welcome-close>${WELCOME_OFFER.cta}</a>
+      <a class="btn btn--line" href="#" data-welcome-close>Not now</a>
+    </div>
+  </div>
+</div>`;
+if(document.body.classList.contains('is-home') && WELCOME_OFFER.headline){
+  let seen=false; try{ seen=localStorage.getItem('notto-welcome')==='1'; }catch(e){}
+  if(!seen){
+    document.body.insertAdjacentHTML('beforeend',WELCOME_HTML);
+    const wm=document.getElementById('welcome-modal');
+    const closeW=()=>{ wm.hidden=true; document.body.style.overflow=''; try{ localStorage.setItem('notto-welcome','1'); }catch(e){} };
+    wm.querySelectorAll('[data-welcome-close]').forEach(el=>el.addEventListener('click',e=>{ if(!el.hasAttribute('data-leat')) e.preventDefault(); closeW(); }));
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeW(); });
+    setTimeout(()=>{ if(!loyaltyModal || loyaltyModal.hidden){ wm.hidden=false; document.body.style.overflow='hidden'; } },WELCOME_OFFER.delay);
+  }
+}
+
+/* ---- Vouchers ---- */
+document.querySelectorAll('[data-vouchers]').forEach(a=>{
+  if(VOUCHER_URL){ a.href=VOUCHER_URL; a.target='_blank'; a.rel='noopener'; return; }
+  a.addEventListener('click',e=>{ e.preventDefault(); alert('Gift vouchers are coming online shortly. In the meantime, ask in any NOTTO.'); });
+});
 
 /* ---- Split hero: whole panel is clickable, buttons inside keep their own links ---- */
 document.querySelectorAll('.half[data-href]').forEach(h=>{

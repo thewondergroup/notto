@@ -859,3 +859,51 @@ footer a:hover{color:var(--orange)}
 .faq-item h4{font-family:var(--display);font-size:22px;line-height:1.05;margin:0 0 8px;text-transform:uppercase;letter-spacing:-.02em}
 .faq-item p{color:var(--green-mid);font-size:16px;margin:0}
 @media(max-width:760px){ .theatre-grid{grid-template-columns:1fr} .theatre-card ul{columns:1} }
+
+/* ================================================================
+   MENUS PAGE — colour blocks (To Go orange / pasta bars green)
+   ================================================================ */
+.pbmenu--togo{background:var(--orange);color:#fff}
+.pbmenu--togo .lab,.pbmenu--togo .menu-intro,.pbmenu--togo .pb-list li,.pbmenu--togo .pb-list li span:first-child,.pbmenu--togo .pb-note,.pbmenu--togo .pb-note a{color:#fff}
+.pbmenu--togo .menu-top h2{color:#fff}
+.pbmenu--togo .menu-top h2 em{color:var(--green)}
+.pbmenu--togo .pb-head{color:#fff;border-bottom-color:rgba(255,255,255,.35)}
+.pbmenu--togo .pb-list li{border-bottom-color:rgba(255,255,255,.25)}
+.pbmenu--togo .pb-note{opacity:.9}
+.pbmenu--bars{background:var(--green);color:#fff}
+.pbmenu--bars .lab,.pbmenu--bars .menu-intro,.pbmenu--bars .pb-list li,.pbmenu--bars .pb-list li span:first-child,.pbmenu--bars .pb-note{color:#fff}
+.pbmenu--bars .menu-intro,.pbmenu--bars .pb-note{opacity:.85}
+.pbmenu--bars .menu-top h2{color:#fff}
+.pbmenu--bars .pb-head{color:var(--orange);border-bottom-color:rgba(255,255,255,.25)}
+.pbmenu--bars .pb-list li{border-bottom-color:rgba(255,255,255,.18)}
+.pbmenu--bars .pb-list li em{color:rgba(255,255,255,.7)}
+.pbmenu--bars .pb-price{color:var(--orange)}
+.pbmenu--bars .btn--white:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+/* ================================================================
+   MOBILE HOME — both panels on first screen, quick links, centred logo
+   ================================================================ */
+.quick{display:none}
+.modal-panel--welcome .welcome-body{color:var(--green-mid);font-size:16px;margin:0 0 22px;max-width:40ch}
+.modal-panel--welcome .venue-cta{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:1000px){
+  .half{height:calc((100svh - 60px)/2);min-height:300px}
+  .half-body{flex:0 0 auto;height:auto;padding:16px 20px 18px}
+  .half-body p:not(.lab){display:none}
+  .half-body h2{font-size:34px;margin:4px 0 12px}
+  .half-cta{margin-top:0}
+  .hide-mobile{display:none!important}
+  .quick{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--green-lo)}
+  .quick-tile{display:flex;flex-direction:column;gap:4px;padding:18px 20px;text-decoration:none}
+  .quick-tile .lab{font-size:11px;letter-spacing:.14em}
+  .quick-tile strong{font-family:var(--display);font-size:22px;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+  .quick-tile--loyalty{background:var(--green);color:#fff}
+  .quick-tile--loyalty .lab{color:var(--orange)}
+  .quick-tile--vouchers{background:var(--white);color:var(--green)}
+  .quick-tile--vouchers .lab{color:var(--orange)}
+}
+@media(max-width:640px){
+  .nav{position:relative;justify-content:center}
+  .mark{position:absolute;left:50%;transform:translateX(-50%)}
+  .nav-toggle{margin-left:auto;position:relative;z-index:2}
+}
