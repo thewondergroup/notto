@@ -890,12 +890,14 @@ footer a:hover{color:var(--orange)}
 @media(max-width:1000px){
   /* one big video (Sit down clip), then the two text blocks stacked */
   .half{height:auto;min-height:0}
-  .half--bars .media{height:calc(100svh - 60px - 2*128px);min-height:260px;flex:none}
+  .half--bars .media{height:calc(100svh - 60px - 2*160px);min-height:240px;flex:none}
   .half--togo .media{display:none}
-  .half-body{flex:0 0 auto;height:128px;padding:16px 20px 16px;justify-content:center}
+  .half-body{flex:0 0 auto;height:160px;padding:22px 22px 22px;justify-content:center;gap:0}
+  .half-body .lab{margin-bottom:4px}
   .half-body p:not(.lab){display:none}
-  .half-body h2{font-size:32px;margin:2px 0 10px}
-  .half-cta{margin-top:0}
+  .half-body h2{font-size:36px;margin:4px 0 14px;line-height:.92}
+  .half-cta{margin-top:0;gap:10px;flex-wrap:nowrap}
+  .half-cta .btn{flex:1 1 0;text-align:center;padding:15px 8px 13px;font-size:13px;letter-spacing:.08em}
   .hide-mobile{display:none!important}
   .quick{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--green-lo)}
   .quick-tile{display:flex;flex-direction:column;gap:4px;padding:18px 20px;text-decoration:none}
