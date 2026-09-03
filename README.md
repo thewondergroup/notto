@@ -36,7 +36,7 @@ Full multi-page static site. No build step, no dependencies. Deploys on GitHub P
 - **Vouchers** — nav, footer and home-page voucher links use `VOUCHER_URL` in `site.js`. Empty for now (shows a short message); paste the voucher shop URL to go live.
 - **Forms** — the site is static, so the enquiry/CV/contact "forms" are mailto buttons to contact@nottobroadgate.com. The newsletter sign-up boxes still need wiring to a mailing provider (Leat or similar).
 - **Bookings** — all "Book a table" links go to SevenRooms. Site-wide/footer: `?venues=nottopastabarscg,nottopastabar` (both venues). Piccadilly pages: `?venues=nottopastabar`; Covent Garden pages: `?venues=nottopastabarscg`.
-- **Videos** — hero.mp4 (home sit-down + Piccadilly fallback), togo.mp4 (home on-the-go + Broadgate), picc.mp4 (Piccadilly header), cg.mp4 (Covent Garden header), reel.mp4 (spare), kitchen.mp4 (spare). All 720×1280, muted, 2–3MB. Source clips were 26–30MB each — always re-encode before adding new ones.
+- **Videos** — picc.mp4 (home Sit down), cg.mp4 (home On the go + Broadgate header), kitchen.mp4 (Covent Garden header + careers). All 1080×1920, muted, 5–7MB, encoded from the client's 26–30MB masters. The original low-res site clips were removed.
 - **No placeholder slots remain.** Every media slot has a real photo. Spare photos in /media/ not currently placed: pepper-anchovy.jpg, caesar-lunch.jpg, cheers.jpg is used only on the private-dining drinks tile.
 - **Confirm menu prices** (e.g. Lunchissimo £17.50) and per-restaurant delivery availability.
 

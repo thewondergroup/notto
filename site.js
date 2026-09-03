@@ -14,7 +14,7 @@ const ASSETS = {
   /* hero videos */
   heroTogo:    { img:'media/cg-poster.jpg',    video:'media/cg.mp4' },       /* pasta-led: macaroni cooked and plated */
   heroBars:    { img:'media/picc-poster.jpg',  video:'media/picc.mp4' },     /* the experience: sign, plates, negroni */
-  reel:        { img:'media/reel-poster.jpg',  video:'media/reel.mp4' },
+  reel:        { img:'media/kitchen-poster.jpg', video:'media/kitchen.mp4' },
 
   /* home page menu cards */
   choiceBars:  { img:'media/tagliatelle-mushroom.jpg', pos:'50% 50%' },
@@ -33,10 +33,9 @@ const ASSETS = {
   locCG:       { img:'media/locCG.jpg',        pos:'50% 60%' },   /* 4 Henrietta Street frontage */
 
   /* venue hero videos (detail pages) — real footage */
-  heroBroadgate:{ img:'media/togo-poster.jpg', video:'media/togo.mp4' },
+  heroBroadgate:{ img:'media/cg-poster.jpg',   video:'media/cg.mp4' },
   heroPicc:     { img:'media/picc-poster.jpg', video:'media/picc.mp4' },    /* pasta bar sign → plates → negroni */
   heroCG:       { img:'media/kitchen-poster.jpg', video:'media/kitchen.mp4' },  /* butter, focaccia, burrata, ravioli */
-  /* spare clip: media/togo.mp4 (ingredients on lilac) + togo-poster.jpg */
 
   /* about */
   team:        { img:'media/spread.jpg' },
