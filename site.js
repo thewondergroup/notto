@@ -18,7 +18,7 @@ const ASSETS = {
 
   /* home page menu cards */
   choiceBars:  { img:'media/cacio-e-pepe.jpg', pos:'50% 62%' },
-  choiceTogo:  { img:'media/ravioli-bowl.jpg' },
+  choiceTogo:  { img:'media/bowl-ravioli-pumpkin.jpg', pos:'50% 50%' },
 
   /* lifestyle / sections */
   catering:    { img:'media/spread.jpg' },
@@ -41,7 +41,7 @@ const ASSETS = {
   personAli:    { img:'media/personAli.jpg',    pos:'50% 30%' },   /* low-res — replace with a larger file when available */
 
   /* restaurant offer tiles */
-  offPappardelle:{ img:'media/pappardelle.jpg' },
+  offPappardelle:{ img:'media/bowl-strozzapreti.jpg' },
   offSalad:      { img:'media/milano-bowl.jpg', pos:'40% 50%' },
   offLunchbox:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
   offPasta:      { img:'media/ravioli-pumpkin-top.jpg' },
@@ -50,7 +50,7 @@ const ASSETS = {
   offWine:       { img:'media/spread.jpg', pos:'20% 40%' },
 
   /* catering page tiles */
-  catPasta:      { img:'media/pappardelle.jpg' },
+  catPasta:      { img:'media/bowl-gnocchetti.jpg' },
   catBurrata:    { img:'media/mozzarella.jpg', pos:'50% 60%' },
   catDelivery:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
 
