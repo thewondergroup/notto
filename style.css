@@ -871,6 +871,7 @@ footer a:hover{color:var(--orange)}
 .pbmenu--togo .pb-head{color:#fff;border-bottom-color:rgba(255,255,255,.35)}
 .pbmenu--togo .pb-list li{border-bottom-color:rgba(255,255,255,.25)}
 .pbmenu--togo .pb-note{opacity:.9}
+.pbmenu--togo .pb-price{color:#fff}
 .pbmenu--bars{background:var(--green);color:#fff}
 .pbmenu--bars .lab,.pbmenu--bars .menu-intro,.pbmenu--bars .pb-list li,.pbmenu--bars .pb-list li span:first-child,.pbmenu--bars .pb-note{color:#fff}
 .pbmenu--bars .menu-intro,.pbmenu--bars .pb-note{opacity:.85}
