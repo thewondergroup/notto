@@ -115,8 +115,12 @@ const LOYALTY_BANNER = `
 const LEAT_EMBED = ``;
 const LEAT_URL = 'https://forms.leat.com/forms/d51cb612-52a8-4226-aa46-cc75b34a19f5/public/custom';
 
-/* Gift vouchers — paste the voucher shop URL here. Until it's set, voucher
-   links show a short message rather than sending people to the loyalty form. */
+/* Gift vouchers — Leat gift card widget. The widget script is loaded the
+   first time someone clicks a Vouchers link, then opened. Set LEAT_WIDGET to
+   null to fall back to VOUCHER_URL (a plain link) or the "coming shortly" note.
+   Set LEAT_WIDGET.always to true to load the widget (and its floating button)
+   on every page load instead of on demand. */
+const LEAT_WIDGET = { widgetId:'3786', accountId:'ef2b6519-3ecd-45bf-b172-e7a7630fbc86', src:'https://widget.leat.com/widget.js', always:false };
 const VOUCHER_URL = '';
 
 const LOYALTY_MODAL = `
@@ -331,11 +335,36 @@ if(document.body.classList.contains('is-home') && WELCOME_OFFER.headline){
   }
 }
 
-/* ---- Vouchers ---- */
+/* ---- Vouchers (Leat gift card widget) ---- */
+let leatWidgetState = null; /* null | 'loading' | 'ready' */
+function loadLeatWidget(){
+  return new Promise((resolve,reject)=>{
+    if(window.PiggyWidget){ leatWidgetState='ready'; return resolve(window.PiggyWidget); }
+    if(leatWidgetState==='loading'){ window.addEventListener('piggyWidgetReady',()=>resolve(window.PiggyWidget),{once:true}); return; }
+    leatWidgetState='loading';
+    const s=document.createElement('script');
+    s.id='leat-widget-script'; s.defer=true; s.src=LEAT_WIDGET.src;
+    s.setAttribute('data-widget-id',LEAT_WIDGET.widgetId);
+    s.setAttribute('data-account-id',LEAT_WIDGET.accountId);
+    s.setAttribute('account-uuid',LEAT_WIDGET.accountId);
+    window.addEventListener('piggyWidgetReady',()=>{ leatWidgetState='ready'; resolve(window.PiggyWidget); },{once:true});
+    s.onerror=()=>{ leatWidgetState=null; reject(new Error('Leat widget failed to load')); };
+    document.body.appendChild(s);
+    /* belt and braces: if the ready event never fires but the API appears, resolve anyway */
+    let tries=0; const t=setInterval(()=>{ if(window.PiggyWidget){ clearInterval(t); leatWidgetState='ready'; resolve(window.PiggyWidget); } else if(++tries>50){ clearInterval(t); } },200);
+  });
+}
+function openVouchers(e){
+  if(e) e.preventDefault();
+  loadLeatWidget().then(w=>{ try{ w.open('giftcards'); }catch(err){ try{ w.open(); }catch(e2){} } })
+    .catch(()=>{ if(VOUCHER_URL) location.href=VOUCHER_URL; else alert('Gift vouchers are coming online shortly. In the meantime, ask in any NOTTO.'); });
+}
 document.querySelectorAll('[data-vouchers]').forEach(a=>{
+  if(LEAT_WIDGET){ a.addEventListener('click',openVouchers); return; }
   if(VOUCHER_URL){ a.href=VOUCHER_URL; a.target='_blank'; a.rel='noopener'; return; }
   a.addEventListener('click',e=>{ e.preventDefault(); alert('Gift vouchers are coming online shortly. In the meantime, ask in any NOTTO.'); });
 });
+if(LEAT_WIDGET && LEAT_WIDGET.always) loadLeatWidget().catch(()=>{});
 
 /* ---- Split hero: whole panel is clickable, buttons inside keep their own links ---- */
 document.querySelectorAll('.half[data-href]').forEach(h=>{

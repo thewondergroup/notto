@@ -60,3 +60,6 @@ The sign-up boxes post to the Mailchimp audience "NOTTO Pasta Bars" via the JSON
 
 ## Analytics
 Google Analytics 4 (gtag.js, property G-V3E3VKTVLT) is in the <head> of every page, straight after the opening tag.
+
+## Gift vouchers (Leat widget)
+Vouchers links load Leat's gift card widget on first click (`LEAT_WIDGET` in site.js: widget id 3786, account ef2b6519-...) and call `PiggyWidget.open('giftcards')`. Set `LEAT_WIDGET.always=true` to load it on every page (shows Leat's floating button). Note: Leat's snippet used `account-uuid`, but widget.js reads `data-account-id`; both are set. If the widget opens on the wrong tab, change the section name in `openVouchers()`.
