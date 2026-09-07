@@ -135,14 +135,14 @@ const FOOTER_HTML = `
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="index.html" class="mark" aria-label="NOTTO">NOTTO</a>
+        <a href="./" class="mark" aria-label="NOTTO">NOTTO</a>
         <p style="color:var(--on-green-mute);margin-top:14px;max-width:30ch">Fresh pasta, made every day. London, since 2021.</p>
       </div>
       <div>
         <h5>Order</h5>
         <ul>
           <li><a href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener" data-storekit="collect">Order online</a></li>
-          <li><a href="catering.html" data-storekit="catering">Catering</a></li>
+          <li><a href="catering" data-storekit="catering">Catering</a></li>
           <li><a href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a></li>
           <li><a href="#" data-vouchers>Vouchers</a></li>
         </ul>
@@ -150,20 +150,20 @@ const FOOTER_HTML = `
       <div>
         <h5>Discover</h5>
         <ul>
-          <li><a href="menus.html">Menus</a></li>
-          <li><a href="restaurants.html">Find us</a></li>
-          <li><a href="pre-theatre.html">Pre-theatre dining</a></li>
+          <li><a href="menus">Menus</a></li>
+          <li><a href="restaurants">Find us</a></li>
+          <li><a href="pre-theatre">Pre-theatre dining</a></li>
           <li><a href="#" data-leat="join">Loyalty scheme</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="allergens.html">Allergens</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="allergens">Allergens</a></li>
         </ul>
       </div>
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="events.html">Private dining</a></li>
-          <li><a href="careers.html">Work with us</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="events">Private dining</a></li>
+          <li><a href="careers">Work with us</a></li>
         </ul>
       </div>
       <div>
@@ -176,7 +176,7 @@ const FOOTER_HTML = `
     </div>
     <div class="foot-bar">
       <span>© 2026 NOTTO. 1 Broadgate · 198 Piccadilly · 4 Henrietta Street.</span>
-      <span><a href="privacy.html">Privacy</a> · <a href="allergens.html">Allergens</a> · <a href="terms.html">Terms</a></span>
+      <span><a href="privacy">Privacy</a> · <a href="allergens">Allergens</a> · <a href="terms">Terms</a></span>
     </div>
   </div>
 </footer>`;

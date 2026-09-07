@@ -48,3 +48,6 @@ The Cervo Neue font is the licensed version, self-hosted in /fonts/.
 - Focal point: add `pos:'50% 30%'` (CSS object-position) to an ASSETS entry to choose which part of a photo survives the crop — useful for portrait shots in landscape frames.
 - Menu items/prices: edit the `MENU` object in `menu-data.js`.
 - To show shoot labels again during a photo shoot: in `style.css`, set `.media[data-state="live"]:after { content: attr(data-shot); ... }`.
+
+## Clean URLs (no .html)
+All internal links, canonicals and the sitemap use extensionless paths (`/menus`, `/piccadilly`). GitHub Pages serves `menus.html` at `/menus` automatically, so the files keep their `.html` names. A Cloudflare redirect rule 301s any `/x.html` request to `/x` so old links and search results don't create duplicates.
