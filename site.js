@@ -176,7 +176,7 @@ const FOOTER_HTML = `
     </div>
     <div class="foot-bar">
       <span>© 2026 NOTTO. 1 Broadgate · 198 Piccadilly · 4 Henrietta Street.</span>
-      <span><a href="privacy">Privacy</a> · <a href="allergens">Allergens</a> · <a href="terms">Terms</a></span>
+      <span><a href="privacy">Privacy</a> · <a href="allergens">Allergens</a> · <a href="terms">Terms</a> · Made by <a class="credit" href="https://www.thewonderagency.co/" target="_blank" rel="noopener">The Wonder Agency</a></span>
     </div>
   </div>
 </footer>`;

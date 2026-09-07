@@ -922,3 +922,5 @@ footer a:hover{color:var(--orange)}
 .form--mc .consent input{margin-top:3px;accent-color:var(--green);width:16px;height:16px;flex:none}
 .form--mc .form-msg{margin:12px 0 0;font-size:14px;min-height:1.4em;color:#fff}
 .form--mc.is-error .form-msg{color:#fff;font-weight:600}
+
+.foot-bar .credit{font-family:"Julius Sans One",var(--body);letter-spacing:.06em;text-transform:uppercase;font-size:12px}

@@ -57,3 +57,6 @@ All catering enquiries go to alex@nottopastabars.com (mailto links on catering.h
 
 ## Newsletter (Mailchimp)
 The sign-up boxes post to the Mailchimp audience "NOTTO Pasta Bars" via the JSONP endpoint (no page reload). Config is `MAILCHIMP` at the bottom of site.js: action URL, honeypot field, and tag id 5907938 (the tag chosen on the "NOTTO website" embedded form). The consent checkbox is Mailchimp's GDPR field `gdpr[364998]`; it must be ticked or Mailchimp records no permission. Success/error messages show inline under the form.
+
+## Analytics
+Google Analytics 4 (gtag.js, property G-V3E3VKTVLT) is in the <head> of every page, straight after the opening tag.
