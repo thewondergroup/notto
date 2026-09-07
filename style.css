@@ -914,3 +914,11 @@ footer a:hover{color:var(--orange)}
   .mark{position:absolute;left:50%;transform:translateX(-50%)}
   .nav-toggle{margin-left:auto;position:relative;z-index:2}
 }
+
+/* ---- Mailchimp newsletter form ---- */
+.form--mc{display:block}
+.form--mc .form-row{display:flex;gap:8px}
+.form--mc .consent{display:flex;gap:10px;align-items:flex-start;justify-content:center;margin:14px auto 0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.88);cursor:pointer;text-align:left;max-width:520px}
+.form--mc .consent input{margin-top:3px;accent-color:var(--green);width:16px;height:16px;flex:none}
+.form--mc .form-msg{margin:12px 0 0;font-size:14px;min-height:1.4em;color:#fff}
+.form--mc.is-error .form-msg{color:#fff;font-weight:600}

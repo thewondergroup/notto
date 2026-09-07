@@ -51,3 +51,9 @@ The Cervo Neue font is the licensed version, self-hosted in /fonts/.
 
 ## Clean URLs (no .html)
 All internal links, canonicals and the sitemap use extensionless paths (`/menus`, `/piccadilly`). GitHub Pages serves `menus.html` at `/menus` automatically, so the files keep their `.html` names. A Cloudflare redirect rule 301s any `/x.html` request to `/x` so old links and search results don't create duplicates.
+
+## Catering enquiries
+All catering enquiries go to alex@nottopastabars.com (mailto links on catering.html with subject "Catering enquiry"). STOREKIT_URL.catering is unused unless a StoreKit catering flow is set up.
+
+## Newsletter (Mailchimp)
+The sign-up boxes post to the Mailchimp audience "NOTTO Pasta Bars" via the JSONP endpoint (no page reload). Config is `MAILCHIMP` at the bottom of site.js: action URL, honeypot field, and tag id 5907938 (the tag chosen on the "NOTTO website" embedded form). The consent checkbox is Mailchimp's GDPR field `gdpr[364998]`; it must be ticked or Mailchimp records no permission. Success/error messages show inline under the form.

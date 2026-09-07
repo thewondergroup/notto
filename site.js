@@ -344,3 +344,41 @@ document.querySelectorAll('.half[data-href]').forEach(h=>{
 
 /* run hydration */
 hydrate();
+
+/* ---- Newsletter (Mailchimp) ----
+   Posts to Mailchimp's JSONP endpoint so the visitor stays on the page.
+   Audience: NOTTO Pasta Bars. The gdpr[...] checkbox is the marketing
+   permission Mailchimp requires; "tags" is the Mailchimp tag id applied
+   to website sign-ups. */
+const MAILCHIMP = {
+  action: 'https://nottopastabar.us1.list-manage.com/subscribe/post-json?u=d24ae2077e79a2dae174205f9&id=9c331ba638&v_id=3764&f_id=00fd7ae5f0',
+  honeypot: 'b_d24ae2077e79a2dae174205f9_9c331ba638',
+  tags: '5907938'
+};
+document.querySelectorAll('form[data-mailchimp]').forEach((form,i)=>{
+  const email=form.querySelector('input[type=email]'), consent=form.querySelector('input[type=checkbox]'), msg=form.querySelector('.form-msg'), btn=form.querySelector('button');
+  if(i>0){ email.id='mc-email-'+i; form.querySelector('label[for=mc-email]').htmlFor=email.id; }
+  const say=(t,err)=>{ msg.textContent=t; form.classList.toggle('is-error',!!err); };
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!email.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) return say('Please enter a valid email address.',true);
+    if(consent && !consent.checked) return say('Please tick the box so we know you\u2019re happy to hear from us.',true);
+    const cb='mcCb'+Date.now();
+    const q=new URLSearchParams({EMAIL:email.value,tags:MAILCHIMP.tags,c:cb});
+    if(consent) q.append(consent.name,'Y');
+    q.append(MAILCHIMP.honeypot,'');
+    btn.disabled=true; say('One moment\u2026');
+    const s=document.createElement('script');
+    window[cb]=(r)=>{
+      btn.disabled=false; delete window[cb]; s.remove();
+      if(r.result==='success'){ say('You\u2019re in. Check your inbox.'); form.reset(); }
+      else{
+        const t=(r.msg||'').replace(/^\d+ - /,'').replace(/<[^>]+>/g,'');
+        say(/already subscribed/i.test(t)?'You\u2019re already on the list.':(t||'Something went wrong. Please try again.'),true);
+      }
+    };
+    s.src=MAILCHIMP.action+'&'+q.toString();
+    s.onerror=()=>{ btn.disabled=false; say('Something went wrong. Please try again.',true); };
+    document.body.appendChild(s);
+  });
+});

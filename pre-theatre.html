@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260907">
+<link rel="stylesheet" href="style.css?v=20260907c">
 <link rel="canonical" href="https://www.nottopasta.com/pre-theatre">
 <script type="application/ld+json">
 {
@@ -206,10 +206,14 @@
     <p class="lab">The inside track</p>
     <h2>Know what's on before <em>the queue does</em>.</h2>
     <p>New pastas, seasonal dishes, supper clubs, offers and the occasional free bowl. Twice a month. Never more.</p>
-    <form class="form" onsubmit="return false">
-      <label for="email" style="position:absolute;left:-9999px">Email address</label>
-      <input id="email" type="email" placeholder="you@work.com" required>
-      <button class="btn" type="submit">Sign up</button>
+    <form class="form form--mc" data-mailchimp novalidate>
+      <div class="form-row">
+        <label for="mc-email" style="position:absolute;left:-9999px">Email address</label>
+        <input id="mc-email" name="EMAIL" type="email" placeholder="you@work.com" required autocomplete="email">
+        <button class="btn" type="submit">Sign up</button>
+      </div>
+      <label class="consent"><input type="checkbox" name="gdpr[364998]" value="Y" required> <span>Yes, email me about new pastas, offers and events. Unsubscribe any time.</span></label>
+      <p class="form-msg" aria-live="polite"></p>
     </form>
     <small>Unsubscribe any time. We don't sell your details. We sell pasta.</small>
   </div>
@@ -218,6 +222,6 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="site.js?v=20260907"></script>
+<script src="site.js?v=20260907c"></script>
 </body>
 </html>
