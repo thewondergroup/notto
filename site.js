@@ -147,7 +147,7 @@ const FOOTER_HTML = `
         <ul>
           <li><a href="https://order.storekit.com/notto-broadgate/menu" target="_blank" rel="noopener" data-storekit="collect">Order online</a></li>
           <li><a href="catering" data-storekit="catering">Catering</a></li>
-          <li><a href="https://www.sevenrooms.com/explore/nottopastabars/reservations/create/search" target="_blank" rel="noopener">Book a table</a></li>
+          <li><a href="https://www.sevenrooms.com/reservations/nottopastabars?venues=nottopastabarscg,nottopastabar" target="_blank" rel="noopener">Book a table</a></li>
           <li><a href="#" data-vouchers>Vouchers</a></li>
         </ul>
       </div>
