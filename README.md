@@ -63,3 +63,10 @@ Google Analytics 4 (gtag.js, property G-V3E3VKTVLT) is in the <head> of every pa
 
 ## Gift vouchers (Leat widget)
 Vouchers links load Leat's gift card widget on first click (`LEAT_WIDGET` in site.js: widget id 3786, account ef2b6519-...) and call `PiggyWidget.open('giftcards')`. Set `LEAT_WIDGET.always=true` to load it on every page (shows Leat's floating button). Note: Leat's snippet used `account-uuid`, but widget.js reads `data-account-id`; both are set. If the widget opens on the wrong tab, change the section name in `openVouchers()`.
+
+## Sept 23 changes
+- Location cards on the home page are flex columns, so the button sits at the bottom of every card regardless of how many address lines it has.
+- Ordering for Piccadilly and Covent Garden points at their Deliveroo pages (StoreKit rollout paused). Broadgate stays on StoreKit. The two "both venues" Order online buttons (home page Sit down panel, menus page pasta bar section) link to restaurants#sit-down so people pick the venue first.
+- "Work with us" added to the main nav on every page.
+- Hamburger menu now kicks in at 1100px instead of 640px, since eight nav items plus two buttons no longer fit below that.
+- Favicon / site icon added: favicon.ico, apple-touch-icon.png, icon-192/512.png, site.webmanifest, all the NOTTO wordmark in white on brand green.

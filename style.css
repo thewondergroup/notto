@@ -297,14 +297,15 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1
 /* ============ LOCATIONS ============ */
 .locs{padding:100px 0}
 .loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
-.loc{border:1px solid var(--green-lo);overflow:hidden;transition:.25s}
+.loc{border:1px solid var(--green-lo);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
 .loc:hover{border-color:var(--orange)}
-.loc .media{aspect-ratio:3/2}
-.loc-body{padding:24px 26px 28px}
+.loc .media{aspect-ratio:3/2;flex:none}
+.loc-body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
 .loc-body h3{font-size:38px;line-height:.95;margin:8px 0 8px}
 .loc-body address{font-style:normal;font-size:14px;color:var(--green-mid);line-height:1.6}
 .loc-body .hours{margin-top:14px;padding-top:14px;border-top:1px solid var(--green-lo);font-size:13px;color:var(--green-mid);line-height:1.6}
-.loc-body .btn{margin-top:18px;width:100%}
+.loc-body .btn{margin-top:auto;width:100%;padding-top:14px;padding-bottom:14px}
+.loc-body .avail{margin-bottom:18px}
 
 /* ============ JOURNAL ============ */
 .journal{padding:0 0 100px}
@@ -368,7 +369,7 @@ footer a:hover{color:var(--orange)}
 .locs-h2{font-size:clamp(38px,4.6vw,66px);max-width:14ch;margin-top:14px}
 .locs-h2 em{font-style:normal;color:var(--orange)}
 .locs-intro{max-width:46ch;margin-top:16px;color:var(--green-mid);font-size:16px}
-.loc{border:1px solid var(--green-lo);overflow:hidden;transition:.25s;border-top:4px solid var(--green-lo)}
+.loc{border:1px solid var(--green-lo);overflow:hidden;transition:.25s;border-top:4px solid var(--green-lo);display:flex;flex-direction:column}
 .loc--togo{border-top-color:var(--orange)}
 .loc--bars{border-top-color:var(--green)}
 .loc-tag{display:inline-block;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px 4px;border-radius:2px;margin-bottom:10px;color:#fff}
@@ -496,9 +497,9 @@ footer a:hover{color:var(--orange)}
   .venue-body{order:2;padding:48px 28px}
   .venue-media .media{min-height:340px}
 }
-@media(max-width:640px){
+@media(max-width:1100px){
   .nav-links{
-    display:none;position:fixed;top:60px;left:0;right:0;bottom:0;
+    display:none;position:fixed;top:64px;left:0;right:0;bottom:0;
     background:var(--white);flex-direction:column;align-items:stretch;gap:0;
     margin:0;padding:16px 22px 40px;overflow-y:auto;z-index:90;border-top:1px solid var(--green-lo);
   }
@@ -519,6 +520,8 @@ footer a:hover{color:var(--orange)}
   .rest-card h4{font-size:24px;margin-bottom:2px}
   .rest-card p{font-size:13px}
   .rest-mega-foot{text-align:left;padding-top:8px}
+}
+@media(max-width:640px){
   .venue-cols{grid-template-columns:1fr;gap:16px}
   .pagehead{padding:60px 0 30px}
 }
@@ -740,7 +743,7 @@ footer a:hover{color:var(--orange)}
 .rest-mega-foot{grid-column:1 / -1;border-top:1px solid var(--green-lo);margin-top:2px;padding-top:12px;text-align:center}
 .rest-mega-foot a{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
 
-@media(max-width:640px){
+@media(max-width:1100px){
   .rest-mega{position:static;transform:none;width:100%;box-shadow:none;border:0;padding:0;grid-template-columns:1fr;display:none}
   .nav-item[data-open="true"] .rest-mega{display:grid;margin-top:10px}
 }
@@ -753,9 +756,9 @@ footer a:hover{color:var(--orange)}
 .nav[data-menu="open"] .nav-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
 .nav[data-menu="open"] .nav-toggle span:nth-child(2){opacity:0}
 .nav[data-menu="open"] .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-@media(max-width:640px){
+@media(max-width:1100px){
   .nav-toggle{display:flex}
-  .nav{position:relative}
+  .nav{position:relative;height:64px}
   /* move the Book/Order buttons into the open menu panel */
   .nav-right{display:none;position:fixed;top:auto;left:0;right:0;bottom:0;z-index:91;
     background:var(--white);border-top:1px solid var(--green-lo);padding:18px 22px 22px;gap:12px}
@@ -909,10 +912,14 @@ footer a:hover{color:var(--orange)}
   .quick-tile--vouchers{background:var(--white);color:var(--green)}
   .quick-tile--vouchers .lab{color:var(--orange)}
 }
-@media(max-width:640px){
+@media(max-width:1100px){
   .nav{position:relative;justify-content:center}
   .mark{position:absolute;left:50%;transform:translateX(-50%)}
   .nav-toggle{margin-left:auto;position:relative;z-index:2}
+}
+@media(max-width:640px){
+  .nav{height:60px}
+  .nav-links{top:60px}
 }
 
 /* ---- Mailchimp newsletter form ---- */
@@ -924,3 +931,12 @@ footer a:hover{color:var(--orange)}
 .form--mc.is-error .form-msg{color:#fff;font-weight:600}
 
 .foot-bar .credit{font-family:"Julius Sans One",var(--body);letter-spacing:.06em;text-transform:uppercase;font-size:12px}
+
+/* ---- nav: keep every item on one line, tighten between 1000 and 1300px ---- */
+.nav a,.nav .rest-mega a{white-space:nowrap}
+.rest-mega a,.rest-card p{white-space:normal}
+@media(min-width:1001px) and (max-width:1300px){
+  .nav{gap:20px}
+  .nav-right{gap:10px}
+  .nav-right .btn{padding:9px 12px 7px;font-size:11.5px;letter-spacing:.06em;white-space:nowrap}
+}
