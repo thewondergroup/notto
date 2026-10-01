@@ -12,7 +12,7 @@ media/ (six new files, nothing overwritten):
   festive-feast.jpg      hero for the Feast email
   festive-lunch.jpg      Lunchissimo
   festive-ravioli.jpg    winter menu
-  festive-cheers.jpg     SUPPER8
+  festive-cheers-2.jpg   SUPPER8
   festive-starter.jpg    spare
   festive-lunchbox.jpg   spare, for the Broadgate send
 
