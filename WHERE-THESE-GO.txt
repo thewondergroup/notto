@@ -1,0 +1,19 @@
+Changed files only — drop these into the repo, keeping the folder structure.
+
+Repo root:
+  menus.html          four festive offer cards
+  piccadilly.html     four festive offer cards
+  covent-garden.html  four festive offer cards
+  pre-theatre.html    old 5pm Supperclub removed
+  index.html          offer names updated
+  restaurants.html    offer names updated
+
+media/ (six new files, nothing overwritten):
+  festive-feast.jpg      hero for the Feast email
+  festive-lunch.jpg      Lunchissimo
+  festive-ravioli.jpg    winter menu
+  festive-cheers.jpg     SUPPER8
+  festive-starter.jpg    spare
+  festive-lunchbox.jpg   spare, for the Broadgate send
+
+Nothing else in the site has changed, so everything else can stay as it is.
