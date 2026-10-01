@@ -8,12 +8,23 @@ Repo root:
   index.html          offer names updated
   restaurants.html    offer names updated
 
-media/ (six new files, nothing overwritten):
+media/ — photos for the festive emails:
   festive-feast.jpg      hero for the Feast email
   festive-lunch.jpg      Lunchissimo
   festive-ravioli.jpg    winter menu
-  festive-cheers-2.jpg   SUPPER8
+  festive-cheers-2.jpg   SUPPER8 (re-cropped; the old festive-cheers.jpg is no longer used)
   festive-starter.jpg    spare
   festive-lunchbox.jpg   spare, for the Broadgate send
 
-Nothing else in the site has changed, so everything else can stay as it is.
+media/ — headline type for the emails, rendered in Cervo Neue so it
+survives email clients that cannot load the font:
+  em-logoG.png   NOTTO wordmark, green
+  em-logoW.png   NOTTO wordmark, white
+  em-hero.png    Lunch from £17.95 / Dinner from £24.95
+  em-hLunch.png  Festive Lunchissimo
+  em-hSupper.png SUPPER8
+  em-hWinter.png What you'll be choosing from
+  em-hFeast.png  The Feast £38pp
+  em-p1995.png / em-p1795.png / em-p2495.png / em-p2995.png  price tiles
+
+Nothing else in the site has changed.
