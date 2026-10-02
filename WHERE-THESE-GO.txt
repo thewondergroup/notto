@@ -1,30 +1,15 @@
-Changed files only — drop these into the repo, keeping the folder structure.
+Changed files — keep the folder structure.
 
 Repo root:
-  menus.html          four festive offer cards
-  piccadilly.html     four festive offer cards
-  covent-garden.html  four festive offer cards
-  pre-theatre.html    old 5pm Supperclub removed
-  index.html          offer names updated
-  restaurants.html    offer names updated
+  menus.html          offers now marked "from 1 November"; copy matched to the emails
+  piccadilly.html     same
+  covent-garden.html  same
+  style.css           styles for the date badge and the start-date line
 
-media/ — photos for the festive emails:
-  festive-feast.jpg      hero for the Feast email
-  festive-lunch.jpg      Lunchissimo
-  festive-ravioli.jpg    winter menu
-  festive-cheers-2.jpg   SUPPER8 (re-cropped; the old festive-cheers.jpg is no longer used)
-  festive-starter.jpg    spare
-  festive-lunchbox.jpg   spare, for the Broadgate send
-
-media/ — headline type for the emails, rendered in Cervo Neue so it
-survives email clients that cannot load the font:
-  em-logoG.png   NOTTO wordmark, green
-  em-logoW.png   NOTTO wordmark, white
-  em-hero.png    Lunch from £17.95 / Dinner from £24.95
-  em-hLunch.png  Festive Lunchissimo
-  em-hSupper.png SUPPER8
-  em-hWinter.png What you'll be choosing from
-  em-hFeast.png  The Feast £38pp
-  em-p1995.png / em-p1795.png / em-p2495.png / em-p2995.png  price tiles
-
-Nothing else in the site has changed.
+media/ — email type images, all lowercase names. These replace the earlier
+mixed-case em- files (em-hFeastG.png and so on), which is what caused the 404s.
+Safe to delete from media/ once these are up:
+  em-hFeast.png em-hFeastG.png em-hParty.png em-hNov.png em-hero2.png
+  em-hLunch.png em-hSupper.png em-hWinter.png em-quiet-hours.png
+  em-logoG.png em-logoW.png
+  em-p1995.png em-p1795.png em-p2495.png em-p2995.png
