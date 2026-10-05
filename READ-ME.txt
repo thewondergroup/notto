@@ -1,0 +1,11 @@
+NOTTO — "What's on" mailshot
+
+1. Upload the 8 files in media/ to the website repo's media/ folder
+   (thewondergroup/notto → media/). The email loads them from
+   www.nottopasta.com/media/ so they must be live BEFORE you send.
+
+2. In Mailchimp: Create > Email > Code your own > Paste in code.
+   Open email-whats-on.html in a text editor, select all, paste.
+
+3. Before sending, confirm the voucher link. It is currently
+   https://www.nottopastabars.com/shop/
