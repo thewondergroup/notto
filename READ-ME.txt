@@ -1,13 +1,22 @@
-NOTTO — "What's on" mailshot (v2)
+NOTTO — "What's on" mailshot
 
-1. Upload the files in media/ to the website repo's media/ folder
-   (thewondergroup/notto -> media/). The email loads them from
-   www.nottopasta.com/media/, so they must be live BEFORE you send.
+SITE FILES (upload to the repo BEFORE sending the email)
+  site.js            -> replaces the existing one. Adds two deep links:
+                        nottopasta.com/#vouchers opens the gift card widget
+                        nottopasta.com/#loyalty  opens the loyalty sign-up
+                        The email's voucher and loyalty buttons rely on these.
+  media/*.png        -> into the repo's media/ folder. The email loads them
+                        from www.nottopasta.com/media/.
 
-2. Mailchimp: Create > Email > Code your own > Paste in code.
-   Open email-whats-on.html in a text editor, select all, paste.
+MAILCHIMP
+  Create > Email > Code your own > Paste in code, then paste
+  email-whats-on.html
 
-3. Subject: Long lunch or late supper? Enjoy 25% off
+  Subject:      Long lunch or late supper? Enjoy 25% off
+  Preview text: 25% off food and drink, 2 to 5pm and 8pm onwards.
+                Plus suppers, lunches and vouchers.
 
-4. Before sending, confirm the voucher link. Currently
-   https://www.nottopastabars.com/shop/
+ORDER ONLINE LINKS USED
+  Covent Garden  Deliveroo
+  Piccadilly     Deliveroo
+  Broadgate      StoreKit (direct, no commission)

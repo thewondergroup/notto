@@ -366,6 +366,18 @@ document.querySelectorAll('[data-vouchers]').forEach(a=>{
 });
 if(LEAT_WIDGET && LEAT_WIDGET.always) loadLeatWidget().catch(()=>{});
 
+/* ---- Deep links from emails and ads ----
+   nottopasta.com/#vouchers  opens the gift card widget
+   nottopasta.com/#loyalty   opens the loyalty sign-up
+   Works on any page. The hash is cleared so a refresh does not reopen it. */
+function handleDeepLink(){
+  const h=(location.hash||'').toLowerCase();
+  if(h==='#vouchers'){ history.replaceState(null,'',location.pathname+location.search); setTimeout(()=>openVouchers(),250); }
+  else if(h==='#loyalty'||h==='#join'){ history.replaceState(null,'',location.pathname+location.search); setTimeout(()=>openLoyalty(),250); }
+}
+handleDeepLink();
+window.addEventListener('hashchange',handleDeepLink);
+
 /* ---- Split hero: whole panel is clickable, buttons inside keep their own links ---- */
 document.querySelectorAll('.half[data-href]').forEach(h=>{
   h.addEventListener('click',e=>{ if(e.target.closest('a')) return; location.href=h.dataset.href; });
