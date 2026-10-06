@@ -1,11 +1,13 @@
-NOTTO — "What's on" mailshot
+NOTTO — "What's on" mailshot (v2)
 
-1. Upload the 8 files in media/ to the website repo's media/ folder
-   (thewondergroup/notto → media/). The email loads them from
-   www.nottopasta.com/media/ so they must be live BEFORE you send.
+1. Upload the files in media/ to the website repo's media/ folder
+   (thewondergroup/notto -> media/). The email loads them from
+   www.nottopasta.com/media/, so they must be live BEFORE you send.
 
-2. In Mailchimp: Create > Email > Code your own > Paste in code.
+2. Mailchimp: Create > Email > Code your own > Paste in code.
    Open email-whats-on.html in a text editor, select all, paste.
 
-3. Before sending, confirm the voucher link. It is currently
+3. Subject: Long lunch or late supper? Enjoy 25% off
+
+4. Before sending, confirm the voucher link. Currently
    https://www.nottopastabars.com/shop/
