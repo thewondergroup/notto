@@ -1,22 +1,20 @@
-NOTTO — "What's on" mailshot
+NOTTO site update
 
-SITE FILES (upload to the repo BEFORE sending the email)
-  site.js            -> replaces the existing one. Adds two deep links:
-                        nottopasta.com/#vouchers opens the gift card widget
-                        nottopasta.com/#loyalty  opens the loyalty sign-up
-                        The email's voucher and loyalty buttons rely on these.
-  media/*.png        -> into the repo's media/ folder. The email loads them
-                        from www.nottopasta.com/media/.
+WHAT CHANGED
+  All 15 pages  -> Google Tag Manager container GTM-MXS835JV added.
+                   Head snippet first thing inside <head>, noscript
+                   iframe immediately after <body>, per Google's spec.
+  site.js       -> deep links added:
+                   nottopasta.com/#vouchers opens the gift card widget
+                   nottopasta.com/#loyalty  opens the loyalty sign-up
 
-MAILCHIMP
-  Create > Email > Code your own > Paste in code, then paste
-  email-whats-on.html
+HOW TO DEPLOY
+  Drop these files into the repo root, replacing the existing ones.
+  Then re-run the test in the Google Tag Manager install dialog.
 
-  Subject:      Long lunch or late supper? Enjoy 25% off
-  Preview text: 25% off food and drink, 2 to 5pm and 8pm onwards.
-                Plus suppers, lunches and vouchers.
-
-ORDER ONLINE LINKS USED
-  Covent Garden  Deliveroo
-  Piccadilly     Deliveroo
-  Broadgate      StoreKit (direct, no commission)
+NOTE ON GA4
+  Six pages (index, menus, piccadilly, covent-garden, pre-theatre,
+  restaurants) also carry a hardcoded GA4 gtag for G-V3E3VKTVLT.
+  The other nine pages have never had it.
+  Once GA4 is configured as a tag inside GTM, that hardcoded block
+  must come out of those six pages or they will count every visit twice.
