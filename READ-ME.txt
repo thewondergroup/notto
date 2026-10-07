@@ -13,8 +13,7 @@ HOW TO DEPLOY
   Then re-run the test in the Google Tag Manager install dialog.
 
 NOTE ON GA4
-  Six pages (index, menus, piccadilly, covent-garden, pre-theatre,
-  restaurants) also carry a hardcoded GA4 gtag for G-V3E3VKTVLT.
-  The other nine pages have never had it.
-  Once GA4 is configured as a tag inside GTM, that hardcoded block
-  must come out of those six pages or they will count every visit twice.
+  The hardcoded GA4 gtag (G-V3E3VKTVLT) has been removed from every page.
+  GA4 now loads only through GTM, as a Google Tag for G-V3E3VKTVLT
+  published in container GTM-MXS835JV. Do not add the gtag back,
+  or every visit will be counted twice.
