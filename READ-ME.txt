@@ -1,19 +1,19 @@
-NOTTO site update
+NOTTO — "What's on" mailshot (v3)
 
-WHAT CHANGED
-  All 15 pages  -> Google Tag Manager container GTM-MXS835JV added.
-                   Head snippet first thing inside <head>, noscript
-                   iframe immediately after <body>, per Google's spec.
-  site.js       -> deep links added:
-                   nottopasta.com/#vouchers opens the gift card widget
-                   nottopasta.com/#loyalty  opens the loyalty sign-up
+1. Upload everything in media/ to the repo's media/ folder. The email
+   loads these from www.nottopasta.com/media/, so they must be live
+   BEFORE you send. Two new photos this time (news-spread.jpg,
+   news-ragu.jpg) plus the new headline and tile images.
 
-HOW TO DEPLOY
-  Drop these files into the repo root, replacing the existing ones.
-  Then re-run the test in the Google Tag Manager install dialog.
+2. site.js from the previous pack must also be live, or the voucher
+   and loyalty buttons do nothing.
 
-NOTE ON GA4
-  The hardcoded GA4 gtag (G-V3E3VKTVLT) has been removed from every page.
-  GA4 now loads only through GTM, as a Google Tag for G-V3E3VKTVLT
-  published in container GTM-MXS835JV. Do not add the gtag back,
-  or every visit will be counted twice.
+3. Mailchimp: Create > Email > Code your own > Paste in code.
+
+   Subject:      Long lunch or late supper? Enjoy 25% off
+   Preview text: 25% off food and drink, 2 to 5pm and 8 to 9pm.
+                 Plus suppers, lunches and vouchers.
+
+4. Alternative headline image em-n-heroB.png ("Three very good reasons
+   for pasta") is in the pack if you want to swap it in. Find
+   em-n-heroA.png in the HTML and change the A to a B.
