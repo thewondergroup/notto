@@ -1,19 +1,15 @@
-NOTTO — "What's on" mailshot (v3)
+NOTTO — Lunchissimo no longer includes a drink
 
-1. Upload everything in media/ to the repo's media/ folder. The email
-   loads these from www.nottopasta.com/media/, so they must be live
-   BEFORE you send. Two new photos this time (news-spread.jpg,
-   news-ragu.jpg) plus the new headline and tile images.
+FOUR PAGES CHANGED
+  menus.html, piccadilly.html, covent-garden.html  — the Lunchissimo
+      offer card now reads "Your choice of pasta, our small side salad
+      and focaccia." Price stays in the box only.
+  pre-theatre.html — the matinee line no longer promises a drink.
 
-2. site.js from the previous pack must also be live, or the voucher
-   and loyalty buttons do nothing.
+These were taken from the LIVE repo, so the Google Tag Manager snippets
+(GTM-MXS835JV) are untouched: head snippet and noscript both present on
+all four. Nothing else on the pages has changed.
 
-3. Mailchimp: Create > Email > Code your own > Paste in code.
-
-   Subject:      Long lunch or late supper? Enjoy 25% off
-   Preview text: 25% off food and drink, 2 to 5pm and 8 to 9pm.
-                 Plus suppers, lunches and vouchers.
-
-4. Alternative headline image em-n-heroB.png ("Three very good reasons
-   for pasta") is in the pack if you want to swap it in. Find
-   em-n-heroA.png in the HTML and change the A to a B.
+NOT CHANGED
+  Festive Lunchissimo (from 1 November) still includes a drink at
+  £19.95 / £17.95. Tell me if that has changed too.
