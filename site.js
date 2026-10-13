@@ -96,9 +96,9 @@ const LOYALTY_BANNER = `
 <section class="loyal-banner" id="loyalty-signup">
   <div class="wrap">
     <div class="lb-text">
-      <p class="lab">NOTTO loyalty</p>
+      <p class="lab">NOTTO loyalty &middot; when you order direct</p>
       <h2>Eight pastas. The ninth is <em>on us</em>.</h2>
-      <p>Join NOTTO loyalty, collect a stamp with every pasta and your ninth is free. Simple as that.</p>
+      <p>Order direct from our website, collect a stamp with every pasta and your ninth is free. Simple as that.</p>
     </div>
     <div class="lb-form">
       <a class="btn btn--white" href="#" data-leat="join">Join NOTTO loyalty</a>
@@ -128,7 +128,7 @@ const LOYALTY_MODAL = `
   <div class="modal-backdrop" data-modal-close></div>
   <div class="modal-panel">
     <button class="modal-close" type="button" aria-label="Close" data-modal-close>&times;</button>
-    <p class="lab">NOTTO loyalty</p>
+    <p class="lab">NOTTO loyalty &middot; when you order direct</p>
     <h2 id="loyalty-modal-title">Eight pastas. The ninth is <em>on us</em>.</h2>
     <div class="modal-embed" id="leat-widget"></div>
   </div>
@@ -308,13 +308,13 @@ if(loyaltyModal){
 
 /* ---- Welcome offer popup (home page, once per visitor) ----
    Set WELCOME_OFFER to '' to switch it off. Opens the Leat sign-up. */
-const WELCOME_OFFER = { headline:'25% off your first <em>online order</em>.', body:'Sign up to NOTTO loyalty and we\'ll take 25% off your first order online. Then a stamp with every pasta, and the ninth on us.', cta:'Sign up & claim', delay:2500 };
+const WELCOME_OFFER = { headline:'25% off your first <em>online order</em>.', body:'Sign up to NOTTO loyalty and we\'ll take 25% off your first order online. Then a stamp with every pasta you order direct, and the ninth on us.', cta:'Sign up & claim', delay:2500 };
 const WELCOME_HTML = `
 <div class="modal" id="welcome-modal" hidden role="dialog" aria-modal="true" aria-labelledby="welcome-title">
   <div class="modal-backdrop" data-welcome-close></div>
   <div class="modal-panel modal-panel--welcome">
     <button class="modal-close" type="button" aria-label="Close" data-welcome-close>&times;</button>
-    <p class="lab">NOTTO loyalty</p>
+    <p class="lab">NOTTO loyalty &middot; when you order direct</p>
     <h2 id="welcome-title">${WELCOME_OFFER.headline}</h2>
     <p class="welcome-body">${WELCOME_OFFER.body}</p>
     <div class="venue-cta">

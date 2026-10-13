@@ -1,15 +1,15 @@
-NOTTO — Lunchissimo no longer includes a drink
+NOTTO site update — Lunchissimo + loyalty wording
 
-FOUR PAGES CHANGED
-  menus.html, piccadilly.html, covent-garden.html  — the Lunchissimo
-      offer card now reads "Your choice of pasta, our small side salad
-      and focaccia." Price stays in the box only.
-  pre-theatre.html — the matinee line no longer promises a drink.
+Upload all of these to the repo root, replacing the existing files.
+Built on the live versions, so Google Tag Manager is untouched on every page.
 
-These were taken from the LIVE repo, so the Google Tag Manager snippets
-(GTM-MXS835JV) are untouched: head snippet and noscript both present on
-all four. Nothing else on the pages has changed.
+LUNCHISSIMO (no drink)
+  menus.html, piccadilly.html, covent-garden.html, pre-theatre.html
 
-NOT CHANGED
-  Festive Lunchissimo (from 1 November) still includes a drink at
-  £19.95 / £17.95. Tell me if that has changed too.
+LOYALTY (direct online orders only, not in-restaurant, not Deliveroo)
+  index.html     homepage loyalty section
+  broadgate.html loyalty card
+  site.js        the site-wide loyalty banner, the sign-up pop-up and the
+                 welcome offer. This is the live site.js with ONLY the
+                 wording changed. It does NOT include the new event
+                 tracking; that comes later with the GTM setup.
