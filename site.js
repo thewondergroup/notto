@@ -96,12 +96,13 @@ const LOYALTY_BANNER = `
 <section class="loyal-banner" id="loyalty-signup">
   <div class="wrap">
     <div class="lb-text">
-      <p class="lab">NOTTO loyalty &middot; when you order direct</p>
+      <p class="lab">NOTTO Perks &middot; when you order direct</p>
       <h2>Eight pastas. The ninth is <em>on us</em>.</h2>
       <p>Order direct from our website, collect a stamp with every pasta and your ninth is free. Simple as that.</p>
     </div>
     <div class="lb-form">
-      <a class="btn btn--white" href="#" data-leat="join">Join NOTTO loyalty</a>
+      <a class="btn btn--white" href="#" data-leat="join">Join NOTTO Perks</a>
+      <a class="btn btn--white" href="#" data-vouchers>Gift a Feast</a>
       <small>Takes a minute. Lives on your phone. Free pasta.</small>
     </div>
   </div>
@@ -128,7 +129,7 @@ const LOYALTY_MODAL = `
   <div class="modal-backdrop" data-modal-close></div>
   <div class="modal-panel">
     <button class="modal-close" type="button" aria-label="Close" data-modal-close>&times;</button>
-    <p class="lab">NOTTO loyalty &middot; when you order direct</p>
+    <p class="lab">NOTTO Perks &middot; when you order direct</p>
     <h2 id="loyalty-modal-title">Eight pastas. The ninth is <em>on us</em>.</h2>
     <div class="modal-embed" id="leat-widget"></div>
   </div>
@@ -157,7 +158,7 @@ const FOOTER_HTML = `
           <li><a href="menus">Menus</a></li>
           <li><a href="restaurants">Find us</a></li>
           <li><a href="pre-theatre">Pre-theatre dining</a></li>
-          <li><a href="#" data-leat="join">Loyalty scheme</a></li>
+          <li><a href="perks">NOTTO Perks</a></li>
           <li><a href="about">About</a></li>
           <li><a href="allergens">Allergens</a></li>
         </ul>
@@ -275,7 +276,7 @@ function mountLeat(){
     slot.appendChild(tpl.content);
   } else if(LEAT_URL){
     const f=document.createElement('iframe');
-    f.src=LEAT_URL; f.title='Join NOTTO loyalty'; f.loading='lazy';
+    f.src=LEAT_URL; f.title='Join NOTTO Perks'; f.loading='lazy';
     slot.appendChild(f);
     const alt=document.createElement('p'); alt.className='modal-alt';
     alt.innerHTML='Form not showing? <a href="'+LEAT_URL+'" target="_blank" rel="noopener">Open it in a new tab →</a>';
@@ -308,13 +309,13 @@ if(loyaltyModal){
 
 /* ---- Welcome offer popup (home page, once per visitor) ----
    Set WELCOME_OFFER to '' to switch it off. Opens the Leat sign-up. */
-const WELCOME_OFFER = { headline:'25% off your first <em>online order</em>.', body:'Sign up to NOTTO loyalty and we\'ll take 25% off your first order online. Then a stamp with every pasta you order direct, and the ninth on us.', cta:'Sign up & claim', delay:2500 };
+const WELCOME_OFFER = { headline:'25% off your first <em>online order</em>.', body:'Join NOTTO Perks and we\'ll take 25% off your first order online. Then a stamp with every pasta you order direct, and the ninth on us.', cta:'Sign up & claim', delay:2500 };
 const WELCOME_HTML = `
 <div class="modal" id="welcome-modal" hidden role="dialog" aria-modal="true" aria-labelledby="welcome-title">
   <div class="modal-backdrop" data-welcome-close></div>
   <div class="modal-panel modal-panel--welcome">
     <button class="modal-close" type="button" aria-label="Close" data-welcome-close>&times;</button>
-    <p class="lab">NOTTO loyalty &middot; when you order direct</p>
+    <p class="lab">NOTTO Perks &middot; when you order direct</p>
     <h2 id="welcome-title">${WELCOME_OFFER.headline}</h2>
     <p class="welcome-body">${WELCOME_OFFER.body}</p>
     <div class="venue-cta">

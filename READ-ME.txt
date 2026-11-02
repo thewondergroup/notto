@@ -1,15 +1,26 @@
-NOTTO site update — Lunchissimo + loyalty wording
+NOTTO website — November menus (from 2 Nov)
 
-Upload all of these to the repo root, replacing the existing files.
-Built on the live versions, so Google Tag Manager is untouched on every page.
+Upload everything here to the repo root, replacing the existing files.
+Built on the live site, so Google Tag Manager is untouched on every page.
+Do NOT upload this READ-ME into the repo.
 
-LUNCHISSIMO (no drink)
-  menus.html, piccadilly.html, covent-garden.html, pre-theatre.html
+WHAT CHANGED
+  menus.html          New à la carte with all prices, premium pasta, new
+                      sweets. Cocktails split into Classics and Signatures,
+                      White Peach Bellini off. Set menus rebuilt.
+  piccadilly.html     Set menus rebuilt (same as menus page).
+  covent-garden.html  Set menus rebuilt.
+  pre-theatre.html    Supper Club before 6pm, new prices.
+  events.html         New event menus section and a "Book a group table"
+                      button straight into SevenRooms group booking.
+  perks.html          NEW PAGE: nottopasta.com/perks
+                      NOTTO Perks + gift vouchers + voucher rewards.
+                      This is the URL for the QR code on the printed menus.
+  site.js             Loyalty renamed NOTTO Perks, plus a Gift a Feast button
+                      on the banner that appears on every page.
+  every other page    Nav link "Loyalty" now "Perks" and goes to the new page.
+  sitemap.xml         Perks page added.
 
-LOYALTY (direct online orders only, not in-restaurant, not Deliveroo)
-  index.html     homepage loyalty section
-  broadgate.html loyalty card
-  site.js        the site-wide loyalty banner, the sign-up pop-up and the
-                 welcome offer. This is the live site.js with ONLY the
-                 wording changed. It does NOT include the new event
-                 tracking; that comes later with the GTM setup.
+ALSO WORTH DOING
+  Delete email-whats-on.html and READ-ME.txt from the repo root. They were
+  uploaded by mistake and are publicly visible.
