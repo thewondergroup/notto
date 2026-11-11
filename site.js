@@ -167,7 +167,7 @@ const FOOTER_HTML = `
         <h5>Company</h5>
         <ul>
           <li><a href="contact">Contact</a></li>
-          <li><a href="events">Private dining</a></li>
+          <li><a href="events">Groups &amp; events</a></li>
           <li><a href="careers">Work with us</a></li>
         </ul>
       </div>
