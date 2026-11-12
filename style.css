@@ -982,9 +982,10 @@ footer a:hover{color:var(--orange)}
 
 
 /* ---- nav captions: groups vs catering ---- */
-.nav-links a .nav-cap{display:block;font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:none;color:var(--green-mid);line-height:1.1;margin-top:1px}
-.nav-links a[aria-current="page"] .nav-cap{color:var(--green-mid)}
-@media(max-width:1100px){.nav-links a .nav-cap{font-size:13px;margin-top:4px}}
+/* desktop bar: captions hidden so every item sits on one clean line */
+.nav-links a .nav-cap{display:none}
+/* mobile menu: a quiet one-line hint under the item */
+@media(max-width:1100px){.nav-links a .nav-cap{display:block;font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--green-mid);line-height:1.2;margin-top:4px}}
 
 /* ---- homepage promo pop-up ---- */
 .promo-panel{max-width:860px;padding:0;overflow:hidden}
