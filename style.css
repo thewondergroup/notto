@@ -979,3 +979,66 @@ footer a:hover{color:var(--orange)}
 .pbmenu--togo .pb-list li em{display:block;margin:3px 0 4px;font-size:13px;color:rgba(255,255,255,.82)}
 .pb-intro{margin-top:4px;font-size:15px}
 @media(min-width:1001px) and (max-width:1380px){.nav-links{gap:14px}.nav-links a{font-size:16px}}
+
+
+/* ---- nav captions: groups vs catering ---- */
+.nav-links a .nav-cap{display:block;font-family:var(--body);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:none;color:var(--green-mid);line-height:1.1;margin-top:1px}
+.nav-links a[aria-current="page"] .nav-cap{color:var(--green-mid)}
+@media(max-width:1100px){.nav-links a .nav-cap{font-size:13px;margin-top:4px}}
+
+/* ---- homepage promo pop-up ---- */
+.promo-panel{max-width:860px;padding:0;overflow:hidden}
+.promo-slide{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+.promo-slide[hidden]{display:none}
+.promo-img img{width:100%;height:100%;object-fit:cover;display:block}
+.promo-body{padding:48px 40px 28px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.promo-body h2{font-family:var(--display);font-size:clamp(32px,3.4vw,46px);line-height:.95;text-transform:uppercase;margin:0}
+.promo-body h2 em{font-style:normal;color:var(--orange)}
+.promo-body p{margin:0;color:var(--green-mid);font-size:16px;max-width:36ch}
+.promo-body .btn{align-self:flex-start;margin-top:8px}
+.promo-nav{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 16px 16px;border-top:1px solid var(--green-lo)}
+.promo-arrow{width:44px;height:44px;border:1px solid var(--green-lo);background:#fff;color:var(--green);border-radius:50%;font-size:18px;cursor:pointer}
+.promo-dots{display:flex;gap:8px}
+.promo-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--green);background:transparent;padding:0;cursor:pointer}
+.promo-dot[aria-current]{background:var(--green)}
+@media(max-width:640px){.promo-slide{grid-template-columns:1fr;min-height:0}.promo-img img{height:200px}.promo-body{padding:26px 22px 18px}}
+
+/* ---- catering: order online band ---- */
+.cat-order{background:var(--off,#F3F1EB);padding:64px 0}
+.cat-order-wrap{display:flex;flex-wrap:wrap;gap:28px 56px;align-items:center;justify-content:space-between}
+.cat-order h2{font-family:var(--display);font-size:clamp(32px,3.6vw,52px);line-height:.95;text-transform:uppercase;margin:8px 0 12px}
+.cat-order h2 em{font-style:normal;color:var(--orange)}
+.cat-order p{max-width:52ch;color:var(--green-mid)}
+.cat-order-cta{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---- enquiry forms ---- */
+.enq-section{padding:88px 0;background:#fff}
+.enq-section--cream{background:var(--off,#F3F1EB)}
+.enq-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:56px;align-items:start}
+.enq-head h2{font-family:var(--display);font-size:clamp(36px,4vw,60px);line-height:.95;text-transform:uppercase;margin:8px 0 16px}
+.enq-head h2 em{font-style:normal;color:var(--orange)}
+.enq-head p{color:var(--green-mid);max-width:40ch}
+.enq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px}
+.enq-field{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--green)}
+.enq-field--full{grid-column:1/-1}
+.enq-req{color:var(--orange);margin-left:2px}
+.enq-hint{font-weight:400;color:var(--green-mid);font-size:13px}
+.enq-field input,.enq-field select,.enq-field textarea{font:inherit;font-weight:400;font-size:16px;color:var(--green);background:#fff;border:1px solid rgba(29,51,29,.35);border-radius:3px;min-height:48px;padding:10px 14px}
+.enq-field textarea{resize:vertical;min-height:110px}
+.enq-field input[type=file]{padding:10px;border-style:dashed}
+.enq-field input:focus,.enq-field select:focus,.enq-field textarea:focus{outline:3px solid var(--orange);outline-offset:1px;border-color:var(--green)}
+.enq-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.enq-check{display:flex;gap:10px;align-items:center;margin-top:18px;font-size:15px}
+.enq-check input{width:20px;height:20px}
+.enquiry .btn{margin-top:22px}
+.enq-msg{margin-top:12px;font-size:15px;font-weight:600;min-height:1.4em}
+.enquiry.is-error .enq-msg{color:#B3261E}
+.enq-legal{margin-top:12px;font-size:12px;line-height:1.55;color:var(--green-mid);max-width:70ch}
+.enq-legal a{color:inherit;text-decoration:underline}
+.grecaptcha-badge{visibility:hidden}
+.enq-done{padding:28px;border:2px solid var(--green);border-radius:4px;background:#fff}
+.enq-done h3{font-family:var(--display);font-size:32px;text-transform:uppercase;margin:0 0 8px}
+.enq-done-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+@media(max-width:900px){.enq-wrap{grid-template-columns:1fr;gap:28px}}
+@media(max-width:560px){.enq-grid{grid-template-columns:1fr}}
+.promo .modal-close{background:#fff;z-index:2;box-shadow:0 2px 10px rgba(0,0,0,.15)}

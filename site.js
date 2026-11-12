@@ -158,7 +158,7 @@ const FOOTER_HTML = `
           <li><a href="menus">Menus</a></li>
           <li><a href="restaurants">Find us</a></li>
           <li><a href="pre-theatre">Pre-theatre dining</a></li>
-          <li><a href="perks">NOTTO Perks</a></li>
+          <li><a href="perks">Loyalty</a></li>
           <li><a href="about">About</a></li>
           <li><a href="allergens">Allergens</a></li>
         </ul>
@@ -247,7 +247,7 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAllMega(); })
 /* ---- StoreKit ordering routes ---- */
 const STOREKIT_URL = {
   collect:  'https://order.storekit.com/notto-broadgate/menu',
-  catering: ''   /* paste the StoreKit catering URL here when it exists */
+  catering: ''   /* paste the StoreKit CATERING url here; until then catering buttons use the Broadgate menu */
 };
 document.querySelectorAll('[data-storekit]').forEach(a=>{
   const url=STOREKIT_URL[a.dataset.storekit];
@@ -307,32 +307,67 @@ if(loyaltyModal){
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLoyalty(); });
 }
 
-/* ---- Welcome offer popup (home page, once per visitor) ----
-   Set WELCOME_OFFER to '' to switch it off. Opens the Leat sign-up. */
-const WELCOME_OFFER = { headline:'25% off your first <em>online order</em>.', body:'Join NOTTO Perks and we\'ll take 25% off your first order online. Then a stamp with every pasta you order direct, and the ninth on us.', cta:'Sign up & claim', delay:2500 };
-const WELCOME_HTML = `
-<div class="modal" id="welcome-modal" hidden role="dialog" aria-modal="true" aria-labelledby="welcome-title">
-  <div class="modal-backdrop" data-welcome-close></div>
-  <div class="modal-panel modal-panel--welcome">
-    <button class="modal-close" type="button" aria-label="Close" data-welcome-close>&times;</button>
-    <p class="lab">NOTTO Perks &middot; when you order direct</p>
-    <h2 id="welcome-title">${WELCOME_OFFER.headline}</h2>
-    <p class="welcome-body">${WELCOME_OFFER.body}</p>
-    <div class="venue-cta">
-      <a class="btn" href="#" data-leat="join" data-welcome-close>${WELCOME_OFFER.cta}</a>
-      <a class="btn btn--line" href="#" data-welcome-close>Not now</a>
+/* ---- Homepage promo pop-up: rotates through five slides ----
+   Shown once per browser session on the home page, after PROMO_DELAY ms.
+   Edit the slides here. Set PROMO_SLIDES = [] to switch it off. */
+const PROMO_DELAY = 4000;
+const PROMO_SLIDES = [
+  { id:'groups',   img:'media/spread.jpg',         lab:'Groups &amp; events &middot; 6 or more', title:'Christmas, <em>sorted</em>.', body:'One menu for the whole table, from &pound;25 a head at Piccadilly and Covent Garden.', cta:'Book for 6 or more', href:'events' },
+  { id:'catering', img:'media/catering.jpg',       lab:'Catering &middot; delivered to you',     title:'Feed the <em>whole office</em>.', body:'Fresh pasta, salads and focaccia for meetings, team lunches and everything in between.', cta:'See catering', href:'catering' },
+  { id:'loyalty',  img:'media/bowl-rigatoni.jpg',  lab:'NOTTO Perks &middot; loyalty',            title:'Eight pastas. The ninth is <em>on us</em>.', body:'Order direct from our website and collect a stamp with every pasta.', cta:'Join NOTTO Perks', attr:'data-leat="join"' },
+  { id:'vouchers', img:'media/festive-cheers-2.jpg', lab:'Gift vouchers',                         title:'Give them a taste of <em>NOTTO</em>.', body:'Any amount from &pound;25, or gift a whole Feast. Valid for 12 months.', cta:'Buy a voucher', attr:'data-vouchers' },
+  { id:'order',    img:'media/lunchbox.jpg',       lab:'Broadgate &middot; order online',        title:'Lunch, <em>sorted</em>.', body:'Order ahead for collection or delivery in the City.', cta:'Order online', href:'https://order.storekit.com/notto-broadgate/menu', ext:true }
+];
+if(document.body.classList.contains('is-home') && PROMO_SLIDES.length){
+  let seen=false; try{ seen=sessionStorage.getItem('notto-promo')==='1'; }catch(e){}
+  if(!seen){
+    const slides=PROMO_SLIDES.map((p,i)=>`
+      <div class="promo-slide" data-promo="${p.id}" ${i?'hidden':''} role="group" aria-roledescription="slide" aria-label="${i+1} of ${PROMO_SLIDES.length}">
+        <div class="promo-img"><img src="${p.img}" alt="" loading="lazy"></div>
+        <div class="promo-body">
+          <p class="lab">${p.lab}</p>
+          <h2>${p.title}</h2>
+          <p>${p.body}</p>
+          <a class="btn" ${p.attr||''} href="${p.href||'#'}" ${p.ext?'target="_blank" rel="noopener"':''} data-promo-cta="${p.id}">${p.cta}</a>
+        </div>
+      </div>`).join('');
+    const dots=PROMO_SLIDES.map((p,i)=>`<button type="button" class="promo-dot" aria-label="Show slide ${i+1}" data-promo-go="${i}"${i?'':' aria-current="true"'}></button>`).join('');
+    document.body.insertAdjacentHTML('beforeend',`
+<div class="modal promo" id="promo-modal" hidden role="dialog" aria-modal="true" aria-roledescription="carousel" aria-label="What's on at NOTTO">
+  <div class="modal-backdrop" data-promo-close></div>
+  <div class="modal-panel promo-panel">
+    <button class="modal-close" type="button" aria-label="Close" data-promo-close>&times;</button>
+    <div class="promo-track">${slides}</div>
+    <div class="promo-nav">
+      <button type="button" class="promo-arrow" aria-label="Previous" data-promo-step="-1">&#8592;</button>
+      <div class="promo-dots">${dots}</div>
+      <button type="button" class="promo-arrow" aria-label="Next" data-promo-step="1">&#8594;</button>
     </div>
   </div>
-</div>`;
-if(document.body.classList.contains('is-home') && WELCOME_OFFER.headline){
-  let seen=false; try{ seen=localStorage.getItem('notto-welcome')==='1'; }catch(e){}
-  if(!seen){
-    document.body.insertAdjacentHTML('beforeend',WELCOME_HTML);
-    const wm=document.getElementById('welcome-modal');
-    const closeW=()=>{ wm.hidden=true; document.body.style.overflow=''; try{ localStorage.setItem('notto-welcome','1'); }catch(e){} };
-    wm.querySelectorAll('[data-welcome-close]').forEach(el=>el.addEventListener('click',e=>{ if(!el.hasAttribute('data-leat')) e.preventDefault(); closeW(); }));
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeW(); });
-    setTimeout(()=>{ if(!loyaltyModal || loyaltyModal.hidden){ wm.hidden=false; document.body.style.overflow='hidden'; } },WELCOME_OFFER.delay);
+</div>`);
+    const pm=document.getElementById('promo-modal');
+    const all=[...pm.querySelectorAll('.promo-slide')], dotEls=[...pm.querySelectorAll('.promo-dot')];
+    let cur=0, timer=null;
+    const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const show=i=>{ cur=(i+all.length)%all.length; all.forEach((s,k)=>s.hidden=k!==cur); dotEls.forEach((d,k)=>d.toggleAttribute('aria-current',k===cur)); };
+    const stop=()=>{ clearInterval(timer); timer=null; };
+    const play=()=>{ if(reduce||timer) return; timer=setInterval(()=>show(cur+1),5500); };
+    const close=()=>{ pm.hidden=true; document.body.style.overflow=''; stop(); try{ sessionStorage.setItem('notto-promo','1'); }catch(e){} };
+    pm.querySelectorAll('[data-promo-close]').forEach(el=>el.addEventListener('click',close));
+    pm.querySelectorAll('[data-promo-step]').forEach(el=>el.addEventListener('click',()=>{ stop(); show(cur+(+el.dataset.promoStep)); }));
+    pm.querySelectorAll('[data-promo-go]').forEach(el=>el.addEventListener('click',()=>{ stop(); show(+el.dataset.promoGo); }));
+    pm.querySelector('.promo-panel').addEventListener('mouseenter',stop);
+    pm.querySelector('.promo-panel').addEventListener('focusin',stop);
+    pm.querySelectorAll('[data-promo-cta]').forEach(el=>el.addEventListener('click',()=>{
+      try{ (window.dataLayer=window.dataLayer||[]).push({event:'promo_click',promo:el.dataset.promoCta}); }catch(e){}
+      close();
+    }));
+    document.addEventListener('keydown',e=>{ if(pm.hidden) return; if(e.key==='Escape') close(); if(e.key==='ArrowRight'){stop();show(cur+1);} if(e.key==='ArrowLeft'){stop();show(cur-1);} });
+    setTimeout(()=>{
+      if(typeof loyaltyModal!=='undefined' && loyaltyModal && !loyaltyModal.hidden) return;
+      pm.hidden=false; document.body.style.overflow='hidden'; play();
+      const c=pm.querySelector('.modal-close'); if(c) c.focus();
+    },PROMO_DELAY);
   }
 }
 
@@ -424,3 +459,87 @@ document.querySelectorAll('form[data-mailchimp]').forEach((form,i)=>{
     document.body.appendChild(s);
   });
 });
+
+/* =====================================================================
+   ENQUIRY FORMS (contact, groups & events, catering, careers)
+   Submissions go to a Google Apps Script that checks reCAPTCHA, saves a
+   row in the NOTTO enquiries Google Sheet and emails the right person.
+   Paste the two values below once the script is deployed:
+     ENQUIRY_ENDPOINT    the Apps Script web app URL (ends in /exec)
+     RECAPTCHA_SITE_KEY  the reCAPTCHA v3 SITE key (the public one)
+   The reCAPTCHA SECRET key never goes in this file.
+   ===================================================================== */
+const ENQUIRY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw6I_fFteqfYYj3BPndlJa0XjX9kpfR7sMIKMSSNkNTbNbMAa7Cw1S1wpiHIgFZLUuH9w/exec';
+const RECAPTCHA_SITE_KEY = '';
+const CATERING_PACK_URL = 'media/notto-catering-pack.pdf';
+
+/* remember where a visitor came from, so every lead carries its ad source */
+(function(){
+  try{
+    const q=new URLSearchParams(location.search), keep={};
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'].forEach(k=>{ if(q.get(k)) keep[k]=q.get(k); });
+    if(Object.keys(keep).length) sessionStorage.setItem('notto-src',JSON.stringify(keep));
+    if(!sessionStorage.getItem('notto-landing')) sessionStorage.setItem('notto-landing',location.pathname);
+  }catch(e){}
+})();
+
+const enquiryForms=document.querySelectorAll('form[data-enquiry]');
+if(enquiryForms.length){
+  if(RECAPTCHA_SITE_KEY){
+    const r=document.createElement('script');
+    r.src='https://www.google.com/recaptcha/api.js?render='+encodeURIComponent(RECAPTCHA_SITE_KEY); r.async=true;
+    document.head.appendChild(r);
+  }
+  /* preselect a topic from a link (data-enquiry-topic) or the URL (?topic=allergens) */
+  const pick=(form,val)=>{ const s=form.querySelector('select[name="topic"]'); if(!s||!val) return;
+    const o=[...s.options].find(o=>o.text.toLowerCase().indexOf(val.toLowerCase())===0); if(o) s.value=o.value||o.text; };
+  const qTopic=new URLSearchParams(location.search).get('topic');
+  if(qTopic) enquiryForms.forEach(f=>pick(f,qTopic));
+  document.querySelectorAll('[data-enquiry-topic]').forEach(a=>a.addEventListener('click',()=>{
+    enquiryForms.forEach(f=>pick(f,a.dataset.enquiryTopic));
+  }));
+  const pack=document.querySelectorAll('[data-pack]');
+  pack.forEach(a=>{ a.href=CATERING_PACK_URL; a.addEventListener('click',()=>{ try{ (window.dataLayer=window.dataLayer||[]).push({event:'catering_pack_download'}); }catch(e){} }); });
+
+  const readFile=f=>new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(String(r.result).split(',')[1]); r.onerror=rej; r.readAsDataURL(f); });
+  const token=action=>new Promise(res=>{
+    if(!RECAPTCHA_SITE_KEY||!window.grecaptcha) return res('');
+    grecaptcha.ready(()=>grecaptcha.execute(RECAPTCHA_SITE_KEY,{action}).then(res).catch(()=>res('')));
+  });
+
+  if(!RECAPTCHA_SITE_KEY) document.querySelectorAll('.enq-rc').forEach(el=>el.remove());
+  enquiryForms.forEach(form=>{
+    const started=Date.now();
+    const kind=form.dataset.enquiry, msg=form.querySelector('.enq-msg'), btn=form.querySelector('button[type="submit"]');
+    const done=form.nextElementSibling && form.nextElementSibling.classList.contains('enq-done') ? form.nextElementSibling : null;
+    const say=(t,err)=>{ msg.textContent=t; form.classList.toggle('is-error',!!err); };
+    form.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const bad=[...form.querySelectorAll('[required]')].find(el=>!String(el.value).trim());
+      if(bad){ say('Please fill in the fields marked *.',true); bad.focus(); return; }
+      const em=form.querySelector('input[type="email"]');
+      if(em && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value)){ say('Please check your email address.',true); em.focus(); return; }
+      if(!ENQUIRY_ENDPOINT){ say('Sorry, our form isn’t connected yet. Please call the restaurant and we’ll help.',true); return; }
+      const data={form_type:kind, page:location.pathname, elapsed:Date.now()-started};
+      new FormData(form).forEach((v,k)=>{ if(!(v instanceof File)) data[k]=v; });
+      try{ Object.assign(data, JSON.parse(sessionStorage.getItem('notto-src')||'{}')); data.landing_page=sessionStorage.getItem('notto-landing')||''; }catch(err){}
+      const file=form.querySelector('input[type="file"]');
+      if(file && file.files[0]){
+        if(file.files[0].size>5*1024*1024){ say('Please keep your CV under 5MB.',true); return; }
+        data.file={ name:file.files[0].name, type:file.files[0].type, data:await readFile(file.files[0]) };
+      }
+      btn.disabled=true; say('Sending…');
+      data.token=await token(kind);
+      try{
+        const r=await fetch(ENQUIRY_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
+        const out=await r.json();
+        if(!out.ok) throw new Error(out.message||'');
+        try{ (window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',form_type:kind}); }catch(err){}
+        form.reset(); say('');
+        if(done){ form.hidden=true; done.hidden=false; done.focus(); } else say('Thanks, we’ve got it.');
+      }catch(err){
+        say(err.message||'Something went wrong. Please try again, or call the restaurant.',true);
+      }finally{ btn.disabled=false; }
+    });
+  });
+}

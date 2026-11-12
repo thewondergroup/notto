@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=Julius+Sans+One&display=swap" rel="stylesheet">
 <link rel="canonical" href="https://www.nottopasta.com/catering">
-<link rel="stylesheet" href="style.css?v=20261111">
+<link rel="stylesheet" href="style.css?v=20261112">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -54,11 +54,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <a href="menus">Menus</a>
-      <a href="catering" aria-current="page">Catering</a>
-      <a href="events">Groups</a>
-      <a href="about">About</a>
-      <a href="careers">Work with us</a>
-      <a href="perks">Perks</a>
+      <a href="events">Groups &amp; events<span class="nav-cap">In our restaurants</span></a>
+      <a href="catering" aria-current="page">Catering<span class="nav-cap">Delivered to you</span></a>
+      <a href="perks">Loyalty</a>
       <a href="#" data-vouchers>Vouchers</a>
     </nav>
     <div class="nav-right">
@@ -78,8 +76,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1>One order feeds a <span style="color:var(--green)">whole floor</span>.</h1>
       <p>Team lunches, client meetings, the thing at 4pm nobody planned. Fresh pasta, salads, burrata and focaccia, in quantities that make sense, delivered to your door.</p>
       <div class="venue-cta">
-        <a class="btn btn--white" href="mailto:alex@nottopastabars.com?subject=Catering%20enquiry">Get a quote</a>
-        <a class="btn btn--ghostW" href="menus">See the menu</a>
+        <a class="btn btn--white" href="https://order.storekit.com/notto-broadgate/menu" data-storekit="catering" target="_blank" rel="noopener">Order catering online</a>
+        <a class="btn btn--ghostW" href="#catering-form">Get a quote</a>
       </div>
     </div>
   </div>
@@ -112,6 +110,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ORDER ONLINE -->
+<section class="cat-order">
+  <div class="wrap cat-order-wrap">
+    <div>
+      <p class="lab lab--green">Order online</p>
+      <h2>Know what you want? <em>Order it now</em>.</h2>
+      <p>Choose from the catering menu and book your delivery online. For anything bespoke, or for big numbers, send us a quick enquiry below.</p>
+    </div>
+    <div class="cat-order-cta">
+      <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" data-storekit="catering" target="_blank" rel="noopener">Order catering online</a>
+      <a class="btn btn--line" href="#catering-form">Get a quote</a>
+    </div>
+  </div>
+</section>
+
 <!-- WHY NOTTO -->
 <section class="venue-offer">
   <div class="wrap">
@@ -123,8 +136,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="offer"><div class="media" data-type="image" data-shot="Delivery to office reception" data-asset="catDelivery"></div><h4>Delivered to your door</h4><p>To your office, on your schedule and ready to serve.</p></div>
     </div>
     <div class="venue-cta" style="margin-top:36px">
-      <a class="btn" href="mailto:alex@nottopastabars.com?subject=Catering%20enquiry">Get a catering quote</a>
-      <a class="btn btn--line" href="mailto:alex@nottopastabars.com?subject=Catering%20enquiry">Email us</a>
+      <a class="btn" href="https://order.storekit.com/notto-broadgate/menu" data-storekit="catering" target="_blank" rel="noopener">Order catering online</a>
+      <a class="btn btn--line" href="#catering-form">Get a quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="enq-section enq-section--cream" id="catering-form">
+  <div class="wrap enq-wrap">
+    <div class="enq-head">
+      <p class="lab">Catering enquiries</p>
+      <h2>Get a <em>quote</em>.</h2>
+      <p>Tell us about the order and we&rsquo;ll send our catering pack straight away, then come back with a quote.</p>
+    </div>
+    <form class="enquiry" data-enquiry="catering" novalidate>
+      <div class="enq-grid">
+      <label class="enq-field"><span class="enq-label">Your name<span class="enq-req" aria-hidden="true">*</span></span><input name="name" type="text" required autocomplete="name"></label>
+      <label class="enq-field"><span class="enq-label">Company</span><input name="company" type="text"></label>
+      <label class="enq-field"><span class="enq-label">Email<span class="enq-req" aria-hidden="true">*</span></span><input name="email" type="email" required autocomplete="email"></label>
+      <label class="enq-field"><span class="enq-label">Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
+      <label class="enq-field"><span class="enq-label">Date needed</span><input name="date" type="date"></label>
+      <label class="enq-field"><span class="enq-label">Number of people</span><input name="guests" type="number" min="1" inputmode="numeric"></label>
+      <label class="enq-field"><span class="enq-label">Delivery postcode</span><input name="postcode" type="text" autocomplete="postal-code"></label>
+      <label class="enq-field"><span class="enq-label">Occasion</span><select name="occasion"><option value="">Choose one</option><option>Team lunch</option><option>Client meeting</option><option>Office event</option><option>Party</option><option>Something else</option></select></label>
+      <label class="enq-field enq-field--full"><span class="enq-label">Anything else we should know?</span><textarea name="message" rows="4"></textarea></label>
+      </div>
+      <label class="enq-hp" aria-hidden="true">Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+      <label class="enq-check"><input type="checkbox" name="marketing" value="yes"> Send me NOTTO news and offers too</label>
+      <button class="btn" type="submit">Send &amp; get the catering pack</button>
+      <p class="enq-msg" role="status" aria-live="polite"></p>
+      <p class="enq-legal">We&rsquo;ll only use your details to reply to this enquiry. See our <a href="privacy">privacy policy</a>. <span class="enq-rc">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</span></p>
+    </form>
+    <div class="enq-done" hidden tabindex="-1">
+      <h3>Thanks. Your catering pack is ready.</h3>
+      <p>We&rsquo;ll be in touch with a quote. In the meantime, here&rsquo;s everything we can do.</p>
+      <p class="enq-done-cta"><a class="btn" href="#" data-pack download>Download the catering pack</a> <a class="btn btn--line" href="https://order.storekit.com/notto-broadgate/menu" data-storekit="catering" target="_blank" rel="noopener">Order online now</a></p>
     </div>
   </div>
 </section>
@@ -135,7 +181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="lab lab--green">Beyond the table</p>
     <h2>Big or small, we&rsquo;d love to <em>feed it</em>.</h2>
     <p>Birthdays, team lunches, Christmas parties, leaving dos. Office lunches, boardroom spreads, canap&eacute;s to seated dinners. At NOTTO, at your office, or anywhere you like. Exclusive hire and corporate accounts available.</p>
-    <p style="margin-top:24px"><a class="btn" href="mailto:alex@nottopastabars.com?subject=Catering%20enquiry">Contact alex@nottopastabars.com</a></p>
+    <p style="margin-top:24px"><a class="btn" href="#catering-form">Tell us what you need</a></p>
   </div>
 </section>
 
@@ -161,6 +207,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <div id="site-footer"></div>
-<script src="site.js?v=20261111"></script>
+<script src="site.js?v=20261112"></script>
 </body>
 </html>

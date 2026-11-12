@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=Julius+Sans+One&display=swap" rel="stylesheet">
 <link rel="canonical" href="https://www.nottopasta.com/events">
-<link rel="stylesheet" href="style.css?v=20261111">
+<link rel="stylesheet" href="style.css?v=20261112">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -45,11 +45,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <a href="menus">Menus</a>
-      <a href="catering">Catering</a>
-      <a href="events" aria-current="page">Groups</a>
-      <a href="about">About</a>
-      <a href="careers">Work with us</a>
-      <a href="perks">Perks</a>
+      <a href="events" aria-current="page">Groups &amp; events<span class="nav-cap">In our restaurants</span></a>
+      <a href="catering">Catering<span class="nav-cap">Delivered to you</span></a>
+      <a href="perks">Loyalty</a>
       <a href="#" data-vouchers>Vouchers</a>
     </nav>
     <div class="nav-right">
@@ -125,7 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div><dt>Per person</dt><dd>from &pound;50</dd></div>
         </dl>
         <p class="setmenu-what">Something special in mind? We&rsquo;ll build a menu around your occasion.</p>
-        <a class="btn btn--onGreen" href="mailto:alex@nottopastabars.com?subject=Curated%20menu%20enquiry">Get in touch</a>
+        <a class="btn btn--onGreen" href="#enquire" data-enquiry-topic="Curated menu">Get in touch</a>
       </article>
     </div>
   </div>
@@ -144,7 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
         <h3 class="pb-head">Exclusive hire</h3>
         <p class="pb-intro">Want the place to yourselves?</p>
-        <p style="margin-top:16px"><a class="btn" href="mailto:alex@nottopastabars.com?subject=Exclusive%20hire%20enquiry">Enquire here</a></p>
+        <p style="margin-top:16px"><a class="btn" href="#enquire" data-enquiry-topic="Exclusive hire">Enquire here</a></p>
       </div>
       <div class="pb-col">
         <h3 class="pb-head">Make it extra <span class="pb-sub">per person</span></h3>
@@ -165,6 +163,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="enq-section" id="enquire">
+  <div class="wrap enq-wrap">
+    <div class="enq-head">
+      <p class="lab">Enquiries</p>
+      <h2>Something <em>bigger</em> in mind?</h2>
+      <p>Exclusive hire, a curated menu or a question about your group booking. Tell us the basics and we&rsquo;ll take it from there.</p>
+    </div>
+    <form class="enquiry" data-enquiry="events" novalidate>
+      <div class="enq-grid">
+      <label class="enq-field"><span class="enq-label">What are you planning?<span class="enq-req" aria-hidden="true">*</span></span><select name="topic" required><option value="">Choose one</option><option>Exclusive hire</option><option>Curated menu</option><option>A question about a group booking</option><option>Something else</option></select></label>
+      <label class="enq-field"><span class="enq-label">Which NOTTO?</span><select name="restaurant"><option value="">Choose one</option><option>Piccadilly</option><option>Covent Garden</option><option>Not sure</option></select></label>
+      <label class="enq-field"><span class="enq-label">Date</span><input name="date" type="date"></label>
+      <label class="enq-field"><span class="enq-label">Number of guests</span><input name="guests" type="number" min="1" inputmode="numeric"></label>
+      <label class="enq-field"><span class="enq-label">Your name<span class="enq-req" aria-hidden="true">*</span></span><input name="name" type="text" required autocomplete="name"></label>
+      <label class="enq-field"><span class="enq-label">Email<span class="enq-req" aria-hidden="true">*</span></span><input name="email" type="email" required autocomplete="email"></label>
+      <label class="enq-field"><span class="enq-label">Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
+      <label class="enq-field enq-field--full"><span class="enq-label">Tell us about the occasion</span><textarea name="message" rows="4"></textarea></label>
+      </div>
+      <label class="enq-hp" aria-hidden="true">Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+      <button class="btn" type="submit">Send enquiry</button>
+      <p class="enq-msg" role="status" aria-live="polite"></p>
+      <p class="enq-legal">We&rsquo;ll only use your details to reply to this enquiry. See our <a href="privacy">privacy policy</a>. <span class="enq-rc">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</span></p>
+    </form>
+    <div class="enq-done" hidden tabindex="-1">
+      <h3>Thanks, we&rsquo;ve got it.</h3>
+      <p>Alex or the team will be in touch to plan the details.</p>
+    </div>
+  </div>
+</section>
+
 <section class="signup" style="background:var(--green)">
   <div class="wrap">
     <p class="lab">Catering</p>
@@ -177,6 +205,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <div id="site-footer"></div>
-<script src="site.js?v=20261111"></script>
+<script src="site.js?v=20261112"></script>
 </body>
 </html>
