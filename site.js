@@ -21,7 +21,7 @@ const ASSETS = {
   choiceTogo:  { img:'media/bowl-gnocchetti-top.jpg' },
 
   /* lifestyle / sections */
-  catering:    { img:'media/spread.jpg' },
+  catering:    { img:'media/cat-hero.jpg', pos:'50% 45%' },
   ingredients: { img:'media/pepper-anchovy.jpg', pos:'50% 45%' },   /* Piedmontese pepper, on the Sept menu */
 
   /* locations — real shots */
@@ -50,9 +50,9 @@ const ASSETS = {
   offWine:       { img:'media/spread.jpg', pos:'20% 40%' },
 
   /* catering page tiles */
-  catPasta:      { img:'media/bowl-gnocchetti.jpg' },
-  catBurrata:    { img:'media/mozzarella.jpg', pos:'50% 60%' },
-  catDelivery:   { img:'media/lunchbox-tray.jpg', pos:'50% 22%' },
+  catPasta:      { img:'media/cat-trays.jpg', pos:'40% 55%' },
+  catBurrata:    { img:'media/cat-spread.jpg', pos:'70% 60%' },
+  catDelivery:   { img:'media/cat-table.jpg', pos:'45% 50%' },
 
   /* events / private dining */
   eventsHero:    { img:'media/spread.jpg' },
@@ -313,7 +313,7 @@ if(loyaltyModal){
 const PROMO_DELAY = 4000;
 const PROMO_SLIDES = [
   { id:'groups',   img:'media/spread.jpg',         lab:'Groups &amp; events &middot; 6 or more', title:'Christmas, <em>sorted</em>.', body:'One menu for the whole table, from &pound;25 a head at Piccadilly and Covent Garden.', cta:'Book for 6 or more', href:'events' },
-  { id:'catering', img:'media/catering.jpg',       lab:'Catering &middot; delivered to you',     title:'Feed the <em>whole office</em>.', body:'Fresh pasta, salads and focaccia for meetings, team lunches and everything in between.', cta:'See catering', href:'catering' },
+  { id:'catering', img:'media/cat-trays.jpg',       lab:'Catering &middot; delivered to you',     title:'Feed the <em>whole office</em>.', body:'Fresh pasta, salads and focaccia for meetings, team lunches and everything in between.', cta:'See catering', href:'catering' },
   { id:'loyalty',  img:'media/bowl-rigatoni.jpg',  lab:'NOTTO Perks &middot; loyalty',            title:'Eight pastas. The ninth is <em>on us</em>.', body:'Order direct from our website and collect a stamp with every pasta.', cta:'Join NOTTO Perks', attr:'data-leat="join"' },
   { id:'vouchers', img:'media/festive-cheers-2.jpg', lab:'Gift vouchers',                         title:'Give them a taste of <em>NOTTO</em>.', body:'Any amount from &pound;25, or gift a whole Feast. Valid for 12 months.', cta:'Buy a voucher', attr:'data-vouchers' },
   { id:'order',    img:'media/lunchbox.jpg',       lab:'Broadgate &middot; order online',        title:'Lunch, <em>sorted</em>.', body:'Order ahead for collection or delivery in the City.', cta:'Order online', href:'https://order.storekit.com/notto-broadgate/menu', ext:true }
