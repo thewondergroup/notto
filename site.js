@@ -121,8 +121,10 @@ const LEAT_URL = 'https://forms.leat.com/forms/d51cb612-52a8-4226-aa46-cc75b34a1
    null to fall back to VOUCHER_URL (a plain link) or the "coming shortly" note.
    Set LEAT_WIDGET.always to true to load the widget (and its floating button)
    on every page load instead of on demand. */
-const LEAT_WIDGET = { widgetId:'3786', accountId:'ef2b6519-3ecd-45bf-b172-e7a7630fbc86', src:'https://widget.leat.com/widget.js', always:false };
-const VOUCHER_URL = '';
+/* Vouchers now live on the NOTTO voucher shop. The old Leat widget is switched off;
+   to bring it back, restore: { widgetId:'3786', accountId:'ef2b6519-3ecd-45bf-b172-e7a7630fbc86', src:'https://widget.leat.com/widget.js', always:false } */
+const LEAT_WIDGET = null;
+const VOUCHER_URL = 'https://vouchers.nottopasta.com/';
 
 const LOYALTY_MODAL = `
 <div class="modal" id="loyalty-modal" hidden role="dialog" aria-modal="true" aria-labelledby="loyalty-modal-title">
@@ -180,7 +182,7 @@ const FOOTER_HTML = `
       </div>
     </div>
     <div class="foot-bar">
-      <span>© 2026 NOTTO. 1 Broadgate · 198 Piccadilly · 4 Henrietta Street.</span>
+      <span>© 2026 NOTTO. 1 Broadgate · 198 Piccadilly · 4 Henrietta Street · <a href="mailto:contact@nottopastabars.com">contact@nottopastabars.com</a></span>
       <span><a href="privacy">Privacy</a> · <a href="allergens">Allergens</a> · <a href="terms">Terms</a> · Made by <a class="credit" href="https://www.thewonderagency.co/" target="_blank" rel="noopener">The Wonder Agency</a></span>
     </div>
   </div>
@@ -392,6 +394,7 @@ function loadLeatWidget(){
 }
 function openVouchers(e){
   if(e) e.preventDefault();
+  if(!LEAT_WIDGET && VOUCHER_URL){ location.href=VOUCHER_URL; return; }
   loadLeatWidget().then(w=>{ try{ w.open('giftcards'); }catch(err){ try{ w.open(); }catch(e2){} } })
     .catch(()=>{ if(VOUCHER_URL) location.href=VOUCHER_URL; else alert('Gift vouchers are coming online shortly. In the meantime, ask in any NOTTO.'); });
 }
