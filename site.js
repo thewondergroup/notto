@@ -92,18 +92,23 @@ function hydrate(scope=document){
 }
 
 /* ---- SITE-WIDE LOYALTY BANNER + FOOTER ---- */
+/* Leat contacts portal login (existing members sign in here with an email code or link; no password).
+   Leat: Apps > Contacts portal > Share. If this is ever emptied, every "Sign in" link hides itself. */
+const LEAT_SIGNIN_URL = 'https://doublezerodelivery-ltd-t-a-notto.app.leat.com/login';
+
 const LOYALTY_BANNER = `
 <section class="loyal-banner" id="loyalty-signup">
   <div class="wrap">
     <div class="lb-text">
-      <p class="lab">NOTTO Perks &middot; when you order direct</p>
-      <h2>Eight pastas. The ninth is <em>on us</em>.</h2>
-      <p>Order direct from our website, collect a stamp with every pasta and your ninth is free. Simple as that.</p>
+      <p class="lab">NOTTO Perks &middot; our loyalty programme</p>
+      <h2>25% off your <em>first order</em>.</h2>
+      <p>Join NOTTO Perks, then earn Credits every time you order. Now at Broadgate and online, coming soon to all our pasta bars.</p>
     </div>
     <div class="lb-form">
       <a class="btn btn--white" href="#" data-leat="join">Join NOTTO Perks</a>
       <a class="btn btn--white" href="#" data-vouchers>Gift a Feast</a>
-      <small>Takes a minute. Lives on your phone. Free pasta.</small>
+      <small>Free to join. Takes a minute.</small>
+      <small class="signin-line" data-signin-wrap hidden>Already a member? <a href="#" data-signin>Sign in</a></small>
     </div>
   </div>
 </section>`;
@@ -131,8 +136,8 @@ const LOYALTY_MODAL = `
   <div class="modal-backdrop" data-modal-close></div>
   <div class="modal-panel">
     <button class="modal-close" type="button" aria-label="Close" data-modal-close>&times;</button>
-    <p class="lab">NOTTO Perks &middot; when you order direct</p>
-    <h2 id="loyalty-modal-title">Eight pastas. The ninth is <em>on us</em>.</h2>
+    <p class="lab">NOTTO Perks &middot; our loyalty programme</p>
+    <h2 id="loyalty-modal-title">25% off your <em>first order</em>.</h2>
     <div class="modal-embed" id="leat-widget"></div>
   </div>
 </div>`;
@@ -161,6 +166,7 @@ const FOOTER_HTML = `
           <li><a href="restaurants">Find us</a></li>
           <li><a href="pre-theatre">Pre-theatre dining</a></li>
           <li><a href="perks">Loyalty</a></li>
+          <li data-signin-wrap hidden><a href="#" data-signin>Loyalty sign in</a></li>
           <li><a href="about">About</a></li>
           <li><a href="allergens">Allergens</a></li>
         </ul>
@@ -261,6 +267,20 @@ document.querySelectorAll('[data-storekit]').forEach(a=>{
     alert('Ordering opens here once StoreKit is connected.');
   });
 });
+/* ---- Loyalty sign in (existing members -> Leat contacts portal) ---- */
+if(LEAT_SIGNIN_URL){
+  const navRight=document.querySelector('.nav-right');
+  if(navRight && !navRight.querySelector('[data-signin]')){
+    const a=document.createElement('a');
+    a.className='nav-signin'; a.href='#'; a.textContent='Sign in'; a.setAttribute('data-signin','');
+    navRight.insertBefore(a, navRight.firstChild);
+  }
+  document.querySelectorAll('[data-signin]').forEach(a=>{
+    a.href=LEAT_SIGNIN_URL; a.target='_blank'; a.rel='noopener';
+  });
+  document.querySelectorAll('[data-signin-wrap]').forEach(el=>{ el.hidden=false; });
+}
+
 /* ---- Loyalty modal behaviour ---- */
 const loyaltyModal = document.getElementById('loyalty-modal');
 function mountLeat(){
@@ -316,7 +336,7 @@ const PROMO_DELAY = 4000;
 const PROMO_SLIDES = [
   { id:'groups',   img:'media/spread.jpg',         lab:'Groups &amp; events &middot; 6 or more', title:'Christmas, <em>sorted</em>.', body:'One menu for the whole table, from &pound;25 a head at Piccadilly and Covent Garden.', cta:'Book for 6 or more', href:'events' },
   { id:'catering', img:'media/cat-trays.jpg',       lab:'Catering &middot; delivered to you',     title:'Feed the <em>whole office</em>.', body:'Fresh pasta, salads and focaccia for meetings, team lunches and everything in between.', cta:'See catering', href:'catering' },
-  { id:'loyalty',  img:'media/bowl-rigatoni.jpg',  lab:'NOTTO Perks &middot; loyalty',            title:'Eight pastas. The ninth is <em>on us</em>.', body:'Order direct from our website and collect a stamp with every pasta.', cta:'Join NOTTO Perks', attr:'data-leat="join"' },
+  { id:'loyalty',  img:'media/bowl-rigatoni.jpg',  lab:'NOTTO Perks &middot; loyalty',            title:'25% off your <em>first order</em>.', body:'Join NOTTO Perks, then 15% off for 30 days and Credits on every order. Now at Broadgate and online.', cta:'Join NOTTO Perks', attr:'data-leat="join"' },
   { id:'vouchers', img:'media/festive-cheers-2.jpg', lab:'Gift vouchers',                         title:'Give them a taste of <em>NOTTO</em>.', body:'Any amount from &pound;25, or gift a whole Feast. Valid for 12 months.', cta:'Buy a voucher', attr:'data-vouchers' },
   { id:'order',    img:'media/lunchbox.jpg',       lab:'Broadgate &middot; order online',        title:'Lunch, <em>sorted</em>.', body:'Order ahead for collection or delivery in the City.', cta:'Order online', href:'https://order.storekit.com/notto-broadgate/menu', ext:true }
 ];
